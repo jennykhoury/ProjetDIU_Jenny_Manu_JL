@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet_DIU_Jenny_Manu_JL</title>
+  <link rel="stylesheet" href="CSS.css" type="text/css">
+</head>
+
+<body>
+  <div class="conteneur">
+
+    <h1>Présentation DIU : Les formulaires en HTML</h1>
+    <p> <i> Jenny Alkhoury ; Emmanuel Maurat ; Jean-Luc Rullière </i></p>
+
+    <h2> APPROCHE GÉNÉRALE</h2>
+    <h3>1. Positionnement dans le programme</h3>
+    <p>
+      Le programme de première en NSI se compose de sept thématiques dont, en quatrième position,
+      <i>L'interaction homme–machine sur le WEB</i> .
+      Cette thématique, en copie ci-dessous, se divise en quatre sous-thèmes dont celui qui nous intéresse :
+      <i>Formulaires d'une page WEB</i>.
+      On peut considérer que la thématique <i>L'interaction homme–machine sur le WEB</i>, qui est assez riche
+      comparativement à d'autres, représente environ un cinquième du programme,
+      et notre sous-thème un vingtième environ. En traitant les thématiques dans l'ordre proposé par le BO, celle-ci
+      pourrait être abordée au second trimestre.
+      <img src="prog_NSI_HTML.png" alt="Programme NSI" width="500" style="display: block; margin: auto;">
+      Notre sous-thème <i>Formulaires d'une page WEB</i> se rattache plus spécifiquement aux éléments du programme
+      officiel :
+      <img src="html1ter.png" alt="Programme NSI" width="500" style="display: block; margin: auto;">
+      <img src="html1.png" alt="Programme NSI" width="500" style="display: block; margin: auto;">
+      <img src="html1bis.png" alt="Programme NSI" width="500" style="display: block; margin: auto;">
+
+    </p>
+
+    <h3>2. Notions à faire passer </h3>
+    <p>
+      Pour l'ensemble de la thématique, le programme (reproduit ci-dessus) demande d'exercer les élèves à <i> examiner
+      </i> du code HTML, à en <i> identifier </i> des composants, à <i> analyser </i> et <i> modifier </i> des méthodes.
+      Il s'agit donc davantage de donner aux élèves la faculté de lire et comprendre le code HTML que la capacité à
+      programmer <i> ex nihilo </i>.
+      Concernant plus précisément le sous-thème des <i> formulaires HTML </i>, le programme demande en capacités
+      attendues que l'élève puisse analyser un formulaire simple.
+      Ce qui suppose qu'il aura eu une expérience de lecture de formulaires et de reconnaissance des fonctionnalités de
+      base présentes dans ceux-ci.
+      Le programme donne une importance particulière aux requêtes POST et GET dont la différence devra être connue de
+      l'élève :
+      celui-ci devra donc avoir été confronté à ces deux types de requêtes et devra avoir compris la spécificité de
+      chacune.
+    </p>
+
+
+    <h3>3. La progression et le nombre d'heures envisagés </h3>
+
+    <p>
+      L'horaire de l'enseignement de spécialité de première est de 4 heures hebdomadaires sur un total de 33 semaines
+      effectives environ (épreuves de français programmées le 11 juin 2026).
+      Cela fait 132 heures au total dont un quart environ doit être consacré à l'élaboration d'un projet, soit une
+      centaine d'heures de cours.
+      On peut donc compter une vingtaine d'heures hors-projet pour la thématique <i>L'interaction homme–machine sur le
+        WEB</i> .
+      Le sous-thème des <i> formulaires HTML </i> peut occuper environ cinq heures : les deux heures de cours que nous
+      proposons, deux heures d'activités / exercices et une heure d'évaluation
+      qui seront également détaillées dans ce qui suit.
+    </p>
+
+
+    <h3> 4. Éléments d'évaluation </h3>
+
+    <p>
+      L'évaluation pourra comporter :
+    <ul>
+      <li> une partie test en classe sous forme "débranchée" avec des questions de
+        lecture de formulaires HTML, de complétion de codes déjà créés et des exercices de création de
+        petits formulaires simples comportant les balises de base, avec éventuellement un lexique de balises utiles.
+        Nous avons également réfléchi à une évaluation différenciée concernant les élèves aux connaissances plus
+        avancées,
+        comme on en rencontre souvent en informatique. Cette différenciation peut se faire sous forme de <i> questions
+          bonus </i>
+        à destination de ces élèves.
+        Nous donnons dans ce qui suit des exemples de telles évaluations.
+
+      </li>
+
+      <li> un "projet" à rendre demandant l'élaboration d'une page WEB avec un "cahier des charges" à respecter.
+        Nous donnons dans ce qui suit un exemple de travail, assorti d'un cahier des charges, qui pourrait être proposé
+        aux élèves dans ce cadre.
+      </li>
+    </ul>
+
+
+
+    <h2> DÉTAIL DE LA SÉANCE PRÉVUE </h2>
+
+    <br>
+    <br>
+    <h3>1. Positionnement dans la thématique, prérequis </h3>
+    <p> Pour l'ensemble de la thématique, nous pensons indispensable d'effectuer une remise à niveau sur les
+      connassances
+      de base en HTML et CSS qui n'ont pas forcément été bien vues en classe de seconde.
+      Voici un exemple de progression que l'on peut envisager pour toute la thématique :
+      <button class="btn-reponse" onclick="cachereponse('progression')">Voir / Cacher la progression</button>
+    <div id="progression" class="presentation">
+      <ul>
+        <li>
+          <h4>Sous-thème 1 Généralités, histoire </h4>
+          Historique de la création de l'internet.
+          Définition du <i>WEB</i> et sa différence avec l'<i>internet</i>.
+          Petit panorama des différents langages (côté client et côté serveur).
+          Signification de l'expression <i>développer une page WEB</i> .
+          Fonction du navigateur. Proposition d'<i>éditeurs de code</i> adaptés.
+          Visualisation / lecture de différents exemples d'édition de code
+          (coloration, indentation, détection et correction d'erreurs...).
+          <br>
+          Ce sous-thème se rattache aux éléments du programme officiel :
+          <img src="html2.png" alt="Programme NSI" width="500" style="display: block; margin: auto;">
+          <img src="html1.png" alt="Programme NSI" width="500" style="display: block; margin: auto;">
+
+
+        </li>
+
+
+        <li>
+          <h4>Sous-thème 2 Le langage HTML </h4>
+          Rappel le langage <i>HTML</i>, évocation du <i>W3C</i> et de la dernière évolution <i>HTML5</i>.
+          Rappel sur la structure d'une page, les entêtes &lt;!Doctype&gt; ; &lt;head&gt; et &lt;body&gt;
+          Descriptif des autres balises essentielles à la composition de la page.
+          Visualisation / lecture de différents exemples de code HTML.
+          <br>
+          Ce sous-thème se rattache à l'élément du programme officiel :
+          <img src="html2.png" alt="Programme NSI" width="500" style="display: block; margin: auto;">
+        <li>
+          <h4>Sous-thème 3 Mise en forme avec CSS </h4>
+          Retour sur le <i>W3C</i>, séparation du contenu de la page et de la gestion de l'apparence
+          de la page.
+          Visualisation / lecture de différents exemples de code CSS.
+          <br>
+          Ce sous-thème se rattache également à l'élément du programme officiel :
+          <img src="html2.png" alt="Programme NSI" width="500" style="display: block; margin: auto;">
+        </li>
+
+        <li>
+          <h4>Sous-thème 4 Interaction client–serveur </h4>
+          Les <i>requêtes client</i> Le protocole <i>HTTP</i> et son histoire.
+          Langages et applications côté serveur. Exemples de programmes en PHP.
+          Retour sur les méthodes <i>GET</i> et <i>POST</i>.
+          Visualisation / lecture de différents exemples.
+          Ce sous-thème se rattache à l'élément du programme officiel :
+          <img src="html4.png" alt="Programme NSI" width="500" style="display: block; margin: auto;">
+        </li>
+        <li>
+          <h4>Sous-thème 5 Formulaire d'une page WEB </h4>
+
+          <p>C'est l'objet de notre étude.</p>
+          <img src="html1bis.png" alt="Programme NSI" width="500" style="display: block; margin: auto;">
+        </li>
+        <li>
+          <h4> Sous-thème 6 Gestion d'évènements avec javascript</h4>
+          Ce sous-thème se rattache également à l'élément du programme officiel :
+          <img src="html1ter.png" alt="Programme NSI" width="500" style="display: block; margin: auto;">
+
+        </li>
+        <li>
+          <h4> Sous-thème 7 Sécurité et protocole SSL</h4>
+        </li>
+
+
+      </ul>
+    </div>
+
+    <h3>2. Mode de travail </h3>
+    <p> Compte tenu du temps très court dévolu à cette partie du programme, le mode de
+      travail que nous proposons ici est un cours relativement standard avec de multiples
+      activités et essais que l'élève pourra faire par lui-même. </p>
+
+    <p> Vient s'adjoindre à ce cours une série d'exercices : </p>
+    <ul>
+      <li>
+        Des exercices d'application directe, très progressifs, à destination des élèves les
+        plus fragiles
+      </li>
+      <li>
+        Des exercices de perfectionnement et /ou de réflexion que pourrront prendre les élèves
+        les plus à l'aise avec ces notions.
+      </li>
+    </ul>
+
+
+    <h3>3. Support de cours </h3>
+
+    <p> Voici le suppport de cours que nous proposons.</p>
+
+    <a href="HTML.html" target="_blank" class="btn-reponse">Accéder au cours</a>
+
+
+    <h3>4. Exercices envisagés </h3>
+
+    <a href="exercices_formulaires.html" target="_blank" class="btn-reponse">Accéder aux exercices</a>
+
+
+    <h3>5. Exemple de devoir </h3>
+
+    <p> Voici un exemple d'évaluation que nous proposons. <br> Il s'agit d'une évaluation en mode "débranché"</p>
+
+    <a href="Evaluation_formulaires.html" target="_blank" class="btn-reponse">Accéder au TEST</a>
+    <a href="Evaluation_formulaires_Correction.html" target="_blank" class="btn-reponse">Accéder à la correction</a>
+
+    <h3>6. Exemple de projet </h3>
+    <a href="projet_web.html" target="_blank" class="btn-reponse">Accéder au projet</a>
+
+
+
+
+
+    <!---------------------------------------------------------------------------------->
+    <!-- Un peu de javascript pour rendre la page plus dynamique avec la méthode get, -->
+    <!-- pour les réponses cachées et pour un effet sur le premier bouton             -->
+    <!---------------------------------------------------------------------------------->
+    <script>
+      // 1) Fonction pour afficher l'URL GET
+      // 1. Sélection du formulaire
+      const FormulaireDeDemonstration = document.getElementById('demo-get');
+
+      // 2. Écouteur d'événement pour la soumission
+      FormulaireDeDemonstration.addEventListener('submit', function (evenement) {
+
+        // 3. Empêcher l'envoi normal au serveur
+        evenement.preventDefault();
+
+        // 4. Récupérer les données du formulaire
+        const Donnees_formulaire = new FormData(FormulaireDeDemonstration);
+
+        // 5. Convertir en paramètres d'URL
+        const parametres = new URLSearchParams(Donnees_formulaire);
+
+        // 6. Afficher le résultat
+        document.getElementById('url-resultat').textContent = 'site.com?' + parametres.toString();
+
+      }); // Fin de la fonction et de l'écouteur
+
+      // 2) Fonction pour afficher/masquer les réponses
+      function cachereponse(id) {
+        // 1. Sélectionner l'élément
+        const reponse = document.getElementById(id);
+        // 2. Vérifier son état actuel
+        if (reponse.style.display === 'block') {
+          // 3. S'il est affiché, on le cache
+          reponse.style.display = 'none';
+        } else {
+          // 4. S'il est caché, on l'affiche
+          reponse.style.display = 'block';
+        }
+      }
+
+      // 3) Fonction pour faire apparaître un message avec le bouton poussoir
+      function afficherMessage() {
+        document.getElementById("message").textContent = "Vous avez cliqué !";
+      }
+    </script>
+  </div>
+</body>
+
+</html>

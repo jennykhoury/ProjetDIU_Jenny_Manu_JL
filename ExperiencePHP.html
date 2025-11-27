@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taitement d'un formulaire</title>
+    <link rel="stylesheet" href="CSS.css">
+
+    <script>
+        function afficherNom(event) {
+            event.preventDefault(); // Empêche le rechargement de la page
+            var nomUtilisateur = document.getElementById("nomUtilisateur").value; // Récupère la valeur du champ
+            var message = "Votre nom est : " + nomUtilisateur; // Crée le message à afficher
+            document.getElementById("resultat").innerHTML = "<h3>" + message + "</h3>"; // Affiche le message
+        }
+        
+    function htmlspecialchars(str) {
+            // Remplace les caractères spéciaux par leurs entités HTML
+            return str.replace(/&/g, "&amp;")
+                      .replace(/</g, "&lt;")
+                      .replace(/>/g, "&gt;")
+                      .replace(/"/g, "&quot;")
+                      .replace(/'/g, "&#039;");
+        }
+
+        function afficherNomSecure(event) {
+            event.preventDefault(); // Empêche le rechargement de la page
+            var nomUtilisatrice = document.getElementById("nomUtilisatrice").value; // Récupère la valeur du champ
+            var nomSecurise = htmlspecialchars(nomUtilisatrice); // Sécurise le nom
+            var message = "Votre nom est : " + nomSecurise; // Crée le message à afficher
+            document.getElementById("result").innerHTML = "<h3>" + message + "</h3>"; // Affiche le message
+        }
+    </script>
+</head>
+<body>
+    <div class="conteneur">  
+        <h3>Sensibilisation à la sécurité d'un formulaire : Exemple de traitements côté serveur</h3>
+        <!--Expérience interactive méthode POST simulation d'un serveur --> 
+        <p>
+          Saisissez votre nom dans chacune des deux copies du formulaire ci-dessous, 
+          remarquez-vous une différence dans les deux traitements de ce formulaire ? <br>
+          Saisissez votre prénom suivi d'un espace puis de &lt;i&gt; suivi de votre nom puis de &lt;/i&gt; dans 
+          chacun des exemplaires du formulaire (vous pouvez faire un <i>copier / coller</i> ), que remarquez-vous ? 
+          Essayer d'expliquer ce qui différencie les deux traitements de ce formulaire.
+        </p>
+        <div class="presentation">
+          <h3>Formulaire avec le traitement PHP n°1 </h3>
+            <form onsubmit="afficherNom(event)">
+                <label for="nomUtilisateur">Nom d'utilisateur :</label>
+                <input type="text" id="nomUtilisateur" name="nomUtilisateur" required />
+                <button type="submit">Soumettre</button>
+            </form>
+            <div id="resultat"></div> <!-- Zone pour afficher le résultat -->
+        </div>
+        <div class="presentation"> 
+            <h3>Même formulaire avec le traitement PHP n°2 </h3>   
+            <form onsubmit="afficherNomSecure(event)">
+                <label for="nomUtilisatrice">Nom d'utilisateur :</label>
+                <input type="text" id="nomUtilisatrice" name="nomUtilisatrice" required />
+                <button type="submit">Soumettre</button>
+            </form>
+            <div id="result"></div> <!-- Zone pour afficher le résultat -->
+        </div>
+          <p>
+          Sans trop entrer dans les détails du langage PHP, observons le premier traitement appliqué côté serveur à ce 
+          formulaire, en première ligne, le serveur grâce à <i>isset</i> (<i>is set</i>), regarde si ce qui a été 
+          saisi dans le champ (dont le nom, ici nomUtilisateur a été donné par l'attribut "name") existe bien, si oui, 
+          il le récupère (méthode POST ici) 
+          et le place dans la variable $user, sinon il place dans $user la chaîne de caractères vide.
+          Ensuite l'instruction  <i>echo</i> permet de générer dans le navigateur le code html qui suit dans lequel 
+          la variable $user sera directement remplacée par sa valeur (structure html dynamique).
+          </p>
+          <div class="presentation"> 
+            <img src="Traitement_PHP_1.png" alt="PHP1"  width=100% style="display: block;"> 
+          </div>
+          <p>
+          Le second traitement est exactement le même, sauf qu'en première ligne on ajoute dans la récupération de 
+          la donnée présente dans le champ l'instruction <i>htmlspecialchars</i> comme ceci :
+          </p>
+          <div class="presentation"> 
+            <img src="ligne1_traitement_PHP.png" alt="Ligne_PHP"   width=100% style="display: block;"> 
+          </div>
+          <p>
+          Grâce à cela, les caractères spéciaux ne sont plus interprêtés comme des instructions mais comme des 
+          caractères simples. <br>
+          Il s'agit là d'une <strong>mesure de sécurité</strong>, en effet des intrusions peuvent se faire par ce biais,
+          en introduisant par exemple des &lt;script&gt; javascript dans un champ de formulaire pour s'introduire dans 
+          les bases de données d'un serveur par exemple...
+          </p>
+    </div>        
+</body>
+</html>

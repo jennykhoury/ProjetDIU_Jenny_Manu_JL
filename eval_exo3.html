@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Évaluation - Exercice 3</title>
+    <link rel="stylesheet" href="CSS.css" type="text/css">
+    <style>
+        .qcm-question {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #3498db;
+        }
+
+        .qcm-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .qcm-options {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .qcm-options li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .qcm-options li:hover {
+            background-color: #e3f2fd;
+        }
+
+        .qcm-options input[type="radio"],
+        .qcm-options input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="conteneur">
+        <h1>Évaluation - QCM</h1>
+
+        <form>
+            <!-- Question A -->
+            <div class="qcm-question">
+                <div class="qcm-title">a) Parmi les réponses suivantes, que permet d'effectuer la méthode POST du
+                    protocole http ?</div>
+                <ul class="qcm-options">
+                    <li><label><input type="radio" name="q_a"> Définir le style d'une page web.</label></li>
+                    <li><label><input type="radio" name="q_a"> Pirater des données bancaires.</label></li>
+                    <li><label><input type="radio" name="q_a"> Envoyer une page web vers le client.</label></li>
+                    <li><label><input type="radio" name="q_a"> Envoyer les données saisies dans un formulaire HTML vers
+                            un serveur.</label></li>
+                </ul>
+            </div>
+
+            <!-- Question B -->
+            <div class="qcm-question">
+                <div class="qcm-title">b) Un internaute clique sur un lien qui envoie la requête http suivante à un
+                    serveur : <br>
+                    <code>http://jaimelaneige.com/ma_planche/traitement.php?nom=Snow&prenom=Jon</code><br>
+                    Que demande cette requête au serveur ?
+                </div>
+                <ul class="qcm-options">
+                    <li><label><input type="radio" name="q_b"> De renvoyer le fichier traitement.php en identifiant nom
+                            et prénom à Snow et Jon.</label></li>
+                    <li><label><input type="radio" name="q_b"> D'exécuter le fichier traitement.php en identifiant nom
+                            et prénom à Snow et Jon.</label></li>
+                    <li><label><input type="radio" name="q_b"> D'indiquer si Jon Snow a bien pris son
+                            traitement.</label></li>
+                    <li><label><input type="radio" name="q_b"> De renvoyer le fichier traitement.php en affichant prénom
+                            et nom : Jon</label></li>
+                </ul>
+            </div>
+
+            <!-- Question C -->
+            <div class="qcm-question">
+                <div class="qcm-title">c) Que peut-on affirmer au sujet des formulaires de pages Web ?</div>
+                <ul class="qcm-options">
+                    <li><label><input type="radio" name="q_c"> Les variables d’une requête POST sont affichées dans
+                            l’URL.</label></li>
+                    <li><label><input type="radio" name="q_c"> Une requête GET peut être utilisée pour transmettre des
+                            données sensibles.</label></li>
+                    <li><label><input type="radio" name="q_c"> Les variables d’une requête GET sont affichées dans
+                            l’URL.</label></li>
+                    <li><label><input type="radio" name="q_c"> Une requête POST peut être utilisée pour transmettre des
+                            données sensibles.</label></li>
+                </ul>
+            </div>
+
+            <!-- Question D -->
+            <div class="qcm-question">
+                <div class="qcm-title">d) Quelle méthode d’envoi des paramètres est-il préférable d’utiliser, pour un
+                    formulaire d’une page web, destiné à demander à l’utilisateur un mot de passe pour se connecter (le
+                    protocole utilisé est HTTPS) ?</div>
+                <ul class="qcm-options">
+                    <li><label><input type="radio" name="q_d" value="A"> A- la méthode PASSWORD</label></li>
+                    <li><label><input type="radio" name="q_d" value="B"> B- la méthode CRYPT</label></li>
+                    <li><label><input type="radio" name="q_d" value="C"> C- la méthode GET</label></li>
+                    <li><label><input type="radio" name="q_d" value="D"> D- la méthode POST</label></li>
+                </ul>
+            </div>
+
+            <!-- Question E -->
+            <div class="qcm-question">
+                <div class="qcm-title">e) On considère le formulaire HTML suivant :</div>
+                <div
+                    style="margin: 10px 0; padding: 10px; border: 1px dashed #ccc; background: #f9f9f9; text-align: center; color: #777;">
+                    <img src="exo3_eval.jpg">
+                </div>
+                <div class="qcm-title">Le prénom entré par l'utilisateur est contenu dans :</div>
+                <ul class="qcm-options">
+                    <li><label><input type="radio" name="q_e" value="A"> A- l’élément dont l’attribut id est
+                            champ1</label></li>
+                    <li><label><input type="radio" name="q_e" value="B"> B- l’élément nommé prénom</label></li>
+                    <li><label><input type="radio" name="q_e" value="C"> C- l’élément dont l’attribut value est Envoi du
+                            prénom</label></li>
+                    <li><label><input type="radio" name="q_e" value="D"> D- l’élément dont l’attribut type est
+                            hidden</label></li>
+                </ul>
+            </div>
+
+            <!-- Question F -->
+            <div class="qcm-question">
+                <div class="qcm-title">f) Dans un formulaire sur un page web, pour transmettre des données sécurisées
+                    comme un mot de passe ou un numéro de carte bancaire, il vaut mieux utiliser la méthode :</div>
+                <ul class="qcm-options">
+                    <li><label><input type="radio" name="q_f" value="A"> A- HEAD</label></li>
+                    <li><label><input type="radio" name="q_f" value="B"> B- GET</label></li>
+                    <li><label><input type="radio" name="q_f" value="C"> C- HTTPS</label></li>
+                    <li><label><input type="radio" name="q_f" value="D"> D- POST</label></li>
+                </ul>
+            </div>
+
+            <!-- Question G -->
+            <div class="qcm-question">
+                <div class="qcm-title">g) On considère le formulaire ci-dessous :</div>
+                <div style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; background: #fff;">
+                    <p>Quel est votre langage préféré ?</p>
+                    Python <input type="checkbox"> Java <input type="checkbox"> Php <input type="checkbox">
+                </div>
+                <div class="qcm-title">Quelle balise parmi les quatre suivantes a été utilisée pour les cases à cocher ?
+                </div>
+                <ul class="qcm-options">
+                    <li><label><input type="radio" name="q_g" value="A"> A- &lt;input type="radio"&gt;</label></li>
+                    <li><label><input type="radio" name="q_g" value="B"> B- &lt;input type="circle"&gt;</label></li>
+                    <li><label><input type="radio" name="q_g" value="C"> C- &lt;input type="checkbox"&gt;</label></li>
+                    <li><label><input type="radio" name="q_g" value="D"> D- &lt;input type="square"&gt;</label></li>
+                </ul>
+            </div>
+
+            <!-- Question H -->
+            <div class="qcm-question">
+                <div class="qcm-title">h) Dans une page HTML, que permet la balise
+                    <code>&lt;form action="http://mon_site.fr" method="POST"&gt;</code> ?
+                </div>
+                <ul class="qcm-options">
+                    <li><label><input type="radio" name="q_h" value="A"> A- d'envoyer des données à l'URL
+                            http://mon_site.fr sans les ajouter au corps de la requête HTTP</label></li>
+                    <li><label><input type="radio" name="q_h" value="B"> B- d'envoyer des données à l'URL
+                            http://mon_site.fr et de les ajouter au corps de la requête HTTP mais pas à l'URL</label>
+                    </li>
+                    <li><label><input type="radio" name="q_h" value="C"> C- de télécharger un formulaire depuis l'URL
+                            http://mon_site.fr</label></li>
+                    <li><label><input type="radio" name="q_h" value="D"> D- de récupérer des données depuis l'URL
+                            http://mon_site.fr</label></li>
+                </ul>
+            </div>
+
+            <!-- Question I -->
+            <div class="qcm-question">
+                <div class="qcm-title">i) Un élément form (un formulaire) d'une page HTML contient un élément button de
+                    type submit. Un clic sur ce bouton :</div>
+                <ul class="qcm-options">
+                    <li><label><input type="radio" name="q_i" value="A"> A- envoie les données du formulaire vers la
+                            page définie par l'attribut action de l'élément form</label></li>
+                    <li><label><input type="radio" name="q_i" value="B"> B- efface les données entrées par l'utilisateur
+                            dans le formulaire</label></li>
+                    <li><label><input type="radio" name="q_i" value="C"> C- envoie les données du formulaire vers la
+                            page définie par l'attribut method de l'élément form</label></li>
+                    <li><label><input type="radio" name="q_i" value="D"> D- ne fait rien du tout si un script javascript
+                            n'est pas associé au bouton</label></li>
+                </ul>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+
+</html>

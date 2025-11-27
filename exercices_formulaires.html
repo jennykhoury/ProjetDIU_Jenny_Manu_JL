@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices NSI - Les Formulaires HTML</title>
+    <link rel="stylesheet" href="CSS.css" type="text/css">
+
+</head>
+
+<body>
+
+    <h1>Exercices : Les Formulaires HTML</h1>
+    <p>
+        <bold>Niveau : 1ère NSI - Thème : Interaction Client-Serveur (Web)</bold>
+    </p>
+
+    <!-- EXERCICE 1 -->
+    <div class="exercice">
+        <h2>Exercice 1 : Un formulaire de contact simple</h2>
+
+        <div class="consigne">
+            <strong>Objectif :</strong> Créer un formulaire demandant le nom, l'email et un message.<br>
+            <strong>Consignes :</strong>
+            <ol>
+                <li>Créez une balise <code>form</code>.</li>
+                <li>Ajoutez un champ texte pour le "Nom" (utilisez <code>label</code> et
+                    <code>input type="text"</code>).
+                </li>
+                <li>Ajoutez un champ pour l'"Email" (type approprié).</li>
+                <li>Ajoutez un bouton d'envoi contenant le texte "Envoyer".</li>
+                <li>N'oubliez pas les attributs <code>name</code> pour chaque champ (ex: "nom", "email").</li>
+            </ol>
+        </div>
+
+        <div class="rendu-attendu">
+            <span class="rendu-titre">Aperçu du résultat attendu :</span>
+            <!-- Démo visuelle (non fonctionnelle pour l'envoi réel) -->
+            <form onsubmit="event.preventDefault(); alert('Formulaire envoyé !');">
+                <div>
+                    <label for="ex1-nom">Nom :</label>
+                    <input type="text" id="ex1-nom" name="nom" placeholder="Votre nom">
+                </div>
+                <div>
+                    <label for="ex1-email">Email :</label>
+                    <input type="email" id="ex1-email" name="email" placeholder="exemple@email.com">
+                </div>
+                <div style="margin-top:10px;">
+                    <button type="submit">Envoyer</button>
+                </div>
+            </form>
+        </div>
+
+        <details>
+            <summary>Voir la correction (Code HTML)</summary>
+            <pre><code>&lt;form action="traitement.php" method="get"&gt;
+    &lt;div&gt;
+        &lt;label for="nom"&gt;Nom :&lt;/label&gt;
+        &lt;input type="text" id="nom" name="nom" required&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+        &lt;label for="email"&gt;Email :&lt;/label&gt;
+        &lt;input type="email" id="email" name="email" required&gt;
+    &lt;/div&gt;
+
+    &lt;button type="submit"&gt;Envoyer&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+            <p><em>Note : L'attribut <code>for</code> du label doit correspondre à l'<code>id</code> de l'input pour
+                    lier les deux éléments (cliquer sur le texte active le champ).</em></p>
+        </details>
+    </div>
+
+    <!-- EXERCICE 2 -->
+    <div class="exercice">
+        <h2>Exercice 2 : Choix multiples (Radio, Checkbox, Select)</h2>
+
+        <div class="consigne">
+            <strong>Objectif :</strong> Manipuler différents types de sélections.<br>
+            <strong>Consignes :</strong>
+            <ol>
+                <li>Créez un formulaire pour commander une pizza.</li>
+                <li><strong>Taille (Choix unique) :</strong> Utilisez des boutons radio pour "Petite", "Moyenne",
+                    "Grande".
+                    <br><em>Astuce : Ils doivent avoir le même attribut <code>name</code> pour être exclusifs.</em>
+                </li>
+                <li><strong>Ingrédients (Choix multiples) :</strong> Utilisez des cases à cocher (checkbox) pour
+                    "Fromage", "Champignons", "Olives".</li>
+                <li><strong>Sauce (Liste déroulante) :</strong> Utilisez un <code>select</code> pour choisir entre
+                    "Tomate", "Crème", "Barbecue".</li>
+            </ol>
+        </div>
+
+        <div class="rendu-attendu">
+            <span class="rendu-titre">Aperçu du résultat attendu :</span>
+            <form onsubmit="event.preventDefault();">
+                <p><strong>Taille :</strong><br>
+                    <input type="radio" id="p" name="taille" value="petite"><label for="p"
+                        style="width:auto; margin-right:10px;">Petite</label>
+                    <input type="radio" id="m" name="taille" value="moyenne" checked><label for="m"
+                        style="width:auto; margin-right:10px;">Moyenne</label>
+                    <input type="radio" id="g" name="taille" value="grande"><label for="g"
+                        style="width:auto;">Grande</label>
+                </p>
+
+                <p><strong>Suppléments :</strong><br>
+                    <input type="checkbox" id="c1" name="supplements" value="fromage"><label for="c1"
+                        style="width:auto; margin-right:10px;">Fromage</label>
+                    <input type="checkbox" id="c2" name="supplements" value="champignons"><label for="c2"
+                        style="width:auto; margin-right:10px;">Champignons</label>
+                    <input type="checkbox" id="c3" name="supplements" value="olives"><label for="c3"
+                        style="width:auto;">Olives</label>
+                </p>
+
+                <p><strong>Sauce :</strong><br>
+                    <select name="sauce">
+                        <option value="tomate">Tomate</option>
+                        <option value="creme">Crème fraîche</option>
+                        <option value="bbq">Barbecue</option>
+                    </select>
+                </p>
+                <button type="submit">Commander</button>
+            </form>
+        </div>
+
+        <details>
+            <summary>Voir la correction (Code HTML)</summary>
+            <pre><code>&lt;form action="commande.php"&gt;
+    &lt;!-- Boutons Radio : même 'name' pour un choix unique --&gt;
+    &lt;p&gt;Taille :
+        &lt;input type="radio" id="petite" name="taille" value="petite"&gt;
+        &lt;label for="petite"&gt;Petite&lt;/label&gt;
+        
+        &lt;input type="radio" id="moyenne" name="taille" value="moyenne" checked&gt;
+        &lt;label for="moyenne"&gt;Moyenne&lt;/label&gt;
+        
+        &lt;input type="radio" id="grande" name="taille" value="grande"&gt;
+        &lt;label for="grande"&gt;Grande&lt;/label&gt;
+    &lt;/p&gt;
+
+    &lt;!-- Checkbox : choix multiples possibles --&gt;
+    &lt;p&gt;Ingrédients :
+        &lt;input type="checkbox" id="fromage" name="ingredients" value="fromage"&gt;
+        &lt;label for="fromage"&gt;Fromage&lt;/label&gt;
+        
+        &lt;input type="checkbox" id="champi" name="ingredients" value="champignons"&gt;
+        &lt;label for="champi"&gt;Champignons&lt;/label&gt;
+    &lt;/p&gt;
+
+    &lt;!-- Select : liste déroulante --&gt;
+    &lt;p&gt;
+        &lt;label for="sauce"&gt;Sauce :&lt;/label&gt;
+        &lt;select id="sauce" name="sauce"&gt;
+            &lt;option value="tomate"&gt;Tomate&lt;/option&gt;
+            &lt;option value="creme"&gt;Crème&lt;/option&gt;
+            &lt;option value="bbq"&gt;Barbecue&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/p&gt;
+    
+    &lt;button type="submit"&gt;Commander&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+        </details>
+    </div>
+
+    <!-- EXERCICE 3 -->
+    <div class="exercice">
+        <h2>Exercice 3 : Structure et Méthode d'envoi</h2>
+
+        <div class="consigne">
+            <strong>Objectif :</strong> Organiser un formulaire long et comprendre <code>GET</code> vs
+            <code>POST</code>.<br>
+            <strong>Consignes :</strong>
+            <ol>
+                <li>Créez un formulaire d'inscription complet.</li>
+                <li>Utilisez la balise <code>fieldset</code> et <code>legend</code> pour regrouper les champs "Identité"
+                    (Nom, Prénom).</li>
+                <li>Utilisez un autre <code>fieldset</code> pour "Message" contenant un <code>textarea</code>.</li>
+                <li>Configurez le formulaire pour envoyer les données de manière <strong>invisible</strong> dans l'URL
+                    (méthode POST).</li>
+                <li>L'attribut <code>action</code> doit pointer vers "traitement_inscription.php".</li>
+            </ol>
+        </div>
+
+        <div class="rendu-attendu">
+            <span class="rendu-titre">Aperçu du résultat attendu :</span>
+            <form onsubmit="event.preventDefault();">
+                <fieldset>
+                    <legend>Identité</legend>
+                    <label>Nom : <input type="text" name="nom"></label><br><br>
+                    <label>Prénom : <input type="text" name="prenom"></label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Votre Message</legend>
+                    <textarea name="message" rows="4" cols="30" placeholder="Écrivez ici..."></textarea>
+                </fieldset>
+
+                <button type="submit">S'inscrire</button>
+            </form>
+        </div>
+
+        <details>
+            <summary>Voir la correction (Code HTML)</summary>
+            <pre><code>&lt;!-- method="post" est important pour ne pas afficher les données dans l'URL 
+     (utile pour les mots de passe ou les données volumineuses) --&gt;
+&lt;form action="traitement_inscription.php" method="post"&gt;
+    
+    &lt;fieldset&gt;
+        &lt;legend&gt;Identité&lt;/legend&gt;
+        &lt;p&gt;
+            &lt;label for="nom_complet"&gt;Nom :&lt;/label&gt;
+            &lt;input type="text" id="nom_complet" name="nom"&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+            &lt;label for="prenom"&gt;Prénom :&lt;/label&gt;
+            &lt;input type="text" id="prenom" name="prenom"&gt;
+        &lt;/p&gt;
+    &lt;/fieldset&gt;
+
+    &lt;fieldset&gt;
+        &lt;legend&gt;Votre Message&lt;/legend&gt;
+        &lt;!-- Textarea pour le texte sur plusieurs lignes --&gt;
+        &lt;textarea name="message" rows="5" cols="40"&gt;&lt;/textarea&gt;
+    &lt;/fieldset&gt;
+
+    &lt;button type="submit"&gt;S'inscrire&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+        </details>
+    </div>
+
+</body>
+
+</html>

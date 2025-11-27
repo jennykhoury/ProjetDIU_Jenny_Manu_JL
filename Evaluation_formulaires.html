@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex_evaluation</title>
+    <link rel="stylesheet" href="CSS.css" type="text/css">
+
+</head>
+
+<body>
+
+    <!--  <form action="https://www.exempledesite.com/" method="get">
+        <label for="username">Nom :</label>
+        <input type="text" id="username" name="nom utilisateur" required>
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" name="motdepasse" placeholder="Mot de passe" required>
+        <input type="submit" value="Envoyer">
+    </form> -->
+
+
+    <div class="conteneur">
+        <h2> EXEMPLE D'ÉVALUATION</h2>
+        <h3>LIRE DU CODE HTML</h3>
+        <h4> Exercice 1</h4>
+        <p> Quelques questions sur l'extrait de code html reproduit ci-dessous. </p>
+        <ol class="ligne-liste">
+            <li>Que va produire cet extrait lors de son exécution sur un navigateur ? </li>
+            <li>Expliquer le sens de la balise &lt;form&gt; et de l'attribut <i>action</i> présents en première ligne de
+                cet
+                extrait</li>
+            <li>Expliquer ce que signifie l'attribut <i>method</i> à l'intérieur de la balise &lt;form&gt;, quel autre
+                valeur
+                aurait-il pu prendre ?</li>
+            <li>Quelle est l'utilité de l'attribut <i>name</i> à l'intérieur de la balise &lt;input&gt; ? </li>
+            <li>Quelle est l'utilité de l'attribut <i>type</i> à l'intérieur de la balise &lt;input&gt; ?</li>
+            <li>Quelle est l'utilité de la balise &lt;label&gt; présente dans cet extrait, et des attributs <i>for</i>
+                et <i>id</i> présent dans la balise &lt;label&gt;?</li>
+            <li>Quelle est l'utilité de l'attribut <i>required</i> présent dans la balise &lt;input&gt;? </li>
+            <li> Quelle est l'utilité de l'attribut <i>placeholder</i>?</li>
+
+        </ol>
+        <p> Extrait : </p>
+        <img src="exo1_eval.png" alt="testExo1" width=100% style="display: block; margin-top: 0;">
+        <h3> Connaissance du cours</h3>
+
+        <h4>Exercice 2 </h4>
+        <p><strong>Cet exercice est un QCM. Cocher la (ou les) bonne(s) réponse(s)</strong></p>
+
+        <!-- Question A -->
+        <ol>
+            <li>Parmi les réponses suivantes, que permet d'effectuer la méthode POST du protocole http ?</li>
+            <ul>
+                <li> Définir le style d'une page web. </li>
+                <li> Pirater des données bancaires. </li>
+                <li> Envoyer une page web vers le client.</li>
+                <li> Envoyer les données saisies dans un formulaire HTML vers un serveur. </li>
+            </ul>
+            <br>
+            <li> Un internaute clique sur un lien qui envoie la requête http suivante à un serveur
+                :
+                <pre> http://jaimelaneige.com/ma_planche/traitement.php?nom=Snow&prenom=Jon </pre>
+                Que demande cette requête au serveur ?
+            </li>
+            <ul>
+                <li> De renvoyer le fichier traitement.php en identifiant nom et prénom à Snow et Jon. </li>
+                <li> D'exécuter le fichier traitement.php en identifiant nom et prénom à Snow et Jon.</li>
+                <li> D'indiquer si Jon Snow a bien pris son traitement.</li>
+                <li> De renvoyer le fichier traitement.php en affichant prénom et nom : Jon </li>
+            </ul>
+            <br>
+            <li>Que peut-on affirmer au sujet des formulaires de pages Web ?</li>
+            <ul>
+                <li>Les variables d’une requête POST sont affichées dans l’URL.</li>
+                <li>Une requête GET peut être utilisée pour transmettre des données sensibles.</li>
+                <li>Les variables d’une requête GET sont affichées dans l’URL.</li>
+                <li>Une requête POST peut être utilisée pour transmettre des données sensibles.</li>
+            </ul>
+            <li> On considère le formulaire ci-dessous : <br>
+                <pre>Quel est votre langage préféré ? 
+                Python □ Java □ Php □ </pre>
+                Quelle balise parmi les quatre suivantes a été utilisée pour les cases à cocher ?
+            </li>
+            <ul>
+                <li> &lt;input type="radio"&gt; </li>
+                <li> &lt;input type="circle"&gt; </li>
+                <li> &lt;input type="checkbox"&gt; </li>
+                <li> &lt;input type="square"&gt; </li>
+            </ul>
+            <li>Un élément form (un formulaire) d'une page HTML contient un élément button de type submit. Un clic sur
+                ce bouton :
+            </li>
+            <ul>
+                <li>envoie les données du formulaire vers la page définie par l'attribut action de l'élément form </li>
+                <li>efface les données entrées par l'utilisateur dans le formulaire</li>
+                <li>envoie les données du formulaire vers la page définie par l'attribut method de l'élément form</li>
+                <li>ne fait rien du tout si un script javascript n'est pas associé au bouton</li>
+            </ul>
+            <li>Dans un formulaire sur un page web, pour transmettre des données sécurisées comme un mot de passe ou un
+                numéro de carte bancaire, il vaut mieux utiliser la méthode :</li>
+            <ul>
+                <li>HEAD</li>
+                <li>GET</li>
+                <li>HTTPS</li>
+                <li>POST</li>
+            </ul>
+
+        </ol>
+
+        <h3> PASSER DU FORMULAIRE AU CODE HTML</h3>
+        <h4> Exercice 3 </h4>
+        <p>Écrire un extrait de formulaire html (balise &lt;form&gt; et tout ce qui est dedans)
+            afin qu'après avoir ouvert puis rempli ce formulaire sur le navigateur, ce dernier affiche
+            l'URL ci-dessous. On s'efforcera de proposer un formulaire "convivial" où les champs sont bien
+            identifiables par l'utilisateur.</p>
+        <img src="URL.png" alt="testExo3" width=100% style="display: block;">
+        <h4> Exercice 4 </h4>
+        <p>
+            Écrire un extrait de formulaire (balise &lt;form&gt; et tout ce qui est dedans) )
+            afin que ce formulaire demande :
+        </p>
+        <ul>
+            <li>un nom composé de trois à douze lettres majuscules, à renseigner obligatoirement</li>
+            <li>un mot de passe à renseigner obligatoirement </li>
+            <li>un pays à sélectionner dans une liste déroulante de trois pays</li>
+        </ul>
+        <p>
+            On fera en sorte que le mot de passe soit transmis au serveur de manière la plus sécurisée possible.
+        </p>
+
+    </div>
+</body>
+
+</html>

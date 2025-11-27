@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les formulaires HTML - Cours NSI</title>
+    <link rel="stylesheet" href="CSS.css">
+</head>
+
+<body>
+    <div class="conteneur">
+        <h1>Les formulaires en HTML</h1>
+
+        <!-------------->
+        <!-- SOMMAIRE -->
+        <!-------------->
+        <nav class="presentation">
+            <h3>Sommaire du cours</h3>
+            <ul>
+                <li><a href="#introduction">1. Introduction aux formulaires</a></li>
+                <li><a href="#balise-form">2. La balise &lt;form&gt;</a></li>
+                <li><a href="#composants">3. Composants de formulaire</a></li>
+                <li><a href="#bonnes-pratiques">4. Bonnes pratiques</a></li>
+                <li><a href="#exercices">5. Exercices pratiques</a></li>
+            </ul>
+        </nav>
+
+        <!--------------------->
+        <!-- 1. INTRODUCTION -->
+        <!--------------------->
+        <section id="introduction">
+            <h2>1. Introduction aux formulaires</h2>
+            <p>Les formulaires HTML permettent d’instaurer un dialogue entre un utilisateur et un site web ou une
+                application. Ils permettent à l'utilisateur d'envoyer des données au site web. La plupart du temps, ces
+                données sont envoyées à des serveurs web mais la page peut aussi les intercepter et les utiliser
+                elle-même.</p>
+            <p>L'analyse et le traitement du formulaire devant être effectués côté serveur, la page du formulaire sera
+                écrite en langage PHP. En cliquant sur le bouton envoyer les contenus des zones du texte du formulaire
+                seront transmis à une page cible PHP sous forme de paramètres directement intégrés dans la requête HTTP
+                envoyée par le client au serveur.</p>
+
+            <div class="presentation">
+                <h3>Objectifs du cours</h3>
+                <div class="grilleCSS">
+                    <div class="element_grilleCSS">
+                        <h4>Comprendre</h4>
+                        <p>Le rôle des formulaires dans l'interaction utilisateur</p>
+                    </div>
+                    <div class="element_grilleCSS">
+                        <h4>Maîtriser</h4>
+                        <p>Les différents types de champs et leurs attributs</p>
+                    </div>
+                    <div class="element_grilleCSS">
+                        <h4>Implémenter</h4>
+                        <p>Des formulaires accessibles et fonctionnels</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!------------------->
+        <!-- 2. FORMULAIRE -->
+        <!------------------->
+        <section id="balise-form">
+            <h2>2. Création d'un formulaire avec la balise &lt;form&gt;</h2>
+
+            <p>Les formulaires sont un moyen de récupérer des données à partir du client (navigateur) pour les passer à
+                l'application serveur. Dans le fichier html, on utilise la balise &lt;form&gt; en y ajoutant l’attribut
+                method qui permet d’indiquer quel est le type de requête HTTP.</p>
+
+            <h3>2.1 Exemple de formulaire</h3>
+            <!-- Démonstration interactive pour la méthode GET -->
+            <div class="presentation">
+                <h3>Testez le formulaire GET</h3>
+                <!-- attention, ici, on reste sur la page (action=""), sinon, il faudrait indiquer ce qu'il faut faire par exemple une url comme action="traitement.php" -->
+                <form id="demo-get" method="get">
+                    <label for="nom-demo">Nom :</label>
+                    <input type="text" id="nom-demo" name="nom" placeholder="Entrez votre nom" required><br>
+
+                    <label for="email-demo">Email :</label>
+                    <input type="email" id="email-demo" name="email" placeholder="Entrez votre email" required>
+
+                    <button type="submit">Envoyer</button>
+                    <button type="reset">Effacer</button>
+                </form>
+
+                <div class="url">
+                    <strong>URL qui serait générée si la page est hébergée sur site.com :</strong><br>
+                    <code id="url-resultat">Remplissez le formulaire et cliquez sur "Tester"</code>
+                </div>
+            </div>
+
+            <h3>2.2 Code du formulaire</h3>
+            <pre><code>&lt;form method="get" action="traitement.php"&gt;
+  &lt;label for="nom"&gt;Nom :&lt;/label&gt;
+  &lt;input type="text" id="nom" name="nom" placeholder="Entrez votre nom" required&gt;
+  
+  &lt;label for="email"&gt;Email :&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" placeholder="Entrez votre email" required&gt;
+  
+  &lt;button type="submit"&gt;Envoyer&lt;/button&gt;
+  &lt;button type="reset"&gt;Effacer&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+            <h3>2.3 Points clés à retenir</h3>
+            <ul>
+                <li><strong>method</strong> : Définit comment les données sont envoyées
+                    <ul>
+                        <li><code>GET</code> : Données visibles dans l'URL, limité en taille</li>
+                        <li><code>POST</code> : Données cachées, taille illimitée</li>
+                    </ul>
+                </li>
+                <li><strong>action</strong> : Spécifie où envoyer les données qui seront traitées. Dans notre exemple,
+                    elles sont traitées par un fichier traitement.php sur le serveur. Si action n'est pas présent, les
+                    données sont envoyées vers la page elle-même.</li>
+                <li><strong>required</strong> : Rend un champ obligatoire</li>
+            </ul>
+
+            <div class="exercice">
+                <h3>Exercices : </h3>
+                <ol>
+                    <li>
+                        <p>A vous de réfléchir</p>
+                        <p>Après avoir testé le formulaire GET donné dans l'exemple ci-dessus, que remarquez-vous dans
+                            l'URL ? Dans quels cas
+                            préféreriez-vous utiliser POST plutôt que GET ?</p>
+                        <button class="btn-reponse" onclick="cachereponse('reponse-method')">Voir la réponse</button>
+                        <div id="reponse-method" class="reponse">
+                            <p><strong>Réponse :</strong> Avec GET, les données sont visibles dans l'URL (ex:
+                                ?nom=Dupont email=test@exemple.fr).
+                                <br>On utilise POST pour :
+                            </p>
+                            <ul>
+                                <li>Les données sensibles (mots de passe)</li>
+                                <li>Les fichiers uploadés</li>
+                                <li>Les formulaires longs</li>
+                                <li>Éviter que l'URL ne soit trop longue</li>
+                            </ul>
+                        </div>
+                    <li>
+                        <p>Cliquer sur <a href="get.html"> ce lien </a>, puis cliquer Ctrl
+                            U pour voir le code html
+                            de la page, Indiquer le nom de la méthode employée pour transmettre les informations, ainsi
+                            que le nom de la page cible vers laquelle seront envoyées les informations de connexion.
+                            <br>
+                            Cette page cible est localisée sur le serveur web.
+                            Regarder le code de la page <a href="cible_1.php">cible</a>. Cette page contient du code
+                            PHP, c'est un script côté serveur, qui n'est pas visible par l'utilisateur côté client.
+                            Remplir maintenant les informations et cliquer sur se connecter, que remarquez-vous dans
+                            l'URL?
+                            <br>
+
+                            Aller maintenant dans <a href="post.html">ce lien</a>, l'ouvrir
+                            avec firefox et remplissez les informations. Que lisez-vous maintenant dans la barre
+                            d'adresse du navigateur? (Voir le code de la page <a href="cible2.php"> cible2.php</a> )
+                            A l'aide de l'inspecteur de propriétés aller sur connexion puis requête. Que remarquez-vous?
+                        </p>
+                        <button class="btn-reponse" onclick="cachereponse('reponse-method1')">Voir la
+                            réponse</button>
+                        <div id="reponse-method1" class="reponse">
+                            <p> Pour le premier lien, la méthode est GET et les informations sont envoyés vers la page
+                                cible_1.php qui est localisé sur le serveur web.
+                                La page cible contient du code php qui n'est pas visible côté client et qui interprété
+                                par le serveur et pas par le navigateur. Dans l'URL, on voit le nom de la page cible et
+                                les informations remplies.
+
+                                <br> Pour le second lien c'est la méthode POST qui est utilisé, on ne voit plus les
+                                informations remplis dans l'URL, mais on voit toujours le nom de la page cible quand on
+                                remplit les informations. Avec l'inspecteur de propriétés on peut trouver les
+                                infromations remplies
+                                sauvegardées par le navigateur
+                            </p>
+                        </div>
+                    </li>
+                    <li> Pour aller plus loin: <a href="ExperiencePHP.html">Experience PHP</a></li>
+            </div>
+        </section>
+    </div>
+    </li>
+    </ol>
+
+    <!----------------------------------->
+    <!-- 3. Composants d'un formulaire -->
+    <!----------------------------------->
+    <section id="composants">
+        <h2>3. Les composants d'un formulaire</h2>
+
+        <p>HTML5 offre une grande variété de composants pour créer des interfaces utilisateur riches et intuitives.</p>
+
+        <!-- Tableau des composants d'interaction -->
+        <h3>3.1 Tableau illustrant des types de champs et les mots clefs importants </h3>
+        <table class="tableau">
+            <thead> <!-- conteneur pour les entêtes -->
+                <tr> <!-- ligne d'entêtes -->
+                    <th>Type</th> <!-- entêtes -->
+                    <th>Utilisation</th>
+                    <th>Attributs importants</th>
+                    <th>Exemple</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>text</code></td>
+                    <td>Saisie de texte court</td>
+                    <td>maxlength, placeholder, pattern</td>
+                    <td><input type="text" placeholder="Texte"></td>
+                </tr>
+                <tr>
+                    <td><code>password</code></td>
+                    <td>Saisie masquée</td>
+                    <td>minlength, required</td>
+                    <td><input type="password" placeholder="••••••"></td>
+                </tr>
+                <tr>
+                    <td><code>email</code></td>
+                    <td>Email avec validation</td>
+                    <td>multiple, pattern</td>
+                    <td><input type="email" placeholder="email@exemple.fr"></td>
+                </tr>
+                <tr>
+                    <td><code>number</code></td>
+                    <td>Saisie numérique</td>
+                    <td>min, max, step</td>
+                    <td><input type="number" placeholder="nombre"></td>
+                </tr>
+                <tr>
+                    <td><code>date</code></td>
+                    <td>Sélection de date</td>
+                    <td>min, max</td>
+                    <td><input type="date"></td>
+                </tr>
+                <tr>
+                    <td><code>checkbox</code></td>
+                    <td>Cases à cocher multiples</td>
+                    <td>checked, value</td>
+                    <td><label><input type="checkbox">Entrée</label> <label><input type="checkbox">Dessert
+                        </label><label><input type="checkbox">Fromage</label> </td>
+                </tr>
+                <tr>
+                    <td><code>radio</code></td>
+                    <td>Choix unique</td>
+                    <td>checked, value</td>
+                    <td> <label><input type="radio" name="choix">oui</label> <label><input type="radio"
+                                name="choix">non</label> <label><input type="radio" name="choix">je ne sais pas</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>range</code></td>
+                    <td>Curseur de valeur</td>
+                    <td>min, max, step</td>
+                    <td><input type="range"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Exemples détaillés avec code -->
+        <h3>3.2 Exemples détaillés</h3>
+
+        <div class="exemples">
+            <h4>3.2.1 - Boutons radio &lt;input type="radio"&gt; avec étiquettes</h4>
+            <p>Les boutons radio doivent avoir le même nom pour fonctionner en groupe : on ne peut choisir qu'une
+                option!</p>
+
+            <form>
+                <input type="radio" id="homme" name="sexe" value="homme">
+                <label for="homme">Homme</label><br>
+                <input type="radio" id="femme" name="sexe" value="femme">
+                <label for="femme">Femme</label>
+            </form>
+
+            <pre><code>&lt;form&gt;
+        &lt;input type="radio" id="homme" name="sexe" value="homme"&gt;
+        &lt;label for="homme"&gt;Homme&lt;/label&gt;
+
+        &lt;input type="radio" id="femme" name="sexe" value="femme"&gt;
+        &lt;label for="femme"&gt;Femme&lt;/label&gt;<br>&lt;/form&gt;
+    </code></pre>
+
+            <p>Pourquoi on dit "avec étiquette" ? Parce qu'ici, si vous ne cliquez pas sur le bouton mais sur "homme" ou
+                "femme" le bouton est aussi sélectionné. C'est l'étiquette (grâce au <strong>label</strong>).
+                Dans les input, Un nom est associé au composant pour pouvoir récupérer les données saisies côté serveur.
+                <br>l'attribut <strong> name</strong> qui permet d'identifier chaque champ de saisies dans les
+                paramètres qui sont envoyés au
+                serveur,
+                <br>l'attribut <strong> value</strong> qui définit la valeur par défaut affichée au chargement de la
+                page Web ; de plus, la
+                valeur de cet attribut peut être utilisée en JavaScript ou côté serveur.
+            </p>
+        </div>
+
+        <div class="exemples">
+            <h4>3.2.2 - Bouton Poussoir &lt;input type="submit" value="blabla"&gt; <br> ou &lt;button type="submit"&gt;
+                blabla &lt;/button&gt;</h4>
+            <p>Créer des boutons interactifs sur une page web. (Les boutons sont souvent utilisés avec des scripts
+                JavaScript - on verra ça plus tard !)</p>
+            <input type="submit" value="Cliquez-moi" id="boutton_pousse" onclick="afficherMessage()" />
+            <p id="message"></p>
+            <pre><code>&lt;input type="submit" value="Cliquez-moi" id="boutton_pousse" onclick="afficherMessage()" /&gt;</code></pre>
+            <p>Attention, ici il y a une référence à du javascript, retenez surtout le début du code. Vous pouvez faire
+                apparaître un boutton, sans la dernière instruction... c'est juste qu'il ne se passera rien ! </p>
+        </div>
+
+        <div class="exemples">
+            <h4>3.2.3 - Liste déroulante &lt;select&gt;</h4>
+            <p>Pour proposer un choix parmi plusieurs options :</p>
+
+            <select>
+                <option value="question">Vous êtes...</option>
+                <option value="tres_satisfait">très satisfait</option>
+                <option value="satisfait">satisfait</option>
+                <option value="decu">déçu</option>
+                <option value="tres_decu">très décu</option>
+                <option value="autre">ne se prononce pas</option>
+            </select>
+
+            <pre><code>&lt;select&gt;
+    &lt;option value="question"&gt;Vous êtes...&lt;/option&gt;
+    &lt;option value="tres_satisfait"&gt;très satisfait&lt;/option&gt;
+    &lt;option value="satisfait"&gt;satisfait&lt;/option&gt;
+    &lt;option value="decu"&gt;déçu&lt;/option&gt;
+    &lt;option value="tres_decu"&gt;très déçu&lt;/option&gt;
+    &lt;option value="autre"&gt;ne se prononce pas&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+
+        </div>
+    </section>
+
+    <!------------------------->
+    <!-- 4. Bonnes pratiques -->
+    <!------------------------->
+    <section id="bonnes-pratiques">
+        <h2>4. Bonnes pratiques et accessibilité</h2>
+
+        <div class="presentation">
+            <h3>4.1 Accessibilité</h3>
+            <div class="exemple">
+                <label for="nom-complet">Nom complet :</label>
+                <input type="text" id="nom-complet" name="nom_complet" aria-describedby="aide-nom" required>
+                <small id="aide-nom">Saisissez votre nom tel qu'il apparaît sur vos documents officiels</small>
+            </div>
+
+            <pre><code>&lt;label for="nom-complet"&gt;Nom complet :&lt;/label&gt;
+&lt;input type="text" id="nom-complet" name="nom_complet" 
+       aria-describedby="aide-nom" required&gt;
+&lt;small id="aide-nom"&gt;Saisissez votre nom tel qu'il apparaît...&lt;/small&gt;</code></pre>
+
+            <ul>
+                <li>Associez chaque champ à son label avec l'attribut <code>for</code>. Ici, en cliquant sur "Nom
+                    complet :", un curseur d'écriture apparaît dans la zone de texte. C'est grâce à la balise
+                    <code>&lt;label&gt;</code> qui associe la zone de texte et "Nom complet" par l'identifiant
+                    "nom-complet".
+                </li>
+                <li>Utilisez <code>aria-</code> (ensemble de normes destinées à rendre les pages web accessibles aux
+                    personnes handicapées. Pour en savoir plus, voir <a
+                        href="https://www.w3.org/WAI/standards-guidelines/aria/">ici</a>). Dans notre cas,
+                    <code>aria-describedby</code> permet d'associer une description de ce qu'il faut faire (utile par
+                    exemple pour les malvoyants qui utilisent des logiciels adaptés pour naviguer sur le net).
+                </li>
+                <li>Assurez un contraste suffisant pour la lisibilité (avec le fichier <code>style.css</code>)</li>
+                <li>Organisez les champs logiquement avec <code>tabindex</code>. Si vous avez plusieurs champs, vous
+                    pouvez sauter de l'un à l'autre en utilisant la touche TAB. La fonctionnalité <code>tabindex</code>
+                    permet de choisir l'ordre des zones de texte.</li>
+                <li>Fournissez des messages d'erreur clairs (on verra ça plus tard)</li>
+            </ul>
+
+        </div>
+
+        <div class="presentation">
+            <h3>4.2 Validation côté client</h3>
+            <p>Utilisez les attributs de validation HTML5 : (testez d'écrire n'importe quoi pour l'adresse email et
+                comparez avec le point 2.1.)</p>
+
+            <form>
+                <label for="age">Âge :</label>
+                <input type="number" id="age" min="18" max="120" required><br>
+                <label for="email-valide">Email valide :</label>
+                <input type="email" id="email-valide" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
+
+                <button type="submit">Valider</button>
+            </form>
+
+
+            <pre><code>&lt;input type="number" min="18" max="120" required&gt;
+&lt;input type="email" required
+    pattern="[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$"&gt;</code></pre>
+
+            <p>Ici, on impose que l'adresse email soit écrit en trois parties,
+            <ul>
+                <li>Une première partie ou il peut y avoir toutes les lettes, tous les chiffres et les caractères ".",
+                    "_" et "-" <code>[a-z0-9._-]</code>
+                <li>une deuxième partie = le site d''hébergement (comme gmail) avec @ et toutes les lettres, tous les
+                    chiffres et les caractères "." et "-" <code>+@[a-z0-9.-]</code>
+                <li>enfin, le domaine, après un point (noté \.), qui doit contenir au moins deux lettres
+                    <code>+\.[a-z]{2,}$</code>. Le signe <code>$</code> indique qu'il ne doit rien y avoir ensuite.
+            </ul>
+        </div>
+    </section>
+
+    <!------------------>
+    <!-- 5. Exercices -->
+    <!------------------>
+    <section id="exercices">
+        <h2>5. Exercices pratiques</h2>
+
+        <div class="exercice">
+            <h3>Exercice 1 : Formulaire d'inscription</h3>
+
+            On veut réaliser le formulaire suivant,
+            <form method="post" action="/inscription.php">
+                <label for="nom">Nom:</label>
+                <input type="text" name="nom" id="nom" placeholder="Votre nom" required><br>
+                <label for="prenom">Prénom:</label>
+                <input type="text" name="prenom" id="prenom" placeholder="Votre prenom" required><br>
+                <label for="date_naissance">Date de naissance:</label><input type="date" name="date_naissance"
+                    id="date_naissance" required><br>
+                <label for="email">Email :</label>
+                <input type="email" name="email" id="email" placeholder="Votre email" required><br>
+                <label for="tel">Téléphone :</label>
+                <input type="tel" name="tel" id="tel" placeholder="06 ** ** ** **"><br>
+                <label for="adresse">Adresse :</label>
+                <input type="text" name="adresse" id="adresse" placeholder="Votre adresse"><br>
+                <label for="pays">Pays :</label>
+                <select name="pays" id="pays">
+                    <option value="pays">Sélectionnez votre pays</option>
+                    <option value="france">France</option>
+                    <option value="belgique">Belgique</option>
+                    <option value="suisse">Suisse</option>
+                </select><br>
+                Centres d'intérêt :
+                <label><input type="checkbox" name="interets" value="sport"> Sport</label>
+                <label><input type="checkbox" name="interets" value="musique"> Musique</label>
+                <label><input type="checkbox" name="interets" value="voyage"> Voyage</label>
+                <input type="submit" value="Envoyer">
+            </form>
+
+
+            <div class="etape">
+                <h5>Étape 1 : Structure de base</h5>
+                <p>Créez la balise &lt;form&gt; avec method="post", envoyant le formulaire au fichier "inscription.php"
+                </p>
+                <button class="btn-reponse" onclick="cachereponse('reponse-etape1')">Voir la réponse</button>
+                <div id="reponse-etape1" class="reponse">
+                    <code>&lt;form method="post" action="/inscription.php"&gt; <br><br>
+                &lt; type="submit" value="Envoyer"&gt;<br>
+                &lt;/form&gt;</code>
+                </div>
+            </div>
+
+            <div class="etape">
+                <h5>Étape 2 : Informations personnelles</h5>
+                <p>Ajoutez les champs : nom, prénom, date de naissance</p>
+                <button class="btn-reponse" onclick="cachereponse('reponse-etape2')">Voir la réponse</button>
+                <div id="reponse-etape2" class="reponse">
+                    <code>&lt;form method="post" action="/inscription.php"&gt;<br><br>
+                &lt;label for="nom"&gt;Nom:&lt;/label&gt;<br>
+                &lt;input type="text" name="nom" id="nom" placeholder="Votre nom" required&gt;&lt;br&gt;<br><br>
+                &lt;label for="prenom"&gt;Prénom:&lt;/label&gt;<br>
+                &lt;input type="text" name="prenom" id="prenom" placeholder="Votre prenom" required&gt;&lt;br&gt;<br><br>
+                &lt;label for="date_naissance"&gt;Date de naissance:&lt;/label&gt;<br>
+                &lt;input type="date" name="date_naissance" id="date_naissance" required&gt;<br><br>
+                &lt; type="submit" value="Envoyer"&gt;<br>
+                &lt;/form&gt;</code>
+                </div>
+            </div>
+
+
+            <div class="etape">
+                <h5>Étape 3 : Coordonnées</h5>
+                <p>Ajoutez les champs : email, téléphone, adresse</p>
+                <button class="btn-reponse" onclick="cachereponse('reponse-etape3')">Voir la réponse</button>
+                <div id="reponse-etape3" class="reponse">
+                    <code>&lt;form method="post" action="/inscription.php"&gt;<br><br>
+                &lt;label for="nom"&gt;Nom:&lt;/label&gt;<br>
+                &lt;input type="text" name="nom" id="nom" placeholder="Votre nom" required&gt;&lt;br&gt;<br>
+                &lt;label for="prenom"&gt;Prénom:&lt;/label&gt;<br>
+                &lt;input type="text" name="prenom" id="prenom" placeholder="Votre prenom" required&gt;&lt;br&gt;<br>
+                &lt;label for="date_naissance"&gt;Date de naissance:&lt;/label&gt;<br>
+                &lt;input type="date" name="date_naissance" id="date_naissance" required&gt;&lt;br&gt;<br><br>
+                &lt;label for="email"&gt;Email :&lt;/label&gt;<br>
+                &lt;input type="email" name="email" id="email" placeholder="Votre email" required&gt;&lt;br&gt;<br><br>
+                &lt;label for="tel"&gt;Téléphone :&lt;/label&gt;<br>
+                &lt;input type="tel" name="tel" id="tel" placeholder="06 ** ** ** **"&gt;&lt;br&gt;<br><br>
+                &lt;label for="adresse"&gt;Adresse :&lt;/label&gt;<br>
+                &lt;input type="text" name="adresse" id="adresse" placeholder="Votre adresse"&gt;&lt;br&gt;<br><br>
+                &lt; type="submit" value="Envoyer"&gt;<br>
+                &lt;/form&gt;
+            </code>
+                </div>
+            </div>
+
+
+            <div class="etape">
+                <h5>Étape 4 : Options</h5>
+                <p>Ajoutez une liste déroulante pour le pays et des cases à cocher pour les centres d'intérêt.</p>
+                <button class="btn-reponse" onclick="cachereponse('reponse-etape4')">Voir la réponse</button>
+                <div id="reponse-etape4" class="reponse">
+                    <code>&lt;form method="post" action="/inscription.php"&gt;<br><br>
+                &lt;label for="nom"&gt;Nom:&lt;/label&gt;<br>
+                &lt;input type="text" name="nom" id="nom" placeholder="Votre nom" required&gt;&lt;br&gt;<br>
+                &lt;label for="prenom"&gt;Prénom:&lt;/label&gt;<br>
+                &lt;input type="text" name="prenom" id="prenom" placeholder="Votre prenom" required&gt;&lt;br&gt;<br>
+                &lt;label for="date_naissance"&gt;Date de naissance:&lt;/label&gt;<br>
+                &lt;input type="date" name="date_naissance" id="date_naissance" required&gt;&lt;br&gt;<br>
+                &lt;label for="email"&gt;Email :&lt;/label&gt;<br>
+                &lt;input type="email" name="email" id="email" placeholder="Votre email" required&gt;&lt;br&gt;<br>
+                &lt;label for="tel"&gt;Téléphone :&lt;/label&gt;<br>
+                &lt;input type="tel" name="tel" id="tel" placeholder="06 ** ** ** **"&gt;&lt;br&gt;<br>
+                &lt;label for="adresse"&gt;Adresse :&lt;/label&gt;<br>
+                &lt;input type="text" name="adresse" id="adresse" placeholder="Votre adresse"&gt;&lt;br&gt;<br><br>
+                &lt;label for="pays"&gt;Pays :&lt;/label&gt;<br>
+                &lt;select name="pays" id="pays"&gt;<br>
+                &nbsp;&nbsp;&lt;option value="france"&gt;France&lt;/option&gt;<br>
+                &nbsp;&nbsp;&lt;option value="belgique"&gt;Belgique&lt;/option&gt;<br>
+                &nbsp;&nbsp;&lt;option value="suisse"&gt;Suisse&lt;/option&gt;<br>
+                &lt;/select&gt;&lt;br&gt;<br><br>
+                Centres d'intérêt :<br>
+                &lt;label&gt;&lt;input type="checkbox" name="interets" value="sport"&gt; Sport&lt;/label&gt;<br>
+                &lt;label&gt;&lt;input type="checkbox" name="interets" value="musique"&gt; Musique&lt;/label&gt;<br>
+                &lt;label&gt;&lt;input type="checkbox" name="interets" value="voyage"&gt; Voyage&lt;/label&gt;<br><br>
+                &lt; type="submit" value="Envoyer"&gt;<br>
+                &lt;/form&gt;
+            </code>
+                </div>
+            </div>
+            <div class="etape">
+                <h5>Etape 5 (facultatif): Appliquer les règles de bonnes pratiques et d'accessibilité</h5>
+            </div>
+        </div>
+
+        <div class="exercice">
+            <h3> <a href="exercices_formulaires.html">Plus d'exercices</a></h3>
+        </div>
+
+    </section>
+
+    <!---------------------------------------------------------------------------------->
+    <!-- Un peu de javascript pour rendre la page plus dynamique avec la méthode get, -->
+    <!-- pour les réponses cachées et pour un effet sur le premier bouton             -->
+    <!---------------------------------------------------------------------------------->
+    <script>
+        // 1) Fonction pour afficher l'URL GET
+        // 1. Sélection du formulaire
+        const FormulaireDeDemonstration = document.getElementById('demo-get');
+
+        // 2. Écouteur d'événement pour la soumission
+        FormulaireDeDemonstration.addEventListener('submit', function (evenement) {
+
+            // 3. Empêcher l'envoi normal au serveur
+            evenement.preventDefault();
+
+            // 4. Récupérer les données du formulaire
+            const Donnees_formulaire = new FormData(FormulaireDeDemonstration);
+
+            // 5. Convertir en paramètres d'URL
+            const parametres = new URLSearchParams(Donnees_formulaire);
+
+            // 6. Afficher le résultat
+            document.getElementById('url-resultat').textContent = 'site.com?' + parametres.toString();
+
+        }); // Fin de la fonction et de l'écouteur
+
+        // 2) Fonction pour afficher/masquer les réponses
+        function cachereponse(id) {
+            // 1. Sélectionner l'élément
+            const reponse = document.getElementById(id);
+            // 2. Vérifier son état actuel
+            if (reponse.style.display === 'block') {
+                // 3. S'il est affiché, on le cache
+                reponse.style.display = 'none';
+            } else {
+                // 4. S'il est caché, on l'affiche
+                reponse.style.display = 'block';
+            }
+        }
+
+        // 3) Fonction pour faire apparaître un message avec le bouton poussoir
+        function afficherMessage() {
+            document.getElementById("message").textContent = "Vous avez cliqué !";
+        }
+    </script>
+    </div>
+</body>
+
+</html>
