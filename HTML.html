@@ -6,21 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Les formulaires HTML - Cours NSI</title>
     <link rel="stylesheet" href="CSS.css">
-      <script>
+    <script>
         function afficherNom(event) {
             event.preventDefault(); // Empêche le rechargement de la page
             var nomUtilisateur = document.getElementById("nomUtilisateur").value; // Récupère la valeur du champ
             var message = "Votre nom est : " + nomUtilisateur; // Crée le message à afficher
             document.getElementById("resultat").innerHTML = "<h3>" + message + "</h3>"; // Affiche le message
         }
-        
-    function htmlspecialchars(str) {
+
+        function htmlspecialchars(str) {
             // Remplace les caractères spéciaux par leurs entités HTML
             return str.replace(/&/g, "&amp;")
-                      .replace(/</g, "&lt;")
-                      .replace(/>/g, "&gt;")
-                      .replace(/"/g, "&quot;")
-                      .replace(/'/g, "&#039;");
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
         }
 
         function afficherNomSecure(event) {
@@ -145,172 +145,184 @@
             <div class="exercice">
                 <h3>Exercice : </h3>
                 <p>A vous de réfléchir</p>
-                        <p>Après avoir testé le formulaire GET donné dans l'exemple ci-dessus, que remarquez-vous dans
-                            l'URL ? Dans quels cas
-                            préféreriez-vous utiliser POST plutôt que GET ?</p>
-                        <button class="btn-reponse" onclick="cachereponse('reponse-method')">Voir la réponse</button>
-                        <div id="reponse-method" class="reponse">
-                            <p><strong>Réponse :</strong> Avec GET, les données sont visibles dans l'URL (ex:
-                                ?nom=Dupont email=test@exemple.fr).
-                                <br>On utilise POST pour :
-                            </p>
-                            <ul>
-                                <li>Les données sensibles (mots de passe)</li>
-                                <li>Les fichiers uploadés</li>
-                                <li>Les formulaires longs</li>
-                                <li>Éviter que l'URL ne soit trop longue</li>
-                            </ul>
-                        </div>
+                <p>Après avoir testé le formulaire GET donné dans l'exemple ci-dessus, que remarquez-vous dans
+                    l'URL ? Dans quels cas
+                    préféreriez-vous utiliser POST plutôt que GET ?</p>
+                <button class="btn-reponse" onclick="cachereponse('reponse-method')">Voir la réponse</button>
+                <div id="reponse-method" class="reponse">
+                    <p><strong>Réponse :</strong> Avec GET, les données sont visibles dans l'URL (ex:
+                        ?nom=Dupont email=test@exemple.fr).
+                        <br>On utilise POST pour :
+                    </p>
+                    <ul>
+                        <li>Les données sensibles (mots de passe)</li>
+                        <li>Les fichiers uploadés</li>
+                        <li>Les formulaires longs</li>
+                        <li>Éviter que l'URL ne soit trop longue</li>
+                    </ul>
+                </div>
             </div>
-                   
-                       
-            <h3>2.4 Exemple de traitement PHP </h3>   
-             <div class="conteneur">  
-        <h3>Sensibilisation à la sécurité d'un formulaire : Exemple de traitements côté serveur</h3>
-        <!--Expérience interactive méthode POST simulation d'un serveur --> 
-        <p>
-          Saisissez votre nom dans chacune des deux copies du formulaire ci-dessous, 
-          remarquez-vous une différence dans les deux traitements de ce formulaire ? <br>
-          Saisissez votre prénom suivi d'un espace puis de &lt;i&gt; suivi de votre nom puis de &lt;/i&gt; dans 
-          chacun des exemplaires du formulaire (vous pouvez faire un <i>copier / coller</i> ), que remarquez-vous ? 
-          Essayer d'expliquer ce qui différencie les deux traitements de ce formulaire.
-        </p>
-        <div class="presentation">
-          <h3>Formulaire avec le traitement PHP n°1 </h3>
-            <form onsubmit="afficherNom(event)">
-                <label for="nomUtilisateur">Nom d'utilisateur :</label>
-                <input type="text" id="nomUtilisateur" name="nomUtilisateur" required />
-                <button type="submit">Soumettre</button>
-            </form>
-            <div id="resultat"></div> <!-- Zone pour afficher le résultat -->
-        </div>
-        <div class="presentation"> 
-            <h3>Même formulaire avec le traitement PHP n°2 </h3>   
-            <form onsubmit="afficherNomSecure(event)">
-                <label for="nomUtilisatrice">Nom d'utilisateur :</label>
-                <input type="text" id="nomUtilisatrice" name="nomUtilisatrice" required />
-                <button type="submit">Soumettre</button>
-            </form>
-            <div id="result"></div> <!-- Zone pour afficher le résultat -->
-        </div>
-          <p>
-          Sans trop entrer dans les détails du langage PHP, observons le premier traitement appliqué côté serveur à ce 
-          formulaire, en première ligne, le serveur grâce à <i>isset</i> (<i>is set</i>), regarde si ce qui a été 
-          saisi dans le champ (dont le nom, ici nomUtilisateur a été donné par l'attribut "name") existe bien, si oui, 
-          il le récupère (méthode POST ici) 
-          et le place dans la variable $user, sinon il place dans $user la chaîne de caractères vide.
-          Ensuite l'instruction  <i>echo</i> permet de générer dans le navigateur le code html qui suit dans lequel 
-          la variable $user sera directement remplacée par sa valeur (structure html dynamique).
-          </p>
-          <div class="presentation"> 
-            <img src="Traitement_PHP_1.png" alt="PHP1"  width=100% style="display: block;"> 
-          </div>
-          <p>
-          Le second traitement est exactement le même, sauf qu'en première ligne on ajoute dans la récupération de 
-          la donnée présente dans le champ l'instruction <i>htmlspecialchars</i> comme ceci :
-          </p>
-          <div class="presentation"> 
-            <img src="ligne1_traitement_PHP.png" alt="Ligne_PHP"   width=100% style="display: block;"> 
-          </div>
-          <p>
-          Grâce à cela, les caractères spéciaux ne sont plus interprêtés comme des instructions mais comme des 
-          caractères simples. <br>
-          Il s'agit là d'une <strong>mesure de sécurité</strong>, en effet des intrusions peuvent se faire par ce biais,
-          en introduisant par exemple des &lt;script&gt; javascript dans un champ de formulaire pour s'introduire dans 
-          les bases de données d'un serveur par exemple...
-          </p>
-    </div> 
 
-    <!----------------------------------->
-    <!-- 3. Composants d'un formulaire -->
-    <!----------------------------------->
-    <section id="composants">
-        <h2>3. Les composants d'un formulaire</h2>
 
-        <p>HTML5 offre une grande variété de composants pour créer des interfaces utilisateur riches et intuitives.</p>
+            <h3>2.4 Exemple de traitement PHP </h3>
+            <div class="conteneur">
+                <h4>Sensibilisation à la sécurité d'un formulaire : Exemple de traitements côté serveur</h4>
+                <!--Expérience interactive méthode POST simulation d'un serveur -->
+                <p>
+                    Saisissez votre nom dans chacune des deux copies du formulaire ci-dessous,
+                    remarquez-vous une différence dans les deux traitements de ce formulaire ? <br>
+                    Saisissez votre prénom suivi d'un espace puis de &lt;i&gt; suivi de votre nom puis de &lt;/i&gt;
+                    dans
+                    chacun des exemplaires du formulaire (vous pouvez faire un <i>copier / coller</i> ), que
+                    remarquez-vous ?
+                    Essayer d'expliquer ce qui différencie les deux traitements de ce formulaire.
+                </p>
+                <div class="presentation">
+                    <h4>Formulaire avec le traitement PHP n°1 </h4>
+                    <form onsubmit="afficherNom(event)">
+                        <label for="nomUtilisateur">Nom d'utilisateur :</label>
+                        <input type="text" id="nomUtilisateur" name="nomUtilisateur" required />
+                        <button type="submit">Soumettre</button>
+                    </form>
+                    <div id="resultat"></div> <!-- Zone pour afficher le résultat -->
+                </div>
+                <div class="presentation">
+                    <h4>Même formulaire avec le traitement PHP n°2 </h4>
+                    <form onsubmit="afficherNomSecure(event)">
+                        <label for="nomUtilisatrice">Nom d'utilisateur :</label>
+                        <input type="text" id="nomUtilisatrice" name="nomUtilisatrice" required />
+                        <button type="submit">Soumettre</button>
+                    </form>
+                    <div id="result"></div> <!-- Zone pour afficher le résultat -->
+                </div>
+                <p>
+                    Sans trop entrer dans les détails du langage PHP, observons le premier traitement appliqué côté
+                    serveur à ce
+                    formulaire, en première ligne, le serveur grâce à <i>isset</i> (<i>is set</i>), regarde si ce qui a
+                    été
+                    saisi dans le champ (dont le nom, ici nomUtilisateur a été donné par l'attribut "name") existe bien,
+                    si oui,
+                    il le récupère (méthode POST ici)
+                    et le place dans la variable $user, sinon il place dans $user la chaîne de caractères vide.
+                    Ensuite l'instruction <i>echo</i> permet de générer dans le navigateur le code html qui suit dans
+                    lequel
+                    la variable $user sera directement remplacée par sa valeur (structure html dynamique).
+                </p>
+                <div class="presentation">
+                    <img src="Traitement_PHP_1.png" alt="PHP1" width=100% style="display: block;">
+                </div>
+                <p>
+                    Le second traitement est exactement le même, sauf qu'en première ligne on ajoute dans la
+                    récupération de
+                    la donnée présente dans le champ l'instruction <i>htmlspecialchars</i> comme ceci :
+                </p>
+                <div class="presentation">
+                    <img src="ligne1_traitement_PHP.png" alt="Ligne_PHP" width=100% style="display: block;">
+                </div>
+                <p>
+                    Grâce à cela, les caractères spéciaux ne sont plus interprêtés comme des instructions mais comme des
+                    caractères simples. <br>
+                    Il s'agit là d'une <strong>mesure de sécurité</strong>, en effet des intrusions peuvent se faire par
+                    ce biais,
+                    en introduisant par exemple des &lt;script&gt; javascript dans un champ de formulaire pour
+                    s'introduire dans
+                    les bases de données d'un serveur par exemple...
+                </p>
+            </div>
 
-        <!-- Tableau des composants d'interaction -->
-        <h3>3.1 Tableau illustrant des types de champs et les mots clefs importants </h3>
-        <table class="tableau">
-            <thead> <!-- conteneur pour les entêtes -->
-                <tr> <!-- ligne d'entêtes -->
-                    <th>Type</th> <!-- entêtes -->
-                    <th>Utilisation</th>
-                    <th>Attributs importants</th>
-                    <th>Exemple</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>text</code></td>
-                    <td>Saisie de texte court</td>
-                    <td>maxlength, placeholder, pattern</td>
-                    <td><input type="text" placeholder="Texte"></td>
-                </tr>
-                <tr>
-                    <td><code>password</code></td>
-                    <td>Saisie masquée</td>
-                    <td>minlength, required</td>
-                    <td><input type="password" placeholder="••••••"></td>
-                </tr>
-                <tr>
-                    <td><code>email</code></td>
-                    <td>Email avec validation</td>
-                    <td>multiple, pattern</td>
-                    <td><input type="email" placeholder="email@exemple.fr"></td>
-                </tr>
-                <tr>
-                    <td><code>number</code></td>
-                    <td>Saisie numérique</td>
-                    <td>min, max, step</td>
-                    <td><input type="number" placeholder="nombre"></td>
-                </tr>
-                <tr>
-                    <td><code>date</code></td>
-                    <td>Sélection de date</td>
-                    <td>min, max</td>
-                    <td><input type="date"></td>
-                </tr>
-                <tr>
-                    <td><code>checkbox</code></td>
-                    <td>Cases à cocher multiples</td>
-                    <td>checked, value</td>
-                    <td><label><input type="checkbox">Entrée</label> <label><input type="checkbox">Dessert
-                        </label><label><input type="checkbox">Fromage</label> </td>
-                </tr>
-                <tr>
-                    <td><code>radio</code></td>
-                    <td>Choix unique</td>
-                    <td>checked, value</td>
-                    <td> <label><input type="radio" name="choix">oui</label> <label><input type="radio"
-                                name="choix">non</label> <label><input type="radio" name="choix">je ne sais pas</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td><code>range</code></td>
-                    <td>Curseur de valeur</td>
-                    <td>min, max, step</td>
-                    <td><input type="range"></td>
-                </tr>
-            </tbody>
-        </table>
+            <!----------------------------------->
+            <!-- 3. Composants d'un formulaire -->
+            <!----------------------------------->
+            <section id="composants">
+                <h2>3. Les composants d'un formulaire</h2>
 
-        <!-- Exemples détaillés avec code -->
-        <h3>3.2 Exemples détaillés</h3>
+                <p>HTML5 offre une grande variété de composants pour créer des interfaces utilisateur riches et
+                    intuitives.</p>
 
-        <div class="exemples">
-            <h4>3.2.1 - Boutons radio &lt;input type="radio"&gt; avec étiquettes</h4>
-            <p>Les boutons radio doivent avoir le même nom pour fonctionner en groupe : on ne peut choisir qu'une
-                option!</p>
+                <!-- Tableau des composants d'interaction -->
+                <h3>3.1 Tableau illustrant des types de champs et les mots clefs importants </h3>
+                <table class="tableau">
+                    <thead> <!-- conteneur pour les entêtes -->
+                        <tr> <!-- ligne d'entêtes -->
+                            <th>Type</th> <!-- entêtes -->
+                            <th>Utilisation</th>
+                            <th>Attributs importants</th>
+                            <th>Exemple</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>text</code></td>
+                            <td>Saisie de texte court</td>
+                            <td>maxlength, placeholder, pattern</td>
+                            <td><input type="text" placeholder="Texte"></td>
+                        </tr>
+                        <tr>
+                            <td><code>password</code></td>
+                            <td>Saisie masquée</td>
+                            <td>minlength, required</td>
+                            <td><input type="password" placeholder="••••••"></td>
+                        </tr>
+                        <tr>
+                            <td><code>email</code></td>
+                            <td>Email avec validation</td>
+                            <td>multiple, pattern</td>
+                            <td><input type="email" placeholder="email@exemple.fr"></td>
+                        </tr>
+                        <tr>
+                            <td><code>number</code></td>
+                            <td>Saisie numérique</td>
+                            <td>min, max, step</td>
+                            <td><input type="number" placeholder="nombre"></td>
+                        </tr>
+                        <tr>
+                            <td><code>date</code></td>
+                            <td>Sélection de date</td>
+                            <td>min, max</td>
+                            <td><input type="date"></td>
+                        </tr>
+                        <tr>
+                            <td><code>checkbox</code></td>
+                            <td>Cases à cocher multiples</td>
+                            <td>checked, value</td>
+                            <td><label><input type="checkbox">Entrée</label> <label><input type="checkbox">Dessert
+                                </label><label><input type="checkbox">Fromage</label> </td>
+                        </tr>
+                        <tr>
+                            <td><code>radio</code></td>
+                            <td>Choix unique</td>
+                            <td>checked, value</td>
+                            <td> <label><input type="radio" name="choix">oui</label> <label><input type="radio"
+                                        name="choix">non</label> <label><input type="radio" name="choix">je ne sais
+                                    pas</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code>range</code></td>
+                            <td>Curseur de valeur</td>
+                            <td>min, max, step</td>
+                            <td><input type="range"></td>
+                        </tr>
+                    </tbody>
+                </table>
 
-            <form>
-                <input type="radio" id="homme" name="sexe" value="homme">
-                <label for="homme">Homme</label><br>
-                <input type="radio" id="femme" name="sexe" value="femme">
-                <label for="femme">Femme</label>
-            </form>
+                <!-- Exemples détaillés avec code -->
+                <h3>3.2 Exemples détaillés</h3>
 
-            <pre><code>&lt;form&gt;
+                <div class="exemples">
+                    <h4>3.2.1 - Boutons radio </h4>
+                    <p>Les boutons radio doivent avoir le même nom pour fonctionner en groupe : on ne peut choisir
+                        qu'une
+                        option!</p>
+
+                    <form>
+                        <input type="radio" id="homme" name="sexe" value="homme">
+                        <label for="homme">Homme</label><br>
+                        <input type="radio" id="femme" name="sexe" value="femme">
+                        <label for="femme">Femme</label>
+                    </form>
+
+                    <pre><code>&lt;form&gt;
         &lt;input type="radio" id="homme" name="sexe" value="homme"&gt;
         &lt;label for="homme"&gt;Homme&lt;/label&gt;
 
@@ -318,44 +330,44 @@
         &lt;label for="femme"&gt;Femme&lt;/label&gt;<br>&lt;/form&gt;
     </code></pre>
 
-            <p>Pourquoi on dit "avec étiquette" ? Parce qu'ici, si vous ne cliquez pas sur le bouton mais sur "homme" ou
-                "femme" le bouton est aussi sélectionné. C'est l'étiquette (grâce au <strong>label</strong>).
-                Dans les input, Un nom est associé au composant pour pouvoir récupérer les données saisies côté serveur.
-                <br>l'attribut <strong> name</strong> qui permet d'identifier chaque champ de saisies dans les
-                paramètres qui sont envoyés au
-                serveur,
-                <br>l'attribut <strong> value</strong> qui définit la valeur par défaut affichée au chargement de la
-                page Web ; de plus, la
-                valeur de cet attribut peut être utilisée en JavaScript ou côté serveur.
-            </p>
-        </div>
+                    <p>Pourquoi on dit "avec étiquette" ? Parce qu'ici, si vous ne cliquez pas sur le bouton mais sur
+                        "homme" ou
+                        "femme" le bouton est aussi sélectionné. C'est l'étiquette (grâce au <strong>label</strong>).
+                        Dans les input, Un nom est associé au composant pour pouvoir récupérer les données saisies côté
+                        serveur.
+                        <br>l'attribut <strong> name</strong> qui permet d'identifier chaque champ de saisies dans les
+                        paramètres qui sont envoyés au
+                        serveur,
+                        <br>l'attribut <strong> value</strong> qui définit la valeur par défaut affichée au chargement
+                        de la
+                        page Web ; de plus, la
+                        valeur de cet attribut peut être utilisée en JavaScript ou côté serveur.
+                    </p>
+                </div>
+                <div class="exemples">
+                    <h4> 3.2.2 Case à cocher</h4>
+                    <p> C'est un type d'élément de formulaire utilisé pour afficher une case à cocher.
+                        Cet élément permet à l'utilisateur de sélectionner une ou plusieurs options parmi un ensemble de
+                        choix. </p>
+                    <pre>&lt;input type="checkbox" id="<em>identifiant</em>" name="<em>nom</em>"&gt;</pre>
+                    <label>participera à la réunion</label> <input type="checkbox" id="id8">
 
-        <div class="exemples">
-            <h4>3.2.2 - Bouton Poussoir &lt;input type="submit" value="blabla"&gt; <br> ou &lt;button type="submit"&gt;
-                blabla &lt;/button&gt;</h4>
-            <p>Créer des boutons interactifs sur une page web. (Les boutons sont souvent utilisés avec des scripts
-                JavaScript - on verra ça plus tard !)</p>
-            <input type="submit" value="Cliquez-moi" id="boutton_pousse" onclick="afficherMessage()" />
-            <p id="message"></p>
-            <pre><code>&lt;input type="submit" value="Cliquez-moi" id="boutton_pousse" onclick="afficherMessage()" /&gt;</code></pre>
-            <p>Attention, ici il y a une référence à du javascript, retenez surtout le début du code. Vous pouvez faire
-                apparaître un boutton, sans la dernière instruction... c'est juste qu'il ne se passera rien ! </p>
-        </div>
+                </div>
 
-        <div class="exemples">
-            <h4>3.2.3 - Liste déroulante &lt;select&gt;</h4>
-            <p>Pour proposer un choix parmi plusieurs options :</p>
+                <div class="exemples">
+                    <h4>3.2.3 - Liste déroulante</h4>
+                    <p>Pour proposer un choix parmi plusieurs options :</p>
 
-            <select>
-                <option value="question">Vous êtes...</option>
-                <option value="tres_satisfait">très satisfait</option>
-                <option value="satisfait">satisfait</option>
-                <option value="decu">déçu</option>
-                <option value="tres_decu">très décu</option>
-                <option value="autre">ne se prononce pas</option>
-            </select>
+                    <select>
+                        <option value="question">Vous êtes...</option>
+                        <option value="tres_satisfait">très satisfait</option>
+                        <option value="satisfait">satisfait</option>
+                        <option value="decu">déçu</option>
+                        <option value="tres_decu">très décu</option>
+                        <option value="autre">ne se prononce pas</option>
+                    </select>
 
-            <pre><code>&lt;select&gt;
+                    <pre><code>&lt;select&gt;
     &lt;option value="question"&gt;Vous êtes...&lt;/option&gt;
     &lt;option value="tres_satisfait"&gt;très satisfait&lt;/option&gt;
     &lt;option value="satisfait"&gt;satisfait&lt;/option&gt;
@@ -364,136 +376,179 @@
     &lt;option value="autre"&gt;ne se prononce pas&lt;/option&gt;
 &lt;/select&gt;</code></pre>
 
-        </div>
-    </section>
+                </div>
+                <div class="exemples">
+                    <h4> 3.2.4 - Zone de saisie de texte</h4>
+                    <p> Il est utlisé pour créer un champ de saisie permettant à l'utilisateur d'entrer du texte sur
+                        une
+                        seule ligne. </p>
+                    <pre>&lt;input type="text" size="<em>nbCaractères</em>" id="<em>identifiant</em>" name="<em>nom</em>" placeholder="<em>texteDAide</em>"/&gt;</pre>
+                    <input type="text" size="15" placeholder="texte à saisir">
 
-    <!------------------------->
-    <!-- 4. Bonnes pratiques -->
-    <!------------------------->
-    <section id="bonnes-pratiques">
-        <h2>4. Bonnes pratiques et accessibilité</h2>
+                    <p>Le placeholder dans un champ input HTML sert à afficher un texte indicatif à l’intérieur du
+                        champ
+                        avant que l’utilisateur ne saisisse quoi que ce soit.
+                    </p>
+                </div>
+                <div class="exemples">
+                    <h4> 3.2.5 Bouton Poussoir </h4>
+                    <p>Créer des boutons interactifs sur une page web. (Les boutons sont souvent utilisés avec des
+                        scripts
+                        JavaScript - on verra ça plus tard !)</p>
+                    <input type="submit" value="Cliquez-moi" id="boutton_pousse" onclick="afficherMessage()" />
+                    <p id="message"></p>
+                    <pre><code>&lt;input type="submit" value="Cliquez-moi" id="boutton_pousse" onclick="afficherMessage()" /&gt;</code></pre>
+                    <p>Attention, ici il y a une référence à du javascript, retenez surtout le début du code. Vous
+                        pouvez faire
+                        apparaître un boutton, sans la dernière instruction... c'est juste qu'il ne se passera rien
+                        !
+                    </p>
+                </div>
 
-        <div class="presentation">
-            <h3>4.1 Accessibilité</h3>
-            <div class="exemple">
-                <label for="nom-complet">Nom complet :</label>
-                <input type="text" id="nom-complet" name="nom_complet" aria-describedby="aide-nom" required>
-                <small id="aide-nom">Saisissez votre nom tel qu'il apparaît sur vos documents officiels</small>
-            </div>
 
-            <pre><code>&lt;label for="nom-complet"&gt;Nom complet :&lt;/label&gt;
+
+            </section>
+
+            <!------------------------->
+            <!-- 4. Bonnes pratiques -->
+            <!------------------------->
+            <section id="bonnes-pratiques">
+                <h2>4. Bonnes pratiques et accessibilité</h2>
+
+                <div class="presentation">
+                    <h3>4.1 Accessibilité</h3>
+                    <div class="exemple">
+                        <label for="nom-complet">Nom complet :</label>
+                        <input type="text" id="nom-complet" name="nom_complet" aria-describedby="aide-nom" required>
+                        <small id="aide-nom">Saisissez votre nom tel qu'il apparaît sur vos documents officiels</small>
+                    </div>
+
+                    <pre><code>&lt;label for="nom-complet"&gt;Nom complet :&lt;/label&gt;
 &lt;input type="text" id="nom-complet" name="nom_complet" 
        aria-describedby="aide-nom" required&gt;
 &lt;small id="aide-nom"&gt;Saisissez votre nom tel qu'il apparaît...&lt;/small&gt;</code></pre>
 
-            <ul>
-                <li>Associez chaque champ à son label avec l'attribut <code>for</code>. Ici, en cliquant sur "Nom
-                    complet :", un curseur d'écriture apparaît dans la zone de texte. C'est grâce à la balise
-                    <code>&lt;label&gt;</code> qui associe la zone de texte et "Nom complet" par l'identifiant
-                    "nom-complet".
-                </li>
-                <li>Utilisez <code>aria-</code> (ensemble de normes destinées à rendre les pages web accessibles aux
-                    personnes handicapées. Pour en savoir plus, voir <a
-                        href="https://www.w3.org/WAI/standards-guidelines/aria/">ici</a>). Dans notre cas,
-                    <code>aria-describedby</code> permet d'associer une description de ce qu'il faut faire (utile par
-                    exemple pour les malvoyants qui utilisent des logiciels adaptés pour naviguer sur le net).
-                </li>
-                <li>Assurez un contraste suffisant pour la lisibilité (avec le fichier <code>style.css</code>)</li>
-                <li>Organisez les champs logiquement avec <code>tabindex</code>. Si vous avez plusieurs champs, vous
-                    pouvez sauter de l'un à l'autre en utilisant la touche TAB. La fonctionnalité <code>tabindex</code>
-                    permet de choisir l'ordre des zones de texte.</li>
-                <li>Fournissez des messages d'erreur clairs (on verra ça plus tard)</li>
-            </ul>
+                    <ul>
+                        <li>Associez chaque champ à son label avec l'attribut <code>for</code>. Ici, en cliquant sur
+                            "Nom
+                            complet :", un curseur d'écriture apparaît dans la zone de texte. C'est grâce à la balise
+                            <code>&lt;label&gt;</code> qui associe la zone de texte et "Nom complet" par l'identifiant
+                            "nom-complet".
+                        </li>
+                        <li>Utilisez <code>aria-</code> (ensemble de normes destinées à rendre les pages web accessibles
+                            aux
+                            personnes handicapées. Pour en savoir plus, voir <a
+                                href="https://www.w3.org/WAI/standards-guidelines/aria/">ici</a>). Dans notre cas,
+                            <code>aria-describedby</code> permet d'associer une description de ce qu'il faut faire
+                            (utile par
+                            exemple pour les malvoyants qui utilisent des logiciels adaptés pour naviguer sur le net).
+                        </li>
+                        <li>Assurez un contraste suffisant pour la lisibilité (avec le fichier <code>style.css</code>)
+                        </li>
+                        <li>Organisez les champs logiquement avec <code>tabindex</code>. Si vous avez plusieurs champs,
+                            vous
+                            pouvez sauter de l'un à l'autre en utilisant la touche TAB. La fonctionnalité
+                            <code>tabindex</code>
+                            permet de choisir l'ordre des zones de texte.
+                        </li>
+                        <li>Fournissez des messages d'erreur clairs (on verra ça plus tard)</li>
+                    </ul>
 
-        </div>
+                </div>
 
-        <div class="presentation">
-            <h3>4.2 Validation côté client</h3>
-            <p>Utilisez les attributs de validation HTML5 : (testez d'écrire n'importe quoi pour l'adresse email et
-                comparez avec le point 2.1.)</p>
+                <div class="presentation">
+                    <h3>4.2 Validation côté client</h3>
+                    <p>Utilisez les attributs de validation HTML5 : (testez d'écrire n'importe quoi pour l'adresse email
+                        et
+                        comparez avec le point 2.1.)</p>
 
-            <form>
-                <label for="age">Âge :</label>
-                <input type="number" id="age" min="18" max="120" required><br>
-                <label for="email-valide">Email valide :</label>
-                <input type="email" id="email-valide" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
+                    <form>
+                        <label for="age">Âge :</label>
+                        <input type="number" id="age" min="18" max="120" required><br>
+                        <label for="email-valide">Email valide :</label>
+                        <input type="email" id="email-valide" required
+                            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
 
-                <button type="submit">Valider</button>
-            </form>
+                        <button type="submit">Valider</button>
+                    </form>
 
 
-            <pre><code>&lt;input type="number" min="18" max="120" required&gt;
+                    <pre><code>&lt;input type="number" min="18" max="120" required&gt;
 &lt;input type="email" required
     pattern="[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$"&gt;</code></pre>
 
-            <p>Ici, on impose que l'adresse email soit écrit en trois parties,
-            <ul>
-                <li>Une première partie ou il peut y avoir toutes les lettes, tous les chiffres et les caractères ".",
-                    "_" et "-" <code>[a-z0-9._-]</code>
-                <li>une deuxième partie = le site d''hébergement (comme gmail) avec @ et toutes les lettres, tous les
-                    chiffres et les caractères "." et "-" <code>+@[a-z0-9.-]</code>
-                <li>enfin, le domaine, après un point (noté \.), qui doit contenir au moins deux lettres
-                    <code>+\.[a-z]{2,}$</code>. Le signe <code>$</code> indique qu'il ne doit rien y avoir ensuite.
-            </ul>
-        </div>
-    </section>
+                    <p>Ici, on impose que l'adresse email soit écrit en trois parties,
+                    <ul>
+                        <li>Une première partie ou il peut y avoir toutes les lettes, tous les chiffres et les
+                            caractères ".",
+                            "_" et "-" <code>[a-z0-9._-]</code>
+                        <li>une deuxième partie = le site d''hébergement (comme gmail) avec @ et toutes les lettres,
+                            tous les
+                            chiffres et les caractères "." et "-" <code>+@[a-z0-9.-]</code>
+                        <li>enfin, le domaine, après un point (noté \.), qui doit contenir au moins deux lettres
+                            <code>+\.[a-z]{2,}$</code>. Le signe <code>$</code> indique qu'il ne doit rien y avoir
+                            ensuite.
+                    </ul>
+                </div>
+            </section>
 
-    <!------------------>
-    <!-- 5. Exercices -->
-    <!------------------>
-    <section id="exercices">
-        <h2>5. Exercices pratiques</h2>
+            <!------------------>
+            <!-- 5. Exercices -->
+            <!------------------>
+            <section id="exercices">
+                <h2>5. Exercices pratiques</h2>
 
-        <div class="exercice">
-            <h3>Exercice 1 : Formulaire d'inscription</h3>
+                <div class="exercice">
+                    <h3>Exercice 1 : Formulaire d'inscription</h3>
 
-            On veut réaliser le formulaire suivant,
-            <form method="post" action="/inscription.php">
-                <label for="nom">Nom:</label>
-                <input type="text" name="nom" id="nom" placeholder="Votre nom" required><br>
-                <label for="prenom">Prénom:</label>
-                <input type="text" name="prenom" id="prenom" placeholder="Votre prenom" required><br>
-                <label for="date_naissance">Date de naissance:</label><input type="date" name="date_naissance"
-                    id="date_naissance" required><br>
-                <label for="email">Email :</label>
-                <input type="email" name="email" id="email" placeholder="Votre email" required><br>
-                <label for="tel">Téléphone :</label>
-                <input type="tel" name="tel" id="tel" placeholder="06 ** ** ** **"><br>
-                <label for="adresse">Adresse :</label>
-                <input type="text" name="adresse" id="adresse" placeholder="Votre adresse"><br>
-                <label for="pays">Pays :</label>
-                <select name="pays" id="pays">
-                    <option value="pays">Sélectionnez votre pays</option>
-                    <option value="france">France</option>
-                    <option value="belgique">Belgique</option>
-                    <option value="suisse">Suisse</option>
-                </select><br>
-                Centres d'intérêt :
-                <label><input type="checkbox" name="interets" value="sport"> Sport</label>
-                <label><input type="checkbox" name="interets" value="musique"> Musique</label>
-                <label><input type="checkbox" name="interets" value="voyage"> Voyage</label>
-                <input type="submit" value="Envoyer">
-            </form>
+                    On veut réaliser le formulaire suivant,
+                    <form method="post" action="/inscription.php">
+                        <label for="nom">Nom:</label>
+                        <input type="text" name="nom" id="nom" placeholder="Votre nom" required><br>
+                        <label for="prenom">Prénom:</label>
+                        <input type="text" name="prenom" id="prenom" placeholder="Votre prenom" required><br>
+                        <label for="date_naissance">Date de naissance:</label><input type="date" name="date_naissance"
+                            id="date_naissance" required><br>
+                        <label for="email">Email :</label>
+                        <input type="email" name="email" id="email" placeholder="Votre email" required><br>
+                        <label for="tel">Téléphone :</label>
+                        <input type="tel" name="tel" id="tel" placeholder="06 ** ** ** **"><br>
+                        <label for="adresse">Adresse :</label>
+                        <input type="text" name="adresse" id="adresse" placeholder="Votre adresse"><br>
+                        <label for="pays">Pays :</label>
+                        <select name="pays" id="pays">
+                            <option value="pays">Sélectionnez votre pays</option>
+                            <option value="france">France</option>
+                            <option value="belgique">Belgique</option>
+                            <option value="suisse">Suisse</option>
+                        </select><br>
+                        Centres d'intérêt :
+                        <label><input type="checkbox" name="interets" value="sport"> Sport</label>
+                        <label><input type="checkbox" name="interets" value="musique"> Musique</label>
+                        <label><input type="checkbox" name="interets" value="voyage"> Voyage</label>
+                        <input type="submit" value="Envoyer">
+                    </form>
 
 
-            <div class="etape">
-                <h5>Étape 1 : Structure de base</h5>
-                <p>Créez la balise &lt;form&gt; avec method="post", envoyant le formulaire au fichier "inscription.php"
-                </p>
-                <button class="btn-reponse" onclick="cachereponse('reponse-etape1')">Voir la réponse</button>
-                <div id="reponse-etape1" class="reponse">
-                    <code>&lt;form method="post" action="/inscription.php"&gt; <br><br>
+                    <div class="etape">
+                        <h5>Étape 1 : Structure de base</h5>
+                        <p>Créez la balise &lt;form&gt; avec method="post", envoyant le formulaire au fichier
+                            "inscription.php"
+                        </p>
+                        <button class="btn-reponse" onclick="cachereponse('reponse-etape1')">Voir la réponse</button>
+                        <div id="reponse-etape1" class="reponse">
+                            <code>&lt;form method="post" action="/inscription.php"&gt; <br><br>
                 &lt; type="submit" value="Envoyer"&gt;<br>
                 &lt;/form&gt;</code>
-                </div>
-            </div>
+                        </div>
+                    </div>
 
-            <div class="etape">
-                <h5>Étape 2 : Informations personnelles</h5>
-                <p>Ajoutez les champs : nom, prénom, date de naissance</p>
-                <button class="btn-reponse" onclick="cachereponse('reponse-etape2')">Voir la réponse</button>
-                <div id="reponse-etape2" class="reponse">
-                    <code>&lt;form method="post" action="/inscription.php"&gt;<br><br>
+                    <div class="etape">
+                        <h5>Étape 2 : Informations personnelles</h5>
+                        <p>Ajoutez les champs : nom, prénom, date de naissance</p>
+                        <button class="btn-reponse" onclick="cachereponse('reponse-etape2')">Voir la réponse</button>
+                        <div id="reponse-etape2" class="reponse">
+                            <code>&lt;form method="post" action="/inscription.php"&gt;<br><br>
                 &lt;label for="nom"&gt;Nom:&lt;/label&gt;<br>
                 &lt;input type="text" name="nom" id="nom" placeholder="Votre nom" required&gt;&lt;br&gt;<br><br>
                 &lt;label for="prenom"&gt;Prénom:&lt;/label&gt;<br>
@@ -502,16 +557,16 @@
                 &lt;input type="date" name="date_naissance" id="date_naissance" required&gt;<br><br>
                 &lt; type="submit" value="Envoyer"&gt;<br>
                 &lt;/form&gt;</code>
-                </div>
-            </div>
+                        </div>
+                    </div>
 
 
-            <div class="etape">
-                <h5>Étape 3 : Coordonnées</h5>
-                <p>Ajoutez les champs : email, téléphone, adresse</p>
-                <button class="btn-reponse" onclick="cachereponse('reponse-etape3')">Voir la réponse</button>
-                <div id="reponse-etape3" class="reponse">
-                    <code>&lt;form method="post" action="/inscription.php"&gt;<br><br>
+                    <div class="etape">
+                        <h5>Étape 3 : Coordonnées</h5>
+                        <p>Ajoutez les champs : email, téléphone, adresse</p>
+                        <button class="btn-reponse" onclick="cachereponse('reponse-etape3')">Voir la réponse</button>
+                        <div id="reponse-etape3" class="reponse">
+                            <code>&lt;form method="post" action="/inscription.php"&gt;<br><br>
                 &lt;label for="nom"&gt;Nom:&lt;/label&gt;<br>
                 &lt;input type="text" name="nom" id="nom" placeholder="Votre nom" required&gt;&lt;br&gt;<br>
                 &lt;label for="prenom"&gt;Prénom:&lt;/label&gt;<br>
@@ -527,16 +582,19 @@
                 &lt; type="submit" value="Envoyer"&gt;<br>
                 &lt;/form&gt;
             </code>
-                </div>
-            </div>
+                        </div>
+                    </div>
 
 
-            <div class="etape">
-                <h5>Étape 4 : Options</h5>
-                <p>Ajoutez une liste déroulante pour le pays et des cases à cocher pour les centres d'intérêt.</p>
-                <button class="btn-reponse" onclick="cachereponse('reponse-etape4')">Voir la réponse</button>
-                <div id="reponse-etape4" class="reponse">
-                    <code>&lt;form method="post" action="/inscription.php"&gt;<br><br>
+                    <div class="etape">
+                        <h5>Étape 4 : Options</h5>
+                        <p>Ajoutez une liste déroulante pour le pays et des cases à cocher pour les centres d'intérêt.
+
+                        <p> <button class="btn-reponse" onclick="cachereponse('reponse-etape4')">Voir la
+                                réponse</button>
+
+                        <div id="reponse-etape4" class="reponse">
+                            <code>&lt;form method="post" action="/inscription.php"&gt;<br><br>
                 &lt;label for="nom"&gt;Nom:&lt;/label&gt;<br>
                 &lt;input type="text" name="nom" id="nom" placeholder="Votre nom" required&gt;&lt;br&gt;<br>
                 &lt;label for="prenom"&gt;Prénom:&lt;/label&gt;<br>
@@ -562,67 +620,68 @@
                 &lt; type="submit" value="Envoyer"&gt;<br>
                 &lt;/form&gt;
             </code>
+                        </div>
+                    </div>
+                    <div class="etape">
+                        <h5>Etape 5 (facultatif): Appliquer les règles de bonnes pratiques et d'accessibilité</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="etape">
-                <h5>Etape 5 (facultatif): Appliquer les règles de bonnes pratiques et d'accessibilité</h5>
-            </div>
-        </div>
 
-        <div class="exercice">
-            <h3> <a href="exercices_formulaires.html">Plus d'exercices</a></h3>
-        </div>
+                <div class="exercice">
+                    <h4>Exercices d'entrainement</h4>
+                    <h3> <a href="exercices_formulaires.html" target="_blank" class="btn-reponse">Accéder aux
+                            exercices</a></h3>
+                </div>
 
-    </section>
+            </section>
 
-    <!---------------------------------------------------------------------------------->
-    <!-- Un peu de javascript pour rendre la page plus dynamique avec la méthode get, -->
-    <!-- pour les réponses cachées et pour un effet sur le premier bouton             -->
-    <!---------------------------------------------------------------------------------->
-    <script>
-        // 1) Fonction pour afficher l'URL GET
-        // 1. Sélection du formulaire
-        const FormulaireDeDemonstration = document.getElementById('demo-get');
+            <!---------------------------------------------------------------------------------->
+            <!-- Un peu de javascript pour rendre la page plus dynamique avec la méthode get, -->
+            <!-- pour les réponses cachées et pour un effet sur le premier bouton             -->
+            <!---------------------------------------------------------------------------------->
+            <script>
+                // 1) Fonction pour afficher l'URL GET
+                // 1. Sélection du formulaire
+                const FormulaireDeDemonstration = document.getElementById('demo-get');
 
-        // 2. Écouteur d'événement pour la soumission
-        FormulaireDeDemonstration.addEventListener('submit', function (evenement) {
+                // 2. Écouteur d'événement pour la soumission
+                FormulaireDeDemonstration.addEventListener('submit', function (evenement) {
 
-            // 3. Empêcher l'envoi normal au serveur
-            evenement.preventDefault();
+                    // 3. Empêcher l'envoi normal au serveur
+                    evenement.preventDefault();
 
-            // 4. Récupérer les données du formulaire
-            const Donnees_formulaire = new FormData(FormulaireDeDemonstration);
+                    // 4. Récupérer les données du formulaire
+                    const Donnees_formulaire = new FormData(FormulaireDeDemonstration);
 
-            // 5. Convertir en paramètres d'URL
-            const parametres = new URLSearchParams(Donnees_formulaire);
+                    // 5. Convertir en paramètres d'URL
+                    const parametres = new URLSearchParams(Donnees_formulaire);
 
-            // 6. Afficher le résultat
-            document.getElementById('url-resultat').textContent = 'site.com?' + parametres.toString();
+                    // 6. Afficher le résultat
+                    document.getElementById('url-resultat').textContent = 'site.com?' + parametres.toString();
 
-        }); // Fin de la fonction et de l'écouteur
+                }); // Fin de la fonction et de l'écouteur
 
-        // 2) Fonction pour afficher/masquer les réponses
-        function cachereponse(id) {
-            // 1. Sélectionner l'élément
-            const reponse = document.getElementById(id);
-            // 2. Vérifier son état actuel
-            if (reponse.style.display === 'block') {
-                // 3. S'il est affiché, on le cache
-                reponse.style.display = 'none';
-            } else {
-                // 4. S'il est caché, on l'affiche
-                reponse.style.display = 'block';
-            }
-        }
+                // 2) Fonction pour afficher/masquer les réponses
+                function cachereponse(id) {
+                    // 1. Sélectionner l'élément
+                    const reponse = document.getElementById(id);
+                    // 2. Vérifier son état actuel
+                    if (reponse.style.display === 'block') {
+                        // 3. S'il est affiché, on le cache
+                        reponse.style.display = 'none';
+                    } else {
+                        // 4. S'il est caché, on l'affiche
+                        reponse.style.display = 'block';
+                    }
+                }
 
-        // 3) Fonction pour faire apparaître un message avec le bouton poussoir
-        function afficherMessage() {
-            document.getElementById("message").textContent = "Vous avez cliqué !";
-        }
-    </script>
+                // 3) Fonction pour faire apparaître un message avec le bouton poussoir
+                function afficherMessage() {
+                    document.getElementById("message").textContent = "Vous avez cliqué !";
+                }
+            </script>
     </div>
 </body>
 
 
 </html>
-
