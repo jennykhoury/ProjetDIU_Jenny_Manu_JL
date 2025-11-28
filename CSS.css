@@ -4,47 +4,29 @@
 
 
 
-body {
-    /* Pour l'ensemble du document */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Segoe UI pour Edge, les autres sont des alternatives, sans-serif = dernière option de police */
-    line-height: 1.2;
-    /* Espace entre les lignes de texte */
-    padding: 10px;
-    /* marge intérieure avec le bord de la fenêtre */
-    background: linear-gradient(135deg, #8fa0eb 0%, #f2eff5 100%);
-    /* dégradé diagonal (135°) avec les deux couleurs en hexadécimal -> trouvées avec Dessin sur Linux - Pour le fond derrière la page */
-    color: #2c3e50;
-    /* bleu foncé - couleur par défaut du texte */
+body { /* Pour l'ensemble du document */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Segoe UI pour Edge, les autres sont des alternatives, sans-serif = dernière option de police */
+    line-height: 1.2; /* Espace entre les lignes de texte */
+    padding: 10px;  /* marge intérieure avec le bord de la fenêtre */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* dégradé diagonal (135°) avec les deux couleurs en hexadécimal -> trouvées avec Dessin sur Linux - Pour le fond derrière la page */
+    color: #2c3e50; /* bleu foncé - couleur par défaut du texte */
 }
 
 .conteneur {
-    max-width: 1200px;
-    /* largeur max, évite de diluer le texte sur les grands écrans */
-    margin: 0 auto;
-    /* 0 = pas de marge verticale / auto = les marges gauches et droites s'ajustent automatiquement pour centrer horizontalement */
-    background: white;
-    /* couleur de fond du document - contraste avec l'arrière plan du body */
-    padding: 20px;
-    /* bords autour du texte - pour éviter que le texte touche le bord */
-    border-radius: 15px;
-    /* Pour arrondir les angles */
+    max-width: 1200px; /* largeur max, évite de diluer le texte sur les grands écrans */
+    margin: 0 auto; /* 0 = pas de marge verticale / auto = les marges gauches et droites s'ajustent automatiquement pour centrer horizontalement */
+    background: white; /* couleur de fond du document - contraste avec l'arrière plan du body */
+    padding: 20px; /* bords autour du texte - pour éviter que le texte touche le bord */
+    border-radius: 15px; /* Pour arrondir les angles */
 }
 
 .presentation {
-    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-    /* dégradé de couleurs clair */
-    color: #2c3e50;
-    font-weight: 500;
-    /* couleur texte par défaut */
-    padding: 25px;
-    /* marges intérieures */
-    border-radius: 12px;
-    /* angles */
-    margin-bottom: 40px;
-    /* marge extérieure en bas */
-    box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.30);
-    /* Ombre portée décalée 8 et 8 gauche et bas, 5px = "douceur" 30 = opacité */
+    background: linear-gradient(135deg, #5B98D5 0%, #AFCAE5 100%); /* dégradé de couleurs */
+    /*color: white; /* couleur texte par défaut */
+    padding: 25px; /* marges intérieures */
+    border-radius: 12px; /* angles */
+    margin-bottom: 40px; /* marge extérieure en bas */
+    box-shadow: 8px 8px 5px rgba(0,0,0,0.30); /* Ombre portée décalée 8 et 8 gauche et bas, 5px = "douceur" 30 = opacité */
 }
 
 
@@ -54,55 +36,93 @@ body {
     border-radius: 12px;
     padding: 30px;
     margin: 35px 0;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
 .exemples {
-    margin-bottom: 20px;
-    padding: 15px;
-    border-left: 6px solid #4caf50;
-    /* vert */
-    background: white;
-    border-radius: 0 15px 15px 0;
-    /* arrondi en haut et en bas à droite */
-    box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.30);
+  margin-bottom: 20px;
+  padding: 15px;
+  border-left: 6px solid #4caf50; /* vert */
+  background: white;
+  border-radius: 0 15px 15px 0; /* arrondi en haut et en bas à droite */
+  box-shadow: 8px 8px 5px rgba(0,0,0,0.30);
 }
+
+
+/* Navigation dans la page */
+.sommaire {
+  background: linear-gradient(135deg, #74b9ff 0%, #732FE1 100%); /* dégradé de couleurs */
+  color: white; /* couleur texte par défaut */
+  padding: 25px; /* marges intérieures */
+  border-radius: 12px; /* angles */
+  margin-bottom: 40px; /* marge extérieure en bas */
+  box-shadow: 8px 8px 5px rgba(0,0,0,0.30); /* Ombre portée décalée 8 et 8 gauche et bas, 5px = "douceur" 30 = opacité */
+}
+
+.sommaire h3 {
+  margin-top: 0;
+  color: white;
+  font-size: 1.5em;
+}
+
+.sommaire ul {
+  columns: 2;
+  padding-left: 25px;
+  font-size: 1.1em;
+}
+
+.sommaire a {
+  color: white;
+  text-decoration: none; /* Pour supprimer le soulignement des liens hypertexte */
+  font-weight: 500;
+  transition: all 0.3s ease; /* rend toutes les transitions plus douces, voir plus bas */
+  display: block; /* tansforme tout <a> blabla </a> en type block
+                    = commence à la ligne et prend toute la largeur dispo */
+  padding: /* vertical */ 5px /* horizontal */ 0; /* marges internes = élargit un peu en verticale */
+}
+
+.sommaire a:hover {
+  text-decoration: underline;
+  transform: translateX(5px);
+}
+
 
 /* Cacher le div par défaut */
 #progression {
-    display: none;
+            display: none;
 }
 
 .reponse {
-    display: none;
+  margin-top: 20px;
+  padding: 20px;
+  background: #fff3cd;
+  border-radius: 8px;
+  border-left: 4px solid #ffd43b;
+  display: none;
+  font-family: 'Courier New', monospace;
+  font-size: 1.1em;
 }
 
-
-
 .etape {
-    margin-bottom: 30px;
-    padding: 25px;
-    border-left: 6px solid #4caf50;
-    background: white;
-    border-radius: 0 10px 10px 0;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  padding: 25px;
+  border-left: 6px solid #4caf50;
+  background: white;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 .ligne-liste {
-    list-style-type: decimal;
-    /* Affiche les numéros de ligne */
-    padding-left: 50px;
-    /* Indente la liste */
+    list-style-type: decimal; /* Affiche les numéros de ligne */
+    padding-left: 50px; /* Indente la liste */
 }
 
 .ligne-liste li {
-    margin-bottom: 0px;
-    /* Espace entre les lignes */
+    margin-bottom: 0px; /* Espace entre les lignes */
 }
 
 .ligne-liste li::marker {
-    font-weight: bold;
-    /* Met les numéros de ligne en gras */
+    font-weight: bold; /* Met les numéros de ligne en gras */
 }
 
 
@@ -110,15 +130,12 @@ body {
 /* titres généraux */
 /*-----------------*/
 
-h1 {
-    /* Juste pour le titre de la page */
-    color: #2c3e50;
-    /* bleu foncé*/
+h1 { /* Juste pour le titre de la page */
+    color: #2c3e50;/* bleu foncé*/
     text-align: center;
     margin-bottom: 40px;
     padding-bottom: 20px;
-    border-bottom: 4px solid #3498db;
-    /* Ajoute une bordure dessous = épaisseur / pleine / couleur */
+    border-bottom: 4px solid #3498db; /* Ajoute une bordure dessous = épaisseur / pleine / couleur */
     font-size: 2.5em;
 }
 
@@ -126,8 +143,7 @@ h2 {
     color: #2980b9;
     margin-top: 50px;
     padding-bottom: 15px;
-    border-bottom: 3px solid #ecf0f1;
-    /* Ajoute une bordure dessous = épaisseur / pleine / couleur */
+    border-bottom: 3px solid #ecf0f1; /* Ajoute une bordure dessous = épaisseur / pleine / couleur */
     font-size: 1.8em;
 }
 
@@ -139,7 +155,7 @@ h3 {
 
 h4 {
     margin-top: 40px;
-    color: #2980b9;
+    color: #0F68A3;
     font-size: 1.2em;
 }
 
@@ -148,27 +164,22 @@ h4 {
 /*------------------------------------------------------------*/
 
 .presentation h3 {
-    color: #2980b9;
+    color: #ffffff;
     margin-top: 10px;
     font-size: 1.5em;
 }
 
 .presentation ul {
+    columns: 2;
     padding-left: 25px;
     font-size: 1.1em;
 }
 
 .presentation a {
-    color: #2980b9;
-    text-decoration: none;
-    /* Pour supprimer le soulignement des liens hypertexte */
+    color: white;
+    text-decoration: none; /* Pour supprimer le soulignement des liens hypertexte */
     font-weight: 500;
-    padding:
-        /* vertical */
-        5px
-        /* horizontal */
-        0;
-    /* marges internes = élargit un peu en verticale */
+    padding: vertical  5px  horizontal  0; /* marges internes = élargit un peu en verticale */
 }
 
 
@@ -179,32 +190,24 @@ h4 {
 .url {
     margin-top: 20px;
     padding: 20px;
-    background: #2d3436;
-    /* gris foncé classe fait genre "code" */
-    color: #ffffff;
-    /* blanc */
+    background: #2d3436; /* gris foncé classe fait genre "code" */
+    color: #ffffff; /* blanc */
     border-radius: 15px;
-    font-family: 'Courier New', monospace;
-    /* police style pour l'écriture url, sinon, utilise une police monospace = même place pour chaque caractère */
+    font-family: 'Courier New', monospace; /* police style pour l'écriture url, sinon, utilise une police monospace = même place pour chaque caractère */
     font-size: 1.1em;
     line-height: 1.5;
-    word-break: break-all;
-    /* pour casser la ligne de texte si elle est trop longue */
+    word-break: break-all; /* pour casser la ligne de texte si elle est trop longue */
 }
 
 .url strong {
-    color: #ffffff;
-    /* jaune doré comme le bord */
-    font-size: 1.1em;
-    /* un peu plus gros */
-    display: block;
-    /* pratique, pas besoin de saut à la ligne, tout automatique. A supprimer si on veut mettre à la suite sur la même ligne */
+    color: #ffffff; /* jaune doré comme le bord */
+    font-size: 1.1em; /* un peu plus gros */
+    display: block; /* pratique, pas besoin de saut à la ligne, tout automatique. A supprimer si on veut mettre à la suite sur la même ligne */
     margin-bottom: 10px;
 }
 
 .url code {
-    background: transparent;
-    /* pour avoir le même fond que url  */
+    background: transparent; /* pour avoir le même fond que url  */
     color: #ffffff;
     padding: 5px;
     font-weight: bold;
@@ -230,22 +233,17 @@ h4 {
 /*------------*/
 
 .grilleCSS {
-    display: grid;
-    /* Organise les éléments sur une gille CSS = placement dynamique des éléments qui s'adapte à la taille de la page */
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    /* créer autant de colonnes que possible pour remplir l'espace disponible, taille min = 300px, taille max = la page */
-    gap: 20px;
-    /* distance entre les colonnes et les lignes */
+    display: grid; /* Organise les éléments sur une gille CSS = placement dynamique des éléments qui s'adapte à la taille de la page */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* créer autant de colonnes que possible pour remplir l'espace disponible, taille min = 300px, taille max = la page */
+  gap: 20px; /* distance entre les colonnes et les lignes */
 }
 
 .element_grilleCSS {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255,255,255,0.15);
     padding: 25px;
     border-radius: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    /* ajoute une bordure d'épaisseur 2px, blanc transparent */
-    transition: transform 0.4s ease;
-    /* rend toute animation douce (ease) qui dure 0,3 seconde = fun >_<
+    border: 2px solid rgba(255,255,255,0.2); /* ajoute une bordure d'épaisseur 2px, blanc transparent */
+    transition: transform 0.4s ease; /* rend toute animation douce (ease) qui dure 0,3 seconde = fun >_<
                                     ici, ça marche pour toute transformation */
 }
 
@@ -268,21 +266,16 @@ h4 {
 /* Tableau pour les composants */
 /*-----------------------------*/
 
-.tableau {
-    width: 100%;
-    /* toute la place dispo */
-    border-collapse: collapse;
-    /* colle les bordures des cellules d'un tableau '*/
-    margin: 30px 0;
-    /* marges extérieures 30 px en haut et en bas / 0 à droite et à gauche */
-    box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.30);
+.tableau{
+    width: 100%; /* toute la place dispo */
+    border-collapse: collapse; /* colle les bordures des cellules d'un tableau '*/
+    margin: 30px 0; /* marges extérieures 30 px en haut et en bas / 0 à droite et à gauche */
+    box-shadow: 8px 8px 5px rgba(0,0,0,0.30);
     border-radius: 15px;
-    overflow: hidden;
-    /* masque tout ce qui dépasse */
+    overflow: hidden; /* masque tout ce qui dépasse */
 }
 
-.tableau th {
-    /* cellules d'entête pour le tableau dans types-champs */
+.tableau th { /* cellules d'entête pour le tableau dans types-champs */
     background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
     color: white;
     padding: 15px;
@@ -299,13 +292,12 @@ h4 {
 
 /* pour éviter que les champs ne dépassent */
 .tableau input {
-    max-width: 80%;
+        max-width: 80%;
 }
 
 /* selectionne les lignes (tr) qui ont la propriété (nth-child) d'être paires (even) => pour mieux distinguer les lignes entre elles */
-.tableau tr:nth-child(even) {
-    background: #f8f9fa;
-    /* bleu très pâle */
+.tableau tr:nth-child(even) { 
+    background: #f8f9fa; /* bleu très pâle */
 }
 
 .tableau tr:hover {
@@ -324,70 +316,65 @@ h4 {
 /*------*/
 
 pre {
-    background: #2d3436;
-    color: #dfe6e9;
-    padding: 25px;
-    border-radius: 10px;
-    overflow-x: auto;
-    margin: 25px 0;
-    border: 1px solid #444;
-    font-size: 1.1em;
-    line-height: 1.5;
+  background: #2d3436;
+  color: #dfe6e9;
+  padding: 25px;
+  border-radius: 10px;
+  overflow-x: auto;
+  margin: 25px 0;
+  border: 1px solid #444;
+  font-size: 1.1em;
+  line-height: 1.5;
 }
 
 code {
-    background: #f8f9fa;
-    padding: 4px 8px;
-    border-radius: 5px;
-    font-family: 'Courier New', Consolas, monospace;
-    font-size: 1.1em;
-    border: 1px solid #e9ecef;
+  background: #f8f9fa;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-family: 'Courier New', Consolas, monospace;
+  font-size: 1.1em;
+  border: 1px solid #e9ecef;
 }
 
 pre code {
-    background: transparent;
-    padding: 0;
-    border: none;
-    color: inherit;
+  background: transparent;
+  padding: 0;
+  border: none;
+  color: inherit;
 }
-
 /*------------*/
 /* Formulaire */
 /*------------*/
 
 form {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    margin: 25px 0;
-    border: 2px solid #ddd;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  margin: 25px 0;
+  border: 2px solid #ddd;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 /*---------------------*/
 /* Annimations classes */
 /*---------------------*/
 
-input,
-select,
-textarea {
-    padding: 12px 15px;
-    border: 2px solid #bdc3c7;
-    border-radius: 8px;
-    margin: 8px 0;
-    font-size: 1.1em;
-    width: 100%;
-    max-width: 400px;
-    transition: all 0.3s ease;
+input, select, textarea {
+  padding: 12px 15px;
+  border: 2px solid #bdc3c7;
+  border-radius: 8px;
+  margin: 8px 0;
+  font-size: 1.1em;
+  width: 100%;
+  max-width: 400px;
+  transition: all 0.3s ease;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
-    outline: none;
-    border-color: #3498db;
-    box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
-    transform: translateY(-2px);
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+  transform: translateY(-2px);
 }
 
 /*-------------------------------------------*/
@@ -395,113 +382,76 @@ textarea:focus {
 /*-------------------------------------------*/
 
 .image-agrandie {
-    transition: transform 0.3s ease;
-    /* Pour une animation fluide */
+    transition: transform 0.3s ease; /* Pour une animation fluide */
 }
 
 .image-agrandie:hover {
-    transform: scale(2);
-    /* Augmente la taille à 120% */
+    transform: scale(2); /* Augmente la taille à 120% */
 }
 
 /*-----------------------*/
 /* Améliorations en vrac */
 /*-----------------------*/
 
-
-
-
-
 /* bouton qui a la classe */
-.btn-reponse,
-button,
-input[type="submit"],
-input[type="button"] {
+.btn-reponse, button, input[type="submit"], input[type="button"] {
     background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
     color: white;
-    border: none;
-    /* pas de brodure grise moche */
-    border-radius: 5px;
-    /* angles arrondis mais moins que les conteneurs (15) */
-    cursor: pointer;
-    /* Pour que la souris se transforme en main */
-    font-weight: 1000;
-    transition: all 0.3s ease;
-}
-
-.btn-reponse {
-    padding: 12px 50px;
-    /* marge intérieures */
-    margin-top: 10px;
-    font-size: 1.1em;
-}
-
-button,
-input[type="submit"],
-input[type="button"] {
-    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-    color: white;
-    border: none;
-    /* pas de brodure grise moche */
-    padding: 14px 28px;
-    /* marge intérieures */
-    border-radius: 8px;
-    /* angles arrondis mais moins que les conteneurs (15) */
-    cursor: pointer;
-    /* Pour que la souris se transforme en main */
-    margin: 10px 5px;
-    font-size: 1.1em;
+    border: none; /* pas de brodure grise moche */
+    border-radius: 8px; /* angles arrondis mais moins que les conteneurs (15) */
+    cursor: pointer; /* Pour que la souris se transforme en main */
     font-weight: 600;
     transition: all 0.3s ease;
 }
 
+.btn-reponse {
+    padding: 12px 24px;/* marge intérieures */
+    margin-top: 15px;
+    font-size: 1em;
+}
+
+button, input[type="submit"], input[type="button"] {
+    padding: 14px 28px; /* marge intérieures */
+    margin: 10px 5px;
+    font-size: 1.1em;
+}
+
+
 
 a {
-    text-decoration: none;
-    /* Supprime le soulignement du lien */
-}
+        text-decoration: none; /* Supprime le soulignement du lien */
+    }
 
-a.btn-reponse {
-    display: block;
-    width: fit-content;
-    white-space: nowrap;
-}
-
+a.btn-reponse { display: block;width:150px }
 /* Fun, ça bouge O_O en passant la souris sur le bouton */
-a.btn-reponse:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="button"]:hover {
+a.btn-reponse:hover, button:hover, input[type="submit"]:hover, input[type="button"]:hover {
     background: linear-gradient(135deg, #2980b9 0%, #1f618d 100%);
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
 
 label {
-    margin: 5px 5px 5px 5px;
-    color: #2c3e50;
-    font-size: 1.1em;
+  margin: 5px 5px 5px 5px;
+  color: #2c3e50;
+  font-size: 1.1em;
 }
 
 /* Styles spécifiques pour les petits éléments de formulaire */
-input[type="checkbox"],
-input[type="radio"] {
+input[type="checkbox"], input[type="radio"] {
     width: auto;
     margin-right: 10px;
     transform: scale(1.2);
 }
 
 
-p,
-li {
+p, li {
     font-size: 1.1em;
     line-height: 1.7;
     color: #2c3e50;
 }
 
-ul,
-ol {
+ul, ol {
     padding-left: 25px;
     text-align: justify;
 }
