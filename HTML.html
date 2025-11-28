@@ -1,199 +1,398 @@
 <!DOCTYPE html>
 
+
+
 <html lang="fr">
+
+
+
+
 
 
 
 <head>
 
+
+
     <meta charset="UTF-8">
+
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+
     <title>Les formulaires HTML - Cours NSI</title>
 
+
+
     <link rel="stylesheet" href="CSS.css">
+
+
 
 </head>
 
 
 
+
+
+
+
 <body>
 
+
+
     <div class="conteneur">
+
+
 
         <h1>Les formulaires en HTML</h1>
 
 
 
+
+
+
+
         <!-------------->
+
+
 
         <!-- SOMMAIRE -->
 
+
+
         <!-------------->
+
+
 
         <nav class="sommaire">
 
+
+
             <h3>Sommaire du cours</h3>
+
+
 
             <ul>
 
+
+
                 <li><a href="#introduction">1. Introduction aux formulaires</a></li>
+
+
 
                 <li><a href="#balise-form">2. Les formulaires et la balise &lt;form&gt;</a></li>
 
+
+
                 <li><a href="#composants">3. Composants de formulaire</a></li>
+
+
 
                 <li><a href="#bonnes-pratiques">4. Bonnes pratiques</a></li>
 
+
+
                 <li><a href="#exercices">5. Exercice pratique</a></li>
 
+
+
             </ul>
+
+
 
         </nav>
 
 
 
+
+
+
+
         <!--------------------->
+
+
 
         <!-- 1. INTRODUCTION -->
 
+
+
         <!--------------------->
+
+
 
         <section id="introduction">
 
+
+
             <h2>1. Introduction aux formulaires</h2>
+
+
 
             <p>Les formulaires HTML permettent d’instaurer un dialogue entre un utilisateur et un site web ou une
 
+
+
                 application. Ils permettent à l'utilisateur d'envoyer des données au site web. La plupart du temps, ces
+
+
 
                 données sont envoyées à des serveurs web mais la page peut aussi les intercepter et les utiliser
 
+
+
                 elle-même.</p>
+
+
 
             <p>L'analyse et le traitement du formulaire devant être effectués côté serveur, la page du formulaire sera
 
+
+
                 écrite en langage PHP. En cliquant sur le bouton envoyer les contenus des zones du texte du formulaire
 
+
+
                 seront transmis à une page cible PHP sous forme de paramètres directement intégrés dans la requête HTTP
+
+
 
                 envoyée par le client au serveur.</p>
 
 
 
+
+
+
+
             <div class="presentation">
+
+
 
                 <h3>Objectifs du cours</h3>
 
+
+
                 <div class="grilleCSS">
 
+
+
                     <div class="element_grilleCSS">
+
+
 
                         <h4>Comprendre</h4>
 
+
+
                         <p>Le rôle des formulaires dans l'interaction utilisateur</p>
+
+
 
                     </div>
 
+
+
                     <div class="element_grilleCSS">
+
+
 
                         <h4>Maîtriser</h4>
 
+
+
                         <p>Les différents types de champs et leurs attributs</p>
 
+
+
                     </div>
+
+
 
                     <div class="element_grilleCSS">
 
+
+
                         <h4>Implémenter</h4>
+
+
 
                         <p>Des formulaires accessibles et fonctionnels</p>
 
+
+
                     </div>
+
+
 
                 </div>
 
+
+
             </div>
+
+
 
         </section>
 
 
 
+
+
+
+
         <!------------------->
+
+
 
         <!-- 2. FORMULAIRE -->
 
+
+
         <!------------------->
 
+
+
         <section id="balise-form">
+
+
 
             <h2>2. Création d'un formulaire avec la balise &lt;form&gt;</h2>
 
 
 
+
+
+
+
             <p>Les formulaires sont un moyen de récupérer des données à partir du client (navigateur) pour les passer à
 
+
+
                 l'application serveur. Dans le fichier html, on utilise la balise <code>&lt;form&gt;</code> en y
+
                 ajoutant l’attribut
+
+
 
                 method qui permet d’indiquer quel est le type de requête HTTP.</p>
 
 
 
+
+
+
+
             <h3>2.1 Exemple de formulaire</h3>
+
+
 
             <!-- Démonstration interactive pour la méthode GET -->
 
+
+
             <div class="presentation">
+
+
 
                 <h3>Testez le formulaire GET</h3>
 
+
+
                 <!-- attention, ici, on reste sur la page (action=""), sinon, il faudrait indiquer ce qu'il faut faire par exemple une url comme action="traitement.php" -->
+
+
 
                 <form id="demo-get" method="get">
 
+
+
                     <label for="nom-demo">Nom :</label>
+
+
 
                     <input type="text" id="nom-demo" name="nom" placeholder="Entrez votre nom" required><br>
 
 
 
+
+
+
+
                     <label for="email-demo">Email :</label>
+
+
 
                     <input type="email" id="email-demo" name="email" placeholder="Entrez votre email" required>
 
 
 
+
+
+
+
                     <button type="submit">Envoyer</button>
 
+
+
                     <button type="reset">Effacer</button>
+
+
 
                 </form>
 
 
 
+
+
+
+
                 <div class="url">
+
+
 
                     <strong>URL qui serait générée si la page est hébergée sur site.com :</strong><br>
 
+
+
                     <code id="url-resultat">Remplissez le formulaire et cliquez sur "Envoyer"</code>
+
+
 
                 </div>
 
+
+
                 <p>Signification des caractères spéciaux dans votre url,</p>
+
+
 
                 <ul>
 
+
+
                     <li><strong>?</strong> : Début des paramètres de la requête</li>
+
+
 
                     <li><strong>=</strong> : Séparateur entre le nom du paramètre et sa valeur</li>
 
+
+
                     <li><strong>&</strong> : Séparateur entre différents paramètres, ici entre nom et email</li>
 
-                    <li><strong>%40</strong> : Encodage en héxadécimal du caractère @ dans une URL</li>
+
+
+                    <li><strong>%40</strong> : Encodage en hexadécimal du caractère @ dans une URL</li>
+
+
 
                 </ul>
+
+
+
+
 
 
 
@@ -201,11 +400,17 @@
 
 
 
+
+
+
+
             <h3>2.2 Code du formulaire</h3>
 
-            <pre>
 
-<code> &lt;form method="get" action="traitement.php"&gt;
+
+<pre><code> 
+
+&lt;form method="get" action="traitement.php"&gt;
 
 &lt;label for="nom"&gt;Nom :&lt;/label&gt;
 
@@ -223,9 +428,7 @@
 
 &lt;button type="reset"&gt;Effacer&lt;/button&gt;
 
-&lt;/form&gt; </code>
-
-              </pre>
+&lt;/form&gt; </code> </pre>
 
 
 
@@ -233,215 +436,405 @@
 
             <h3>2.3 Points clés à retenir</h3>
 
+
+
             <div class="presentation">
+
+
 
                 <ol>
 
+
+
                     <li><strong>method</strong> : Définit comment les données sont envoyées
+
+
 
                         <ul>
 
+
+
                             <li><code>get</code> : Données visibles dans l'URL, limité en taille</li>
+
+
 
                             <li><code>post</code> : Données cachées, taille illimitée</li>
 
+
+
                         </ul>
+
+
 
                     </li>
 
+
+
                     <li><strong>action</strong> : Spécifie où envoyer les données qui seront traitées. Dans notre
+
                         exemple,
 
+
+
                         elles sont traitées par un fichier traitement.php sur le serveur. Si action n'est pas présent,
+
                         les
+
+
 
                         données sont envoyées vers la page elle-même.</li>
 
+
+
                     <li><strong>required</strong> : Rend un champ obligatoire</li>
+
+
 
                 </ol>
 
+
+
             </div>
 
-   <div class="exercice">
-
-                <h3>Exercice 1 - A vous de réfléchir</h3>
-
-                <p>Après avoir testé le formulaire <code>get</code>, dans quels cas préféreriez-vous utiliser POST
-                    plutôt que GET ?</p>
-
-                <button class="btn-reponse" onclick="cachereponse('reponse-method')">Voir la réponse</button>
-
-                <div id="reponse-method" class="reponse">
-
-                    <p><strong>Réponse :</strong> Avec la méthode GET, les données sont visibles dans l'URL (par exemple
-                        : ?nom=Dupont&amp;email=test@exemple.fr). En revanche, on utilise la méthode POST pour :</p>
-
-                    <ul>
-
-                        <li>Les données sensibles (mots de passe)</li>
-
-                        <li>Les fichiers uploadés</li>
-
-                        <li>Les formulaires longs</li>
-
-                        <li>Éviter que l'URL ne soit trop longue</li>
-
-                    </ul>
-
-                </div>
-   </div>
 
 
             <div class="exercice">
 
+
+
+                <h3>Exercice 1 - A vous de réfléchir</h3>
+
+
+
+                <p>Après avoir testé le formulaire <code>get</code>, dans quels cas préféreriez-vous utiliser POST
+
+                    plutôt que GET ?</p>
+
+
+
+                <button class="btn-reponse" onclick="cachereponse('reponse-method')">Voir la réponse</button>
+
+
+
+                <div id="reponse-method" class="reponse">
+
+
+
+                    <p><strong>Réponse :</strong> Avec la méthode GET, les données sont visibles dans l'URL (par exemple
+
+                        : ?nom=Dupont&amp;email=test@exemple.fr). En revanche, on utilise la méthode POST pour :</p>
+
+
+
+                    <ul>
+
+
+
+                        <li>Les données sensibles (mots de passe)</li>
+
+
+
+                        <li>Les fichiers uploadés</li>
+
+
+
+                        <li>Les formulaires longs</li>
+
+
+
+                        <li>Éviter que l'URL ne soit trop longue</li>
+
+
+
+                    </ul>
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+            <div class="exercice">
+
+
+
                 <h3>Exercice 2 - Observer la différence entre la méthode get et la méthode post</h3>
 
-                <p>Cliquer sur <a href="https://www.cahier-nsi.fr/formulaire1/" target="_blank">ce lien</a>, une page
+
+
+                <p>Cliquer sur ce <a href="https://www.cahier-nsi.fr/formulaire1/" target="_blank">lien n°1</a>, une page
+
+
 
                     apparaît, sur laquelle figure un formulaire composé de deux champs de saisie.</p>
 
+
+
                 <ol>
+
+
 
                     <li>taper <code>Ctrl+ U</code> pour visualiser le code html de cette page.
 
+
+
                         Indiquer le nom de la méthode employée pour transmettre les informations.
+
+
 
                         Quels sont les attributs <code>name</code> qui ont été affectés à chacun de ces deux champs ?
 
+
+
                     </li>
+
+
 
                     <li>Saisir des données puis soumettre ce formulaire, l'observation de l'URL confirme-t-elle
 
+
+
                         les réponses faites à la question précédente ?</li>
 
+
+
                     <li>Indiquer le nom du fichier vers lequel sont envoyées les informations saisies dans le
+
                         formulaire.
+
+
 
                         Où se trouve ce fichier ?
 
+
+
                         Dans quel langage traite-t-il ces informations ? <br>
+
+
 
                         Ci-dessous, à titre d'illustration, un morceau de code de ce fichier.
 
+
+
                         Ce bout de code récupère les valeurs saisies dans chacun des champs, repérés par leur attribut
+
                         <code>name</code>
+
+
 
                         et les place dans les variables <code>$login_connexion</code> et <code>$mot_de_passe</code>.
 
+
+
                         On observe que la méthode apparaît clairement dans ce code.<br>
 
-                        <pre>
 
-<code>&lt;?php 
+
+<pre><code>
+
+&lt;?php 
 
 $login_connexion = $_GET['login'];
 
 $mot_de_passe = $_GET['password'];
-?> </code>
 
-                        </pre>
-
+?&gt; </code></pre>
 
 
-                        <div>Cliquez sur <a href="http://glassus1.free.fr/ex_post.html" target="_blank">cet autre
-                                lien</a>
+
+
+
+
+
+                        <div>Cliquez sur ce <a href="http://glassus1.free.fr/ex_post.html" target="_blank">lien n°2</a>
+
+
 
                             pour obtenir une nouvelle page où figure un formulaire composé de d'un seul champ de saisie.
 
+
+
                         </div>
 
+
+
                     </li>
+
+
 
                     <li> Déterminer l'attribut <code>name</code> affecté à ce champ. </li>
 
+
+
                     <li> Saisir un mot de passe dans ce champ, valider et observer l'URL dans la barre d'adresse du
+
                         navigateur.
 
+
+
                         Indiquer le nom de la méthode employée pour transmettre les informations saisies ainsi que le
+
                         nom
+
+
 
                         du fichier vers lequel sont envoyées ces informations.<br>
 
+
+
                         Ci-dessous, à titre d'illustration, un morceau de code de ce fichier.
+
+
 
                         <br>
 
-                        <pre>
+<pre><code>
 
-<code>&lt;?php 
+&lt;?php 
 
 $mot_de_passe = $_POST['pass'];
-?> </code>
 
-                        </pre>
+?&gt; </code></pre>
 
-                        Cliquez à nouveau sur <a href="http://glassus1.free.fr/ex_post.html" target="_blank">cet autre
-                            lien</a>
+
+
+                        Cliquez à nouveau sur le <a href="http://glassus1.free.fr/ex_post.html" target="_blank">lien n°2</a>
+
+
 
                         (on chargera cette page sur firefox si possible) puis faire un clic droit sur la page, choisir
+
                         l'item
 
+
+
                         <code>inspecter</code> puis cliquer sur l'onglet <code>réseau</code> de la zone d'inspection du
+
                         code.
 
+
+
                         Saisir un mot de passe dans le formulaire et valider.<br> Dans la zone d'inspection du code,
+
                         cliquer sur
+
+
 
                         le lien <code>cible_2.php</code> puis sur <code>requête</code>.
 
+
+
                     </li>
+
+
 
                     <li>Que remarquez-vous à propos du mot de passe que vous aviez saisi ?</li>
 
+
+
                 </ol>
+
+
+
+
 
 
 
                 <button class="btn-reponse" onclick="cachereponse('reponse-method1')">Voir la réponse</button>
 
+
+
                 <div id="reponse-method1" class="reponse">
+
+
 
                     <ol>
 
+
+
                         <li>La méthode est <code>get</code>. Les attributs <code>name</code> sont <code>login</code> et
+
                             <code>password</code> respectivement.</li>
 
+
+
                         <li>Dans l'URL, on lit bien chacun des deux attributs <code>login</code> et
+
                             <code>password</code> avec leur valeur respective.
+
+
 
                             Cette apparition en clair dans l'URL est propre à la méthode <code>GET</code>. </li>
 
+
+
                         <li>Le fichier qui récupère les données de la requête est <code>cible_1.php</code> qui est
+
                             localisé sur le serveur web et
 
+
+
                             qui est écrit en langage <code>php</code>. Ce code n'est pas visible côté client, il est
+
                             interprété par le serveur et non par le navigateur.</li>
 
+
+
                         <li>En faisant <code>Ctrl+ U</code> on lit que l'attribut <code>name</code> affecté à ce champ
+
                             est <code>pass</code> </li>
 
+
+
                         <li>Cette fois-ci, c'est la méthode <code>post</code> qui est utilisée. On ne voit plus les
+
                             informations saisies apparaître en clair dans l'URL.
 
+
+
                             Mais on peut y lire que le fichier qui récupère les données de la requête est
+
                             <code>cible_2.php</code></li>
 
+
+
                         <li>Avec l'inspecteur de propriétés de firefox, il est toujours possible de retrouver les
+
                             informations passées dans la requête,
+
+
 
                             elles sont sauvegardées par le navigateur.</li>
 
+
+
                     </ol>
+
+
 
                 </div>
 
+
+
             </div>
+
+
+
+
 
 
 
          
-            </div>
+
+
+
+
+
+
 
 
 
@@ -449,91 +842,175 @@ $mot_de_passe = $_POST['pass'];
 
             <h3>2.4 Exemple de traitement PHP côté serveur</h3>
 
+
+
             <div class="presentation">
+
+
 
                 <!--Expérience interactive méthode POST simulation d'un serveur -->
 
+
+
                 <ol>
+
+
 
                     <li>Saisissez votre nom dans chacune des deux copies du formulaire ci-dessous,
 
+
+
                         remarquez-vous une différence dans les deux traitements de ce formulaire ?</li>
 
+
+
                     <li>Saisissez votre prénom suivi d'un espace puis de &lt;i&gt; suivi de votre nom puis de &lt;/i&gt;
+
                         dans
 
+
+
                         chacun des exemplaires du formulaire (vous pouvez faire un <i>copier / coller</i> ), que
+
                         remarquez-vous ?</li>
+
+
 
                     <li>Essayer d'expliquer ce qui différencie les deux traitements de ce formulaire.</li>
 
+
+
                 </ol>
 
+
+
                 <div class="presentation">
+
+
 
                     <h3>Formulaire avec le traitement PHP n°1 </h3>
 
+
+
                     <form onsubmit="afficherNom(event)">
+
+
 
                         <label for="nomUtilisateur">Nom d'utilisateur :</label>
 
+
+
                         <input type="text" id="nomUtilisateur" name="nomUtilisateur" required />
+
+
 
                         <button type="submit">Soumettre</button>
 
+
+
                     </form>
+
+
 
                     <div id="resultat"></div> <!-- Zone pour afficher le résultat -->
 
+
+
                 </div>
+
+
 
                 <div class="presentation">
 
+
+
                     <h3>Même formulaire avec le traitement PHP n°2 </h3>
+
+
 
                     <form onsubmit="afficherNomSecure(event)">
 
+
+
                         <label for="nomUtilisatrice">Nom d'utilisateur :</label>
+
+
 
                         <input type="text" id="nomUtilisatrice" name="nomUtilisatrice" required />
 
+
+
                         <button type="submit">Soumettre</button>
+
+
 
                     </form>
 
+
+
                     <div id="result"></div> <!-- Zone pour afficher le résultat -->
+
+
 
                 </div>
 
+
+
                 <p>
+
+
 
                     Explication:
 
+
+
                 <ol>
 
+
+
                     <li>Observons le premier traitement appliqué côté serveur à ce formulaire (code ci-dessous). En
+
                         première ligne, la fonction <code>isset</code> ( <i>is set</i> c'est à dire <i>est définie ?
+
                         </i>)
 
+
+
                         permet, côté serveur, de vérifier si une valeur a bien été envoyée dans le champ du formulaire
+
                         dont l'attribut <code>name</code> est <code>nomUtilisateur</code>.</li>
 
+
+
                     <li>Si c'est le cas, il récupère cette valeur, ici par la méthode <code>post</code> et la place dans
+
                         la variable <code>$user</code>.
+
+
 
                         Sinon il place dans <code>$user</code> la chaîne de caractères vide.</li>
 
+
+
                     <li>Ensuite l'instruction <code>echo</code> permet de générer pour le navigateur le code html situé
+
                         à l'intérieur de la parenthèse.
 
+
+
                         Dans ce code, la variable $user sera directement remplacée par sa valeur : on parle de
+
                         génération dynamique de code Html.
 
-                        <pre>
 
-<code>&lt;?php
+
+<pre><code>
+
+&lt;?php
 
 $user = isset($_POST['nomUtilisateur']) ? $_POST['nomUtilisateur'] : '';
+
+
 
 echo(
 
@@ -557,47 +1034,85 @@ echo(
 
 &lt;/html&gt;');
 
-?&gt;</code>
+?&gt;</code></pre>
 
-            </pre>
+
 
                     </li>
 
+
+
                     <li>Le second traitement est exactement le même, sauf qu'en première ligne on ajoute lors de la
+
                         récupération
+
+
 
                         de la donnée saisie dans le champ l'instruction <code>htmlspecialchars</code> comme ceci :</li>
 
+
+
                 </ol>
+
+
 
                 <pre>
 
+
+
 <code>$user = isset($_POST['nomUtilisateur']) ? htmlspecialchars($_POST['nomUtilisateur']) : '';</code>
+
+
 
           </pre>
 
 
 
+
+
+
+
                 <p>
 
+
+
                     Grâce à cela, les caractères spéciaux ne sont plus interprétés comme du code, Html ou Javascript par
+
                     exemple,
+
+
 
                     mais comme des caractères simples. <br>
 
+
+
                     Il s'agit là d'une mesure de sécurité, en effet, des attaques de sites peuvent se faire ainsi : en
 
+
+
                     introduisant du code malveillant dans un champ de formulaire. Les formulaires imposent un traitement
+
                     de
 
+
+
                     sécurisation des données dont <code>htmlspecialchars</code> est un bon exemple pour se prémunir
+
                     contre certaines
+
+
 
                     attaques de ce type.
 
+
+
                 </p>
 
+
+
             </div>
+
+
 
         </section>
 
@@ -605,230 +1120,451 @@ echo(
 
 
 
+
+
+
+
+
+
         <!----------------------------------->
+
+
 
         <!-- 3. Composants d'un formulaire -->
 
+
+
         <!----------------------------------->
 
+
+
         <section id="composants" class="prensentation">
+
+
 
             <h2>3. Les composants d'un formulaire</h2>
 
 
 
-            <p>HTML5 offre une grande variété de questions pour créer des interfaces utilisateur.</p>
+
+
+
+
+            <p>HTML5 offre de très nombreuses méthodes et attributs qui permettent de créer une grande variété de
+
+            formulaires. Nous présentons ici queques uns de ces attributs, en particulier l'attribut 
+
+            <code>type</code>, utilisé principalement dans les balises &lt;input&gt; et &lt;button&gt;
+
+            , qui permet de spécifier le type de données que le champ peut accepter et d'adapter le champ au recueil 
+
+            de ce type de données.  </p>
+
+ 
+
+
 
 
 
             <!-- Tableau des composants d'interaction -->
 
+
+
             <h3>3.1 Tableau illustrant des types de champs et les mots clefs importants </h3>
+
+
 
             <table class="tableau">
 
+
+
                 <thead> <!-- conteneur pour les entêtes -->
+
+
 
                     <tr> <!-- ligne d'entêtes -->
 
+
+
                         <th>Type</th> <!-- entêtes -->
+
+
 
                         <th>Utilisation</th>
 
+
+
                         <th>Attributs importants</th>
+
+
 
                         <th>Exemple</th>
 
+
+
                     </tr>
+
+
 
                 </thead>
 
+
+
                 <tbody>
 
+
+
                     <tr>
+
+
 
                         <td><code>text</code></td>
 
+
+
                         <td>Saisie de texte court</td>
+
+
 
                         <td>maxlength, placeholder, pattern</td>
 
+
+
                         <td><input type="text" placeholder="Texte"></td>
+
+
 
                     </tr>
 
+
+
                     <tr>
+
+
 
                         <td><code>password</code></td>
 
+
+
                         <td>Saisie masquée</td>
+
+
 
                         <td>minlength, required</td>
 
+
+
                         <td><input type="password" placeholder="••••••"></td>
+
+
 
                     </tr>
 
+
+
                     <tr>
+
+
 
                         <td><code>email</code></td>
 
+
+
                         <td>Email avec validation</td>
+
+
 
                         <td>multiple, pattern</td>
 
+
+
                         <td><input type="email" placeholder="email@exemple.fr"></td>
+
+
 
                     </tr>
 
+
+
                     <tr>
+
+
 
                         <td><code>number</code></td>
 
+
+
                         <td>Saisie numérique</td>
 
+
+
                         <td>min, max, step</td>
+
+
 
                         <td><input type="number" placeholder="nombre"></td>
 
+
+
                     </tr>
 
+
+
                     <tr>
+
+
 
                         <td><code>date</code></td>
 
+
+
                         <td>Sélection de date</td>
+
+
 
                         <td>min, max</td>
 
+
+
                         <td><input type="date"></td>
+
+
 
                     </tr>
 
+
+
                     <tr>
+
+
 
                         <td><code>checkbox</code></td>
 
+
+
                         <td>Cases à cocher multiples</td>
 
+
+
                         <td>checked, value</td>
+
+
 
                         <td><label><input type="checkbox">Entrée</label> <label><input type="checkbox">Dessert
 
+
+
                             </label><label><input type="checkbox">Fromage</label> </td>
+
+
 
                     </tr>
 
+
+
                     <tr>
+
+
 
                         <td><code>radio</code></td>
 
+
+
                         <td>Choix unique</td>
+
+
 
                         <td>checked, value</td>
 
+
+
                         <td> <label><input type="radio" name="choix">oui</label>
+
+
 
                             <label><input type="radio" name="choix">non</label>
 
+
+
                             <label><input type="radio" name="choix">je ne sais pas</label>
+
+
 
                         </td>
 
+
+
                     </tr>
+
+
 
                     <tr>
 
+
+
                         <td><code>range</code></td>
+
+
 
                         <td>Curseur de valeur</td>
 
+
+
                         <td>min, max, step</td>
+
+
 
                         <td><input type="range"></td>
 
+
+
                     </tr>
 
+
+
                 </tbody>
+
+
 
             </table>
 
 
 
+
+
+
+
             <!-- Exemples détaillés avec code -->
+
+
 
             <h3>3.2 Exemples détaillés</h3>
 
 
 
+
+
+
+
             <!-- exemple 1 = zone de saisie de texte -->
 
+
+
             <div class="exemples">
+
+
 
                 <h4> 3.2.1 - Zone de saisie de texte <br><br> <code> &lt; input type="text"&gt; </code> </h4>
 
 
 
+
+
+
+
                 <form>
+
+
 
                     <label for="champ">Votre texte :</label>
 
+
+
                     <input type="text" id="champ" name="champ" placeholder="Texte à saisir">
+
+
 
                 </form>
 
+
+
                 <p> Il est utilisé pour créer un champ de saisie permettant à l'utilisateur d'entrer du texte sur une
+
                     seule ligne. </p>
 
-                <pre>
+<pre><code>
 
-<code>&lt;form&gt;
+&lt;form&gt;
 
 &lt;label for="champ"&gt;Votre texte :&lt;/label&gt;
 
 &lt;input type="text" id="champ" name="champ" placeholder="Texte à saisir"&gt;
 
-&lt;/form&gt;</code>
+&lt;/form&gt;</code></pre>
 
-            </pre>
+
+
+
 
 
 
                 <p>Une précision :</p>
 
+
+
                 <p>L'attribut <code>placeholder</code> dans un champ input HTML sert à afficher un texte indicatif à
+
                     l’intérieur du champ avant que l’utilisateur ne saisisse quoi que ce soit.</p>
+
+
 
             </div>
 
 
 
+
+
+
+
             <!-- exemple 2 = case(s) à cocher -->
+
+
 
             <div class="exemples">
 
+
+
                 <h4> 3.2.2 Case à cocher <br><br> <code>&lt;input type="checkbox"&gt;</code> </h4>
+
+
 
                 <form>
 
+
+
                     <label><input type="checkbox" name="sauce" value="mayonnaise">Mayonnaise</label>
 
+
+
                     <br>
+
+
 
                     <label><input type="checkbox" name="sauce" value="ketchup">Ketchup</label>
 
+
+
                     <br>
+
+
 
                     <label><input type="checkbox" name="sauce" value="piquante">Sauce piquante</label>
 
+
+
                 </form>
 
+
+
                 <p> C'est un type d'élément de formulaire utilisé pour afficher <strong>une ou plusieurs
+
                         case(s)</strong> à cocher parmi un ensemble de choix. </p>
 
-                <pre>
 
-<code>&lt;form&gt;
+
+<pre><code>
+
+&lt;form&gt;
 
 &lt;label&gt;&lt;input type="checkbox" name="sauce" value="mayonnaise"&gt;Mayonnaise &lt;/label&gt;
 
@@ -840,9 +1576,11 @@ echo(
 
 &lt;label&gt;&lt;input type="checkbox" name="sauce" value="piquante"&gt;Sauce piquante&lt;/label&gt;
 
-&lt;/form&gt;</code>
+&lt;/form&gt;</code></pre>
 
-            </pre>
+
+
+
 
 
 
@@ -850,38 +1588,71 @@ echo(
 
 
 
+
+
+
+
             <!-- exemple 3 = bouton radio + explication label -->
+
+
 
             <div class="exemples">
 
+
+
                 <h4>3.2.3 - Bouton radio <br><br> <code>&lt;input type="radio"&gt;</code></h4>
 
+
+
                 <p>Les boutons radio doivent avoir le même nom pour fonctionner en groupe : <strong>on ne peut choisir
+
                         qu'une
+
+
 
                         option!</strong> (essayez de cliquer les deux...)</p>
 
 
 
+
+
+
+
                 <form>
+
+
 
                     <input type="radio" id="homme" name="sexe" value="homme">
 
+
+
                     <label for="homme">Homme</label>
+
+
 
                     <br>
 
+
+
                     <input type="radio" id="femme" name="sexe" value="femme">
 
+
+
                     <label for="femme">Femme</label>
+
+
 
                 </form>
 
 
 
-                <pre>
 
-<code>&lt;form&gt;
+
+
+
+<pre><code>
+
+&lt;form&gt;
 
 &lt;input type="radio" id="homme" name="sexe" value="homme"&gt;
 
@@ -891,103 +1662,187 @@ echo(
 
 &lt;label for="femme"&gt;Femme&lt;/label&gt;<br>&lt;/form&gt;
 
-</code>
+</code></pre>
 
-            </pre>
+
 
                 <p>Quelques précisions:</p>
 
+
+
                 <p>
+
                 <ul>
+
                     <li>Pourquoi on dit "avec étiquette" ? Parce qu'ici, si vous cliquez à côté du bouton, sur "homme"
+
                         ou
 
+
+
                         "femme" le bouton est aussi sélectionné. C'est l'étiquette (grâce au
+
                         <code> &lt;label&gt;</code>).
+
+
 
                         Regardez les exemples précédents, il y avait aussi des étiquettes.</li>
 
+
+
                     <li>Dans les input, Un nom est associé au composant pour pouvoir récupérer les données saisies côté
+
                         serveur.
+
+
 
                         L'attribut <code>name</code> qui permet d'identifier chaque champ de saisies dans les
 
+
+
                         paramètres qui sont envoyés au serveur,</li>
+
+
 
                     <li>L'attribut <code> value</code> qui définit la valeur par défaut affichée au chargement de la
 
+
+
                         page Web. De plus, la valeur de cet attribut peut être utilisée en JavaScript ou côté serveur.
+
                     </li>
+
+
 
                 </ul>
 
+
+
             </div>
+
+
+
+
 
 
 
             <!-- exemple 4 = boutton poussoir -->
 
+
+
             <div class="exemples">
 
+
+
                 <h4>3.2.4 - Bouton Poussoir <br><br><code>&lt;input type="submit" value="Valider"&gt;</code><br> ou
+
                     <code>&lt;button type="submit"&gt;
+
+
 
                 Valider &lt;/button&gt;</code></h4>
 
+
+
                 <p>Créer des boutons interactifs sur une page web. (Les boutons sont souvent utilisés avec des scripts
+
+
 
                     JavaScript - on verra ça plus tard !)</p>
 
+
+
                 <input type="submit" value="Cliquez-moi" id="boutton_pousse" onclick="afficherMessage()" />
+
+
 
                 <p id="message"></p>
 
+
+
                 <pre><code>&lt;input type="submit" value="Cliquez-moi" id="boutton_pousse" onclick="afficherMessage()" /&gt;</code></pre>
 
+
+
                 <p>Attention, ici il y a, à la fin, une référence à du javascript, retenez surtout le début du code.
+
                     Vous pouvez faire
 
+
+
                     apparaître un boutton, sans la dernière instruction... c'est juste qu'il ne se passera rien ! </p>
+
+
 
             </div>
 
 
 
+
+
+
+
             <!-- exemple 5 = liste déroulante -->
+
+
 
             <div class="exemples">
 
+
+
                 <h4>3.2.5 - Liste déroulante <br><br><code>&lt;select&gt;</code> </h4>
+
+
 
                 <p>Pour proposer un choix parmi plusieurs options :</p>
 
 
 
+
+
+
+
                 <form>
+
+
 
                     <select>
 
+
+
                         <option value="question">Vous êtes...</option>
+
+
 
                         <option value="tres_satisfait">très satisfait</option>
 
+
+
                         <option value="satisfait">satisfait</option>
+
+
 
                         <option value="decu">déçu</option>
 
+
+
                         <option value="tres_decu">très décu</option>
+
+
 
                         <option value="autre">ne se prononce pas</option>
 
+
+
                     </select>
 
-                </form>
 
 
+                </form>               
 
-                <pre>
+<pre><code>
 
-<code>&lt;form&gt; &lt;select&gt;
+&lt;form&gt; &lt;select&gt;
 
 &lt;option value="question"&gt;Vous êtes...&lt;/option&gt;
 
@@ -1001,127 +1856,229 @@ echo(
 
 &lt;option value="autre"&gt;ne se prononce pas&lt;/option&gt;
 
-&lt;/select&gt; &lt;/form&gt;</code>
-
-                    </pre>
+&lt;/select&gt; &lt;/form&gt;</code></pre>
 
 
 
             </div>
 
+
+
         </section>
 
 
 
+
+
+
+
         <!------------------------->
+
+
 
         <!-- 4. Bonnes pratiques -->
 
+
+
         <!------------------------->
 
+
+
         <section id="bonnes-pratiques">
+
+
 
             <h2>4. Bonnes pratiques et accessibilité</h2>
 
 
 
+
+
+
+
             <h3>4.1 Accessibilité</h3>
+
+
 
             <div class="presentation">
 
+
+
                 <div class="exemple">
+
+
 
                     <label for="nom-complet">Nom complet :</label>
 
+
+
                     <input type="text" id="nom-complet" name="nom_complet" aria-describedby="aide-nom" required>
 
+
+
                     <small id="aide-nom">Saisissez votre nom tel qu'il apparaît sur vos documents officiels</small>
+
+
 
                 </div>
 
 
 
-                <pre>
 
-<code>&lt;label for="nom-complet"&gt;Nom complet :&lt;/label&gt;
+
+
+
+<pre><code>
+
+&lt;label for="nom-complet"&gt;Nom complet :&lt;/label&gt;
 
 &lt;input type="text" id="nom-complet" name="nom_complet" 
 
 aria-describedby="aide-nom" required&gt;
 
-&lt;small id="aide-nom"&gt;Saisissez votre nom tel qu'il apparaît...&lt;/small&gt;</code>
+&lt;small id="aide-nom"&gt;Saisissez votre nom tel qu'il apparaît...&lt;/small&gt;</code></pre>
 
-            </pre>
+
+
+
 
 
 
                 <ul>
 
+
+
                     <li>Associez chaque champ à son label avec l'attribut <code>for</code>. Ici, en cliquant sur "Nom
+
+
 
                         complet :", un curseur d'écriture apparaît dans la zone de texte. C'est grâce à la balise
 
+
+
                         <code>&lt;label&gt;</code> qui associe la zone de texte et "Nom complet" par l'identifiant
+
+
 
                         "nom-complet".
 
+
+
                     </li>
+
+
 
                     <li>Utilisez <code>aria-</code> (ensemble de normes destinées à rendre les pages web accessibles aux
 
+
+
                         personnes handicapées. Pour en savoir plus, voir <a
+
                             href="https://www.w3.org/WAI/standards-guidelines/aria/" target="_blank"> ici </a>). Dans
+
                         notre cas,
 
+
+
                         <code>aria-describedby</code> permet d'associer une description de ce qu'il faut faire (utile
+
                         par
+
+
 
                         exemple pour les malvoyants qui utilisent des logiciels adaptés pour naviguer sur le net).
 
+
+
                     </li>
+
+
 
                     <li>Assurez un contraste suffisant pour la lisibilité (avec le fichier <code>style.css</code>)</li>
 
+
+
                     <li>Organisez les champs logiquement avec <code>tabindex</code>. Si vous avez plusieurs champs, vous
 
+
+
                         pouvez sauter de l'un à l'autre en utilisant la touche TAB. La fonctionnalité
+
                         <code>tabindex</code>
+
+
 
                         permet de choisir l'ordre des zones de texte.</li>
 
+
+
                     <li>Fournissez des messages d'erreur clairs (on verra ça plus tard).</li>
+
+
 
                 </ul>
 
 
 
+
+
+
+
             </div>
+
+
+
+
 
 
 
             <h3>4.2 Validation côté client</h3>
 
+
+
             <div class="presentation">
 
+
+
                 <p>Utilisez les attributs de validation HTML5 : (testez d'écrire n'importe quoi pour l'adresse email et
+
+
 
                     comparez avec le point 2.1.)</p>
 
 
 
+
+
+
+
                 <form>
+
+
 
                     <label for="age">Âge :</label>
 
+
+
                     <input type="number" id="age" min="18" max="120" required><br>
 
+
+
                     <label for="email-valide">Email valide :</label>
+
+
 
                     <input type="email" id="email-valide" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
 
 
 
+
+
+
+
                     <button type="submit">Valider</button>
+
+
 
                 </form>
 
@@ -1129,112 +2086,215 @@ aria-describedby="aide-nom" required&gt;
 
 
 
-                <pre>
 
-<code>&lt;input type="number" min="18" max="120" required&gt;
+
+
+
+
+
+<pre><code>
+
+&lt;input type="number" min="18" max="120" required&gt;
 
 &lt;input type="email" required
 
-pattern="[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$"&gt;</code>
+pattern="[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$"&gt;</code></pre>
 
-            </pre>
+
+
+
 
 
 
                 <p>Ici, on impose que l'adresse email soit écrit en trois parties,
 
+
+
                 <ul>
 
+
+
                     <li>Une première partie ou il peut y avoir toutes les lettes, tous les chiffres et les caractères
+
                         ".",
+
+
 
                         "_" et "-" <code>[a-z0-9._-]</code>
 
+
+
                     <li>Une deuxième partie = le site d''hébergement (comme gmail) avec @ et toutes les lettres, tous
+
                         les
+
+
 
                         chiffres et les caractères "." et "-" <code>+@[a-z0-9.-]</code>
 
+
+
                     <li>Enfin, le domaine, après un point (noté \.), qui doit contenir au moins deux lettres
+
+
 
                         <code>+\.[a-z]{2,}$</code>. Le signe <code>$</code> indique qu'il ne doit rien y avoir ensuite.
 
+
+
                 </ul>
 
+
+
             </div>
+
+
 
         </section>
 
 
 
+
+
+
+
         <!------------------>
+
+
 
         <!-- 5. Exercice -->
 
+
+
         <!------------------>
 
+
+
         <section id="exercices">
+
+
 
             <h2>5. Exercice pratique</h2>
 
 
 
+
+
+
+
             <div class="exercice">
 
-                <h3> - Formulaire d'inscription</h3>
+
+
+                <h3>  Formulaire d'inscription</h3>
+
+
+
+
 
 
 
                 On veut réaliser le formulaire suivant,
 
+
+
                 <form method="post" action="/inscription.php">
+
+
 
                     <label for="nom">Nom:</label>
 
+
+
                     <input type="text" name="nom" id="nom" placeholder="Votre nom" required><br>
+
+
 
                     <label for="prenom">Prénom:</label>
 
+
+
                     <input type="text" name="prenom" id="prenom" placeholder="Votre prenom" required><br>
 
+
+
                     <label for="date_naissance">Date de naissance:</label><input type="date" name="date_naissance"
+
                         id="date_naissance" required><br>
+
+
 
                     <label for="email">Email :</label>
 
+
+
                     <input type="email" name="email" id="email" placeholder="Votre email" required><br>
+
+
 
                     <label for="tel">Téléphone :</label>
 
+
+
                     <input type="tel" name="tel" id="tel" placeholder="06 ** ** ** **"><br>
+
+
 
                     <label for="adresse">Adresse :</label>
 
+
+
                     <input type="text" name="adresse" id="adresse" placeholder="Votre adresse"><br>
+
+
 
                     <label for="pays">Pays :</label>
 
+
+
                     <select name="pays" id="pays">
+
+
 
                         <option value="pays">Sélectionnez votre pays</option>
 
+
+
                         <option value="france">France</option>
+
+
 
                         <option value="belgique">Belgique</option>
 
+
+
                         <option value="suisse">Suisse</option>
+
+
 
                     </select><br>
 
+
+
                     Centres d'intérêt :
+
+
 
                     <label><input type="checkbox" name="interets" value="sport"> Sport</label>
 
+
+
                     <label><input type="checkbox" name="interets" value="musique"> Musique</label>
+
+
 
                     <label><input type="checkbox" name="interets" value="voyage"> Voyage</label>
 
+
+
                     <input type="submit" value="Envoyer">
+
+
 
                 </form>
 
@@ -1242,42 +2302,83 @@ pattern="[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$"&gt;</code>
 
 
 
+
+
+
+
+
+
                 <div class="etape">
+
+
 
                     <h5>Étape 1 : Structure de base</h5>
 
+
+
                     <p>Créez la balise &lt;form&gt; avec method="post", envoyant le formulaire au fichier
+
                         "inscription.php"
+
+
 
                     </p>
 
+
+
                     <button class="btn-reponse" onclick="cachereponse('reponse-etape1')">Voir la réponse</button>
+
+
 
                     <div id="reponse-etape1" class="reponse">
 
-                        <code>&lt;form method="post" action="/inscription.php"&gt; <br><br>
+
+
+<code>
+
+&lt;form method="post" action="/inscription.php"&gt; <br><br>
 
 &lt; type="submit" value="Envoyer"&gt;<br>
 
 &lt;/form&gt;</code>
 
+
+
                     </div>
+
+
 
                 </div>
 
 
 
+
+
+
+
                 <div class="etape">
+
+
 
                     <h5>Étape 2 : Informations personnelles</h5>
 
+
+
                     <p>Ajoutez les champs : nom, prénom, date de naissance</p>
+
+
 
                     <button class="btn-reponse" onclick="cachereponse('reponse-etape2')">Voir la réponse</button>
 
+
+
                     <div id="reponse-etape2" class="reponse">
 
-                        <code>&lt;form method="post" action="/inscription.php"&gt;<br><br>
+
+
+<code>
+
+&lt;form method="post" action="/inscription.php"&gt;<br><br>
 
 &lt;label for="nom"&gt;Nom:&lt;/label&gt;<br>
 
@@ -1295,7 +2396,11 @@ pattern="[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$"&gt;</code>
 
 &lt;/form&gt;</code>
 
+
+
                     </div>
+
+
 
                 </div>
 
@@ -1303,17 +2408,35 @@ pattern="[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$"&gt;</code>
 
 
 
+
+
+
+
+
+
                 <div class="etape">
+
+
 
                     <h5>Étape 3 : Coordonnées</h5>
 
+
+
                     <p>Ajoutez les champs : email, téléphone, adresse</p>
+
+
 
                     <button class="btn-reponse" onclick="cachereponse('reponse-etape3')">Voir la réponse</button>
 
+
+
                     <div id="reponse-etape3" class="reponse">
 
-                        <code>&lt;form method="post" action="/inscription.php"&gt;<br><br>
+
+
+<code>
+
+&lt;form method="post" action="/inscription.php"&gt;<br><br>
 
 &lt;label for="nom"&gt;Nom:&lt;/label&gt;<br>
 
@@ -1343,7 +2466,11 @@ pattern="[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$"&gt;</code>
 
 &lt;/form&gt;</code>
 
+
+
                     </div>
+
+
 
                 </div>
 
@@ -1351,17 +2478,35 @@ pattern="[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$"&gt;</code>
 
 
 
+
+
+
+
+
+
                 <div class="etape">
+
+
 
                     <h5>Étape 4 : Options</h5>
 
+
+
                     <p>Ajoutez une liste déroulante pour le pays et des cases à cocher pour les centres d'intérêt.</p>
+
+
 
                     <button class="btn-reponse" onclick="cachereponse('reponse-etape4')">Voir la réponse</button>
 
+
+
                     <div id="reponse-etape4" class="reponse">
 
-                        <code>&lt;form method="post" action="/inscription.php"&gt;<br><br>
+
+
+<code>
+
+&lt;form method="post" action="/inscription.php"&gt;<br><br>
 
 &lt;label for="nom"&gt;Nom:&lt;/label&gt;<br>
 
@@ -1409,17 +2554,36 @@ pattern="[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$"&gt;</code>
 
 &lt;/form&gt;</code>
 
+
+
                     </div>
 
+
+
                 </div>
+
+
 
                 <div class="etape">
 
+
+
                     <h5>Etape 5 (facultatif): Appliquer les règles de bonnes pratiques et d'accessibilité</h5>
+
+
 
                 </div>
 
+
+
             </div>
+
+
+
+
+
+
+
 
 
 
@@ -1430,51 +2594,103 @@ pattern="[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$"&gt;</code>
 
 
 
+
+
+
+
         <!---------------------------------------------------------------------------------->
+
+
 
         <!-- Un peu de javascript pour rendre la page plus dynamique avec la méthode get, -->
 
+
+
         <!-- pour les réponses cachées et pour un effet sur le premier bouton             -->
+
+
 
         <!---------------------------------------------------------------------------------->
 
+
+
         <script>
+
+
 
             // 1) Fonction pour afficher l'URL GET
 
+
+
             // 1. Sélection du formulaire
+
+
 
             const FormulaireDeDemonstration = document.getElementById('demo-get');
 
 
 
+
+
+
+
             // 2. Écouteur d'événement pour la soumission
+
+
 
             FormulaireDeDemonstration.addEventListener('submit', function (evenement) {
 
 
 
+
+
+
+
                 // 3. Empêcher l'envoi normal au serveur
+
+
 
                 evenement.preventDefault();
 
 
 
+
+
+
+
                 // 4. Récupérer les données du formulaire
+
+
 
                 const Donnees_formulaire = new FormData(FormulaireDeDemonstration);
 
 
 
+
+
+
+
                 // 5. Convertir en paramètres d'URL
+
+
 
                 const parametres = new URLSearchParams(Donnees_formulaire);
 
 
 
+
+
+
+
                 // 6. Afficher le résultat
 
+
+
                 document.getElementById('url-resultat').textContent = 'site.com?' + parametres.toString();
+
+
+
+
 
 
 
@@ -1482,101 +2698,203 @@ pattern="[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$"&gt;</code>
 
 
 
+
+
+
+
             // 2) Fonction pour afficher/masquer les réponses
+
+
 
             function cachereponse(id) {
 
+
+
                 // 1. Sélectionner l'élément
+
+
 
                 const reponse = document.getElementById(id);
 
+
+
                 // 2. Vérifier son état actuel
+
+
 
                 if (reponse.style.display === 'block') {
 
+
+
                     // 3. S'il est affiché, on le cache
+
+
 
                     reponse.style.display = 'none';
 
+
+
                 } else {
+
+
 
                     // 4. S'il est caché, on l'affiche
 
+
+
                     reponse.style.display = 'block';
+
+
 
                 }
 
+
+
             }
+
+
+
+
 
 
 
             // 3) Fonction pour faire apparaître un message avec le bouton poussoir
 
+
+
             function afficherMessage() {
+
+
 
                 document.getElementById("message").textContent = "Vous avez cliqué !";
 
+
+
             }
+
+
 
             function afficherNom(event) {
 
+
+
                 event.preventDefault(); // Empêche le rechargement de la page
+
+
 
                 var nomUtilisateur = document.getElementById("nomUtilisateur").value; // Récupère la valeur du champ
 
+
+
                 var message = "Votre nom est : " + nomUtilisateur; // Crée le message à afficher
+
+
 
                 document.getElementById("resultat").innerHTML = "<h3>" + message + "</h3>"; // Affiche le message
 
+
+
             }
+
+
+
+
 
 
 
             // 4) Pour faciliter la tâche des caratères spéciaux 
 
+
+
             function htmlspecialchars(str) {
+
+
 
                 // Remplace les caractères spéciaux par leurs entités HTML
 
+
+
                 return str.replace(/&/g, "&amp;")
+
+
 
                     .replace(/</g, "&lt;")
 
+
+
                     .replace(/>/g, "&gt;")
+
+
 
                     .replace(/"/g, "&quot;")
 
+
+
                     .replace(/'/g, "&#039;");
 
+
+
             }
+
+
+
+
 
 
 
             // 5) Pour afficher l'exemple sur php
 
+
+
             function afficherNomSecure(event) {
+
+
 
                 event.preventDefault(); // Empêche le rechargement de la page
 
+
+
                 var nomUtilisatrice = document.getElementById("nomUtilisatrice").value; // Récupère la valeur du champ
+
+
 
                 var nomSecurise = htmlspecialchars(nomUtilisatrice); // Sécurise le nom
 
+
+
                 var message = "Votre nom est : " + nomSecurise; // Crée le message à afficher
+
+
 
                 document.getElementById("result").innerHTML = "<h3>" + message + "</h3>"; // Affiche le message
 
+
+
             }
+
+
 
         </script>
 
+
+
     </div>
+
+
 
 </body>
 
 
 
+
+
+
+
 </html>
+
+
+
+
 
 
 
