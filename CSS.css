@@ -118,7 +118,7 @@ body { /* Pour l'ensemble du document */
 }
 
 .ligne-liste li {
-    margin-bottom: 0px; /* Espace entre les lignes */
+    margin-bottom: 0; /* Espace entre les lignes */
 }
 
 .ligne-liste li::marker {
@@ -422,7 +422,7 @@ a {
         text-decoration: none; /* Supprime le soulignement du lien */
     }
 
-a.btn-reponse { display: block;width:150px }
+a.btn-reponse { display: block;width:165px }
 /* Fun, ça bouge O_O en passant la souris sur le bouton */
 a.btn-reponse:hover, button:hover, input[type="submit"]:hover, input[type="button"]:hover {
     background: linear-gradient(135deg, #2980b9 0%, #1f618d 100%);
