@@ -185,7 +185,7 @@
 
                 <ul>
 
-                    <li><strong>?</strong> : Début des paramètres de la requète</li>
+                    <li><strong>?</strong> : Début des paramètres de la requête</li>
 
                     <li><strong>=</strong> : Séparateur entre le nom du paramètre et sa valeur</li>
 
@@ -263,11 +263,38 @@
 
             </div>
 
+   <div class="exercice">
+
+                <h3>Exercice 1 - A vous de réfléchir</h3>
+
+                <p>Après avoir testé le formulaire <code>get</code>, dans quels cas préféreriez-vous utiliser POST
+                    plutôt que GET ?</p>
+
+                <button class="btn-reponse" onclick="cachereponse('reponse-method')">Voir la réponse</button>
+
+                <div id="reponse-method" class="reponse">
+
+                    <p><strong>Réponse :</strong> Avec la méthode GET, les données sont visibles dans l'URL (par exemple
+                        : ?nom=Dupont&amp;email=test@exemple.fr). En revanche, on utilise la méthode POST pour :</p>
+
+                    <ul>
+
+                        <li>Les données sensibles (mots de passe)</li>
+
+                        <li>Les fichiers uploadés</li>
+
+                        <li>Les formulaires longs</li>
+
+                        <li>Éviter que l'URL ne soit trop longue</li>
+
+                    </ul>
+
+                </div>
 
 
             <div class="exercice">
 
-                <h3>Exercice 1 - Observer la différence entre la méthode get et la méthode post</h3>
+                <h3>Exercice 2 - Observer la différence entre la méthode get et la méthode post</h3>
 
                 <p>Cliquer sur <a href="https://www.cahier-nsi.fr/formulaire1/" target="_blank">ce lien</a>, une page
 
@@ -309,7 +336,8 @@
 
 $login_connexion = $_GET['login'];
 
-$mot_de_passe = $_GET['password'];</code>
+$mot_de_passe = $_GET['password'];
+?> </code>
 
                         </pre>
 
@@ -342,7 +370,8 @@ $mot_de_passe = $_GET['password'];</code>
 
 <code>&lt;?php 
 
-$mot_de_passe = $_POST['pass'];</code>
+$mot_de_passe = $_POST['pass'];
+?> </code>
 
                         </pre>
 
@@ -410,34 +439,7 @@ $mot_de_passe = $_POST['pass'];</code>
 
 
 
-            <div class="exercice">
-
-                <h3>Exercice 2 - A vous de réfléchir</h3>
-
-                <p>Après avoir testé le formulaire <code>get</code>, dans quels cas préféreriez-vous utiliser POST
-                    plutôt que GET ?</p>
-
-                <button class="btn-reponse" onclick="cachereponse('reponse-method')">Voir la réponse</button>
-
-                <div id="reponse-method" class="reponse">
-
-                    <p><strong>Réponse :</strong> Avec la méthode GET, les données sont visibles dans l'URL (par exemple
-                        : ?nom=Dupont&amp;email=test@exemple.fr). En revanche, on utilise la méthode POST pour :</p>
-
-                    <ul>
-
-                        <li>Les données sensibles (mots de passe)</li>
-
-                        <li>Les fichiers uploadés</li>
-
-                        <li>Les formulaires longs</li>
-
-                        <li>Éviter que l'URL ne soit trop longue</li>
-
-                    </ul>
-
-                </div>
-
+         
             </div>
 
 
@@ -1574,3 +1576,4 @@ pattern="[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$"&gt;</code>
 
 
 </html>
+
