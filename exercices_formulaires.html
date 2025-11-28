@@ -229,6 +229,57 @@
         </details>
     </div>
 
+    <!-- EXERCICE 4 -->
+    <div class="exercice">
+        <h2>Exercice 4 : Interaction Client-Serveur (PHP)</h2>
+
+        <div class="consigne">
+            <strong>Objectif :</strong> Écrire le formulaire HTML correspondant au script code.php de traitement
+            suivant.<br>
+            <p><strong>Consignes :</strong>Écrire un extrait de formulaire html (balise
+                et tout ce qui est dedans) qui puisse être interprêté dans le serveur par le code PHP présenté
+                ci-dessous. On s'efforcera de proposer un formulaire "convivial" où les champs sont bien identifiables
+                par l'utilisateur.</p>
+            <pre><code>if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $prenom = isset($_POST['prenom']) ? htmlspecialchars($_POST['prenom']) : '';
+    $sexe = isset($_POST['sexe']) ? htmlspecialchars($_POST['sexe']) : '';
+    $motDePasse = isset($_POST['motDePasse']) ? htmlspecialchars($_POST['motDePasse']) : '';
+
+    if (strlen($motDePasse) < 8) {
+        echo "Mot de passe trop court.";
+    } else {
+        echo "&lt;h1&gt;Données du formulaire&lt;/h1&gt;";
+        echo "&lt;p&gt;&lt;strong&gt;Prénom :&lt;/strong&gt; $prenom&lt;/p&gt;";
+        echo "&lt;p&gt;&lt;strong&gt;Sexe :&lt;/strong&gt; $sexe&lt;/p&gt;";
+        echo "&lt;p&gt;&lt;strong&gt;Mot de passe :&lt;/strong&gt; $motDePasse&lt;/p&gt;";
+    }
+} else {
+    echo "Aucune donnée reçue.";
+}
+</code></pre>
+        </div>
+
+        <details>
+            <summary>Voir la correction (Code HTML)</summary>
+            <pre><code>&lt;form action="code.php" method="post"&gt;
+    &lt;label for="votrePrenom"&gt;Prénom :&lt;/label&gt;
+    &lt;!-- Attention : le 'name' doit être 'prenom' pour correspondre au PHP --&gt;
+    &lt;input type="text" id="votrePrenom" name="prenom" required&gt;
+    
+    &lt;label for="sexe"&gt;Genre :&lt;/label&gt;
+    &lt;select name="sexe" id="sexe"&gt;
+        &lt;option value="Femme"&gt;Femme&lt;/option&gt;
+        &lt;option value="Homme"&gt;Homme&lt;/option&gt;
+    &lt;/select&gt;
+    
+    &lt;label for="motDePasse"&gt;Mot de passe :&lt;/label&gt;
+    &lt;input type="password" id="motDePasse" name="motDePasse" minlength="8" required&gt;
+    
+    &lt;input type="submit" value="Envoyer"&gt;
+&lt;/form&gt;</code></pre>
+        </details>
+    </div>
+
 </body>
 
 </html>
