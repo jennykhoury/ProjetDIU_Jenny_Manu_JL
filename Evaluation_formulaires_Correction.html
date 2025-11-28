@@ -60,7 +60,13 @@
 
         </ol>
         <p> Extrait : </p>
-        <img src="exo1_eval.png" alt="testExo1" width=100% style="display: block; margin-top: 0;">
+        <pre><code>&lt;form action="https://www.exempledesite.com/" method="get"&gt;
+        &lt;label for="username"&gt;Nom :&lt;/label&gt;
+        &lt;input type="text" id="username" name="nom utilisateur" required&gt;
+        &lt;label for="password"&gt;Mot de passe :&lt;/label&gt;
+        &lt;input type="password" id="password" name="motdepasse" placeholder="Mot de passe" required&gt;
+        &lt;input type="submit" value="Envoyer"&gt;
+    &lt;/form&gt;</code></pre>
         <h3> Connaissance du cours</h3>
 
         <h4>Exercice 2 </h4>
@@ -92,7 +98,7 @@
             <br>
             <li>Que peut-on affirmer au sujet des formulaires de pages Web ?</li>
             <ul>
-                <li>Les variables d’une requête POST sont affichées dans l’URL.</li>
+                <li class="reponses">Les variables d’une requête POST sont affichées dans l’URL.</li>
                 <li>Une requête GET peut être utilisée pour transmettre des données sensibles.</li>
                 <li class="reponses">Les variables d’une requête GET sont affichées dans l’URL.</li>
                 <li class="reponses">Une requête POST peut être utilisée pour transmettre des données sensibles.</li>
@@ -136,21 +142,19 @@
             l'URL ci-dessous. On s'efforcera de proposer un formulaire "convivial" où les champs sont bien
             identifiables par l'utilisateur.</p>
         <img src="URL.png" alt="testExo3" width=65% style="display: block;">
-        <p class="reponses">
-            <img src="Corr-ex3_eval.png" alt="testExo3" width=80% style="display: block;">
-        </p>
 
 
-        <!-- <form action="cible.php" method="get">
-            <label for="username">Nom :</label>
-            <input type="text" id="username" name="nomUtilisateur" placeholder="identifiant" required>
-            <label for="password">Mot de passe :</label>
-            <input type="password" id="password" name="motDePasse" placeholder="Mot de passe" required>
-            <input type="submit" value="Envoyer">
-        </form> -->
+        <pre> <code>
+        &lt;form action="cible.php" method="get"&gt;
+            &lt;label for="username"&gt;Nom :&lt;/label&gt;
+            &lt;input type="text" id="username" name="nomUtilisateur" placeholder="identifiant" required>
+            &lt;label for="password"&gt;Mot de passe :&lt;/label&gt;
+            &lt;input type="password" id="password" name="motDePasse" placeholder="Mot de passe" required>
+            &lt;input type="submit" value="Envoyer"&gt;
+        &lt;/form>
+        </code></pre>
 
 
-        </p>
         <h4> Exercice 4 </h4>
         <p>
             Écrire un extrait de formulaire (balise &lt;form&gt; et tout ce qui est dedans) )
@@ -162,13 +166,25 @@
             <li>un pays à sélectionner dans une liste déroulante de trois pays</li>
         </ul>
         <p>
-            On fera en sorte que le mot de passe soit transmis au serveur de manière la plus sécurisée possible.
+            On fera en sorte que le mot de passe soit transmis au serveur de manière la plus sécurisée
+            possible.
         </p>
-        <p class="reponses">
-            <img src="Corr-ex4_eval.png" alt="testExo4" width=65% style="display: block;">
-        </p>
+        <pre><code>
+&lt;form action="self" method="post"&gt;
+    &lt;label for="nom"&gt;Nom :&lt;/label&gt;
+    &lt;input type="text" id="nom" name="nom" minlength="3" maxlength="12" pattern="[A-Z]+" required&gt;
+    &lt;label for="password"&gt;Mot de passe :&lt;/label&gt;
+    &lt;input type="password" id="motDePasse" name="motDePasse" required&gt;
+    &lt;label for="pays"&gt;Pays :&lt;/label&gt;
+    &lt;select name="pays" id="pays"&gt;
+        &lt;option value="Liban"&gt;Liban&lt;/option&gt;
+        &lt;option value="Serbie"&gt;Serbie&lt;/option&gt;
+        &lt;option value="Allemagne"&gt;Allemagne&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;input type="submit" value="Soumettre"&gt;
+&lt;/form&gt;
+        </code></pre>
     </div>
 </body>
-
 
 </html>
