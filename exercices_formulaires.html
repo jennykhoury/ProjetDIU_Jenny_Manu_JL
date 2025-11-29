@@ -116,7 +116,7 @@
 
         &lt;label for="nom"&gt;Nom :&lt;/label&gt;
 
-        &lt;input type="text" id="nom" name="nom" required&gt;
+        &lt;input type="text" id="nom" name="nom" placeholder="Votre nom" required&gt;
 
     &lt;/div&gt;
 
@@ -126,7 +126,7 @@
 
         &lt;label for="email"&gt;Email :&lt;/label&gt;
 
-        &lt;input type="email" id="email" name="email" required&gt;
+        &lt;input type="email" id="email" name="email" placeholder="exemple@gmail.com" required&gt;
 
     &lt;/div&gt;
 
@@ -258,7 +258,7 @@
 
     &lt;!-- Boutons Radio : même 'name' pour un choix unique --&gt;
 
-    &lt;p&gt;Taille :
+    &lt;p&gt;&lt; &lt; strong&gt; Taille &lt; /strong&gt; &gt; :
 
         &lt;input type="radio" id="petite" name="taille" value="petite"&gt;
 
@@ -282,7 +282,7 @@
 
     &lt;!-- Checkbox : choix multiples possibles --&gt;
 
-    &lt;p&gt;Ingrédients :
+    &lt;p&gt; &lt; strong&gt; Ingrédients &lt; /strong&gt; &gt;:
 
         &lt;input type="checkbox" id="fromage" name="ingredients" value="fromage"&gt;
 
@@ -294,13 +294,19 @@
 
         &lt;label for="champi"&gt;Champignons&lt;/label&gt;
 
+        
+
+         &lt;input type="checkbox" id="olives" name="ingredients" value="olives"&gt;
+
+        &lt;label for="olives"&gt;olives&lt;/label&gt;
+
     &lt;/p&gt;
 
 
 
     &lt;!-- Select : liste déroulante --&gt;
 
-    &lt;p&gt;
+    &lt;p &lt;strong&gt; Sauce &lt; /strong&gt; &gt;.
 
         &lt;label for="sauce"&gt;Sauce :&lt;/label&gt;
 
@@ -444,7 +450,7 @@
 
         &lt;!-- Textarea pour le texte sur plusieurs lignes --&gt;
 
-        &lt;textarea name="message" rows="5" cols="40"&gt;&lt;/textarea&gt;
+        &lt;textarea name="message" rows="5" cols="40" placeholder="Ecrivez ici"&gt;&lt;/textarea&gt;
 
     &lt;/fieldset&gt;
 
