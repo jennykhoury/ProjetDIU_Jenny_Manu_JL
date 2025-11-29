@@ -384,7 +384,7 @@
 
 
 
-                    <li><strong>%40</strong> : Encodage en hexadécimal du caractère @ dans une URL</li>
+                    <li><strong>%40</strong> : Encodage en héxadécimal du caractère @ dans une URL</li>
 
 
 
@@ -408,25 +408,27 @@
 
 
 
-<pre><code> 
-
-&lt;form method="get" action="traitement.php"&gt;
-
-&lt;label for="nom"&gt;Nom :&lt;/label&gt;
-
-&lt;input type="text" id="nom" name="nom" placeholder="Entrez votre nom" required&gt;
+<pre><code>&lt;form method="get" action="traitement.php"&gt;
 
 
 
-&lt;label for="email"&gt;Email :&lt;/label&gt;
+    &lt;label for="nom"&gt;Nom :&lt;/label&gt;
 
-&lt;input type="email" id="email" name="email" placeholder="Entrez votre email" required&gt;
+    &lt;input type="text" id="nom" name="nom" placeholder="Entrez votre nom" required&gt;
 
 
 
-&lt;button type="submit"&gt;Envoyer&lt;/button&gt;
+    &lt;label for="email"&gt;Email :&lt;/label&gt;
 
-&lt;button type="reset"&gt;Effacer&lt;/button&gt;
+    &lt;input type="email" id="email" name="email" placeholder="Entrez votre email" required&gt;
+
+
+
+    &lt;button type="submit"&gt;Envoyer&lt;/button&gt;
+
+    &lt;button type="reset"&gt;Effacer&lt;/button&gt;
+
+    
 
 &lt;/form&gt; </code> </pre>
 
@@ -634,13 +636,15 @@
 
 
 
-<pre><code>
+<pre><code>&lt;?php 
 
-&lt;?php 
 
-$login_connexion = $_GET['login'];
 
-$mot_de_passe = $_GET['password'];
+  $login_connexion = $_GET['login'];
+
+  $mot_de_passe = $_GET['password'];
+
+  
 
 ?&gt; </code></pre>
 
@@ -692,11 +696,15 @@ $mot_de_passe = $_GET['password'];
 
                         <br>
 
-<pre><code>
 
-&lt;?php 
 
-$mot_de_passe = $_POST['pass'];
+<pre><code>&lt;?php
+
+
+
+  $mot_de_passe = $_POST['pass'];
+
+  
 
 ?&gt; </code></pre>
 
@@ -1004,35 +1012,35 @@ $mot_de_passe = $_POST['pass'];
 
 
 
-<pre><code>
+<pre><code>&lt;?php
 
-&lt;?php
-
-$user = isset($_POST['nomUtilisateur']) ? $_POST['nomUtilisateur'] : '';
+    $user = isset($_POST['nomUtilisateur']) ? $_POST['nomUtilisateur'] : '';
 
 
 
-echo(
+    echo(
 
-&lt;!DOCTYPE html&gt;
+    &lt;!DOCTYPE html&gt;
 
-&lt;html lang="en"&gt;
+    &lt;html lang="en"&gt;
 
-    &lt;head&gt;
+        &lt;head&gt;
 
-    &lt;meta charset="UTF-8" /&gt;
+        &lt;meta charset="UTF-8" /&gt;
 
-    &lt;title&gt;Traitements/title&gt;
+        &lt;title&gt;Traitements/title&gt;
 
-    &lt;/head&gt;
+        &lt;/head&gt;
 
-&lt;body&gt;
+    &lt;body&gt;
 
-    &lt;h3&gt;Votre nom est : '.$user.'&lt;/h3&gt;
+        &lt;h3&gt;Votre nom est : '.$user.'&lt;/h3&gt;
 
-&lt;/body&gt;
+    &lt;/body&gt;
 
-&lt;/html&gt;');
+    &lt;/html&gt;');
+
+    
 
 ?&gt;</code></pre>
 
@@ -1056,19 +1064,7 @@ echo(
 
 
 
-                <pre>
-
-
-
-<code>$user = isset($_POST['nomUtilisateur']) ? htmlspecialchars($_POST['nomUtilisateur']) : '';</code>
-
-
-
-          </pre>
-
-
-
-
+<pre><code>$user = isset($_POST['nomUtilisateur']) ? htmlspecialchars($_POST['nomUtilisateur']) : '';</code></pre>
 
 
 
@@ -1482,13 +1478,15 @@ echo(
 
                     seule ligne. </p>
 
-<pre><code>
+<pre><code>&lt;form&gt;
 
-&lt;form&gt;
 
-&lt;label for="champ"&gt;Votre texte :&lt;/label&gt;
 
-&lt;input type="text" id="champ" name="champ" placeholder="Texte à saisir"&gt;
+  &lt;label for="champ"&gt;Votre texte :&lt;/label&gt;
+
+  &lt;input type="text" id="champ" name="champ" placeholder="Texte à saisir"&gt;
+
+  
 
 &lt;/form&gt;</code></pre>
 
@@ -1562,19 +1560,21 @@ echo(
 
 
 
-<pre><code>
+<pre><code>&lt;form&gt;
 
-&lt;form&gt;
 
-&lt;label&gt;&lt;input type="checkbox" name="sauce" value="mayonnaise"&gt;Mayonnaise &lt;/label&gt;
 
-&lt;br&gt;
+    &lt;label&gt;&lt;input type="checkbox" name="sauce" value="mayonnaise"&gt;Mayonnaise &lt;/label&gt;
 
-&lt;label&gt;&lt;input type="checkbox" name="sauce" value="ketchup"&gt;Ketchup&lt;/label&gt;
+    &lt;br&gt;
 
-&lt;br&gt;
+    &lt;label&gt;&lt;input type="checkbox" name="sauce" value="ketchup"&gt;Ketchup&lt;/label&gt;
 
-&lt;label&gt;&lt;input type="checkbox" name="sauce" value="piquante"&gt;Sauce piquante&lt;/label&gt;
+    &lt;br&gt;
+
+    &lt;label&gt;&lt;input type="checkbox" name="sauce" value="piquante"&gt;Sauce piquante&lt;/label&gt;
+
+    
 
 &lt;/form&gt;</code></pre>
 
@@ -1650,17 +1650,21 @@ echo(
 
 
 
-<pre><code>
+<pre><code>&lt;form&gt;
 
-&lt;form&gt;
 
-&lt;input type="radio" id="homme" name="sexe" value="homme"&gt;
 
-&lt;label for="homme"&gt;Homme&lt;/label&gt;
+    &lt;input type="radio" id="homme" name="sexe" value="homme"&gt;
 
-&lt;input type="radio" id="femme" name="sexe" value="femme"&gt;
+    &lt;label for="homme"&gt;Homme&lt;/label&gt;
 
-&lt;label for="femme"&gt;Femme&lt;/label&gt;<br>&lt;/form&gt;
+    &lt;input type="radio" id="femme" name="sexe" value="femme"&gt;
+
+    &lt;label for="femme"&gt;Femme&lt;/label&gt;
+
+
+
+&lt;/form&gt;
 
 </code></pre>
 
@@ -1840,21 +1844,23 @@ echo(
 
                 </form>               
 
-<pre><code>
+<pre><code>&lt;form&gt; &lt;select&gt;
 
-&lt;form&gt; &lt;select&gt;
 
-&lt;option value="question"&gt;Vous êtes...&lt;/option&gt;
 
-&lt;option value="tres_satisfait"&gt;très satisfait&lt;/option&gt;
+    &lt;option value="question"&gt;Vous êtes...&lt;/option&gt;
 
-&lt;option value="satisfait"&gt;satisfait&lt;/option&gt;
+    &lt;option value="tres_satisfait"&gt;très satisfait&lt;/option&gt;
 
-&lt;option value="decu"&gt;déçu&lt;/option&gt;
+    &lt;option value="satisfait"&gt;satisfait&lt;/option&gt;
 
-&lt;option value="tres_decu"&gt;très déçu&lt;/option&gt;
+    &lt;option value="decu"&gt;déçu&lt;/option&gt;
 
-&lt;option value="autre"&gt;ne se prononce pas&lt;/option&gt;
+    &lt;option value="tres_decu"&gt;très déçu&lt;/option&gt;
+
+    &lt;option value="autre"&gt;ne se prononce pas&lt;/option&gt;
+
+    
 
 &lt;/select&gt; &lt;/form&gt;</code></pre>
 
@@ -1928,13 +1934,17 @@ echo(
 
 
 
-<pre><code>
+<pre><code>&lt;label for="nom-complet"&gt;Nom complet :&lt;/label&gt;
 
-&lt;label for="nom-complet"&gt;Nom complet :&lt;/label&gt;
+
 
 &lt;input type="text" id="nom-complet" name="nom_complet" 
 
+
+
 aria-describedby="aide-nom" required&gt;
+
+
 
 &lt;small id="aide-nom"&gt;Saisissez votre nom tel qu'il apparaît...&lt;/small&gt;</code></pre>
 
@@ -2092,11 +2102,13 @@ aria-describedby="aide-nom" required&gt;
 
 
 
-<pre><code>
+<pre><code>&lt;input type="number" min="18" max="120" required&gt;
 
-&lt;input type="number" min="18" max="120" required&gt;
+
 
 &lt;input type="email" required
+
+
 
 pattern="[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$"&gt;</code></pre>
 
@@ -2186,7 +2198,7 @@ pattern="[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$"&gt;</code></pre>
 
 
 
-                <h3>  Formulaire d'inscription</h3>
+                <h3> - Formulaire d'inscription</h3>
 
 
 
