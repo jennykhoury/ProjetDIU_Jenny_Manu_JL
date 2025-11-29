@@ -64,7 +64,7 @@
 
             <p class="reponses">La balise &lt;form&gt; est une balise de formulaire qui permet de créer un formulaire.
 
-                L'attribut <i>action</i> est un attribut qui permet de spécifier l'URL de la page qui va traiter les
+                L'attribut <i>action</i> est un attribut qui permet de spécifier l'URL du fichier qui va traiter les
 
                 données du formulaire.</p></li>
 
@@ -90,19 +90,17 @@
 
             <p class="reponses">L'attribut <i>type</i> à l'intérieur de la balise &lt;input&gt; est un attribut qui
 
-                permet de spécifier le type de données que le champ de saisie va contenir.</p></li>
+                permet de spécifier le type de données (composant) que le champ de saisie va contenir.</p></li>
 
             <li>Quelle est l'utilité de la balise &lt;label&gt; présente dans cet extrait, et des attributs <i>for</i>
 
                 et <i>id</i> présent dans la balise &lt;label&gt;?
 
-            <p class="reponses">La balise &lt;label&gt; présente dans cet extrait est une balise qui permet de créer un
+            <p class="reponses">La balise &lt;label&gt; présente dans cet extrait est une balise qui permet de créer une
 
-                label pour un champ de saisie. Les attributs <i>for</i> et <i>id</i> présent dans la balise
+                étiquette associée à un champ de saisie, cet attribut fournit un lien clair entre un texte de description
 
-                &lt;label&gt;
-
-                sont des attributs qui permettent de lier le label au champ de saisie.</p></li>
+                et un élément de formulaire comme &lt;input&gt;.</p></li>
 
             <li>Quelle est l'utilité de l'attribut <i>required</i> présent dans la balise &lt;input&gt;? 
 
@@ -122,19 +120,19 @@
 
         <p> Extrait : </p>
 
-        <pre><code>&lt;form action="https://www.exempledesite.com/" method="get"&gt;
+<pre><code> &lt;form action="https://www.exempledesite.com/" method="get"&gt;
 
-        &lt;label for="username"&gt;Nom :&lt;/label&gt;
+    &lt;label for="username"&gt;Nom :&lt;/label&gt;
 
-        &lt;input type="text" id="username" name="nom utilisateur" required&gt;
+    &lt;input type="text" id="username" name="nom utilisateur" required&gt;
 
-        &lt;label for="password"&gt;Mot de passe :&lt;/label&gt;
+    &lt;label for="password"&gt;Mot de passe :&lt;/label&gt;
 
-        &lt;input type="password" id="password" name="motdepasse" placeholder="Mot de passe" required&gt;
+    &lt;input type="password" id="password" name="motdepasse" placeholder="Mot de passe" required&gt;
 
-        &lt;input type="submit" value="Envoyer"&gt;
+    &lt;input type="submit" value="Envoyer"&gt;
 
-    &lt;/form&gt;</code></pre>
+ &lt;/form&gt;</code></pre>
 
         <h3> Connaissance du cours</h3>
 
@@ -196,7 +194,7 @@
 
             <ul>
 
-                <li class="reponses">Les variables d’une requête POST sont affichées dans l’URL.</li>
+                <li> Les variables d’une requête POST sont affichées dans l’URL.</li>
 
                 <li>Une requête GET peut être utilisée pour transmettre des données sensibles.</li>
 
@@ -236,7 +234,7 @@
 
             <ul>
 
-                <li class="reponses">envoie les données du formulaire vers la page définie par l'attribut action de
+                <li class="reponses">envoie les données du formulaire vers l défini par l'attribut action de
 
                     l'élément form </li>
 
@@ -288,23 +286,19 @@
 
 
 
-        <pre> <code>
+<pre> <code> &lt;form action="cible.php" method="get"&gt;
 
-        &lt;form action="cible.php" method="get"&gt;
+    &lt;label for="username"&gt;Nom :&lt;/label&gt;
 
-            &lt;label for="username"&gt;Nom :&lt;/label&gt;
+    &lt;input type="text" id="username" name="nomUtilisateur" placeholder="identifiant" required&gt;
 
-            &lt;input type="text" id="username" name="nomUtilisateur" placeholder="identifiant" required&gt;
+    &lt;label for="password"&gt;Mot de passe :&lt;/label&gt;
 
-            &lt;label for="password"&gt;Mot de passe :&lt;/label&gt;
+    &lt;input type="password" id="password" name="motDePasse" placeholder="Mot de passe" required&gt;
 
-            &lt;input type="password" id="password" name="motDePasse" placeholder="Mot de passe" required&gt;
+    &lt;input type="submit" value="Envoyer"&gt;
 
-            &lt;input type="submit" value="Envoyer"&gt;
-
-        &lt;/form&gt;
-
-        </code></pre>
+  &lt;/form&gt;</code></pre>
 
 
 
@@ -338,35 +332,33 @@
 
         </p>
 
-        <pre><code>
+<pre><code>&lt;form action="https://exempledesite.com" method="post"&gt;
 
-&lt;form action="https://exempledesite.com" method="post"&gt;
+  &lt;label for="nom"&gt;Nom :&lt;/label&gt;
 
-    &lt;label for="nom"&gt;Nom :&lt;/label&gt;
+  &lt;input type="text" id="nom" name="nom" minlength="3" maxlength="12" pattern="[A-Z]+" required&gt;
 
-    &lt;input type="text" id="nom" name="nom" minlength="3" maxlength="12" pattern="[A-Z]+" required&gt;
+  &lt;label for="password"&gt;Mot de passe :&lt;/label&gt;
 
-    &lt;label for="password"&gt;Mot de passe :&lt;/label&gt;
+  &lt;input type="password" id="motDePasse" name="motDePasse" required&gt;
 
-    &lt;input type="password" id="motDePasse" name="motDePasse" required&gt;
+  &lt;label for="pays"&gt;Pays :&lt;/label&gt;
 
-    &lt;label for="pays"&gt;Pays :&lt;/label&gt;
+  &lt;select name="pays" id="pays"&gt;
 
-    &lt;select name="pays" id="pays"&gt;
+    &lt;option value="Liban"&gt;Liban&lt;/option&gt;
 
-        &lt;option value="Liban"&gt;Liban&lt;/option&gt;
+    &lt;option value="Serbie"&gt;Serbie&lt;/option&gt;
 
-        &lt;option value="Serbie"&gt;Serbie&lt;/option&gt;
+    &lt;option value="Allemagne"&gt;Allemagne&lt;/option&gt;
 
-        &lt;option value="Allemagne"&gt;Allemagne&lt;/option&gt;
+  &lt;/select&gt;
 
-    &lt;/select&gt;
+  &lt;input type="submit" value="Soumettre"&gt;
 
-    &lt;input type="submit" value="Soumettre"&gt;
+&lt;/form&gt;</code></pre>
 
-&lt;/form&gt;
-
-        </code></pre>
+        
 
     </div>
 
