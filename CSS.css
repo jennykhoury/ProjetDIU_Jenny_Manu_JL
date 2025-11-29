@@ -321,10 +321,10 @@ pre {
   padding: 25px;
   border-radius: 10px;
   overflow-x: auto;
-  margin: 25px 0;
+  margin: 10px 0; /* ajusté */
   border: 1px solid #444;
   font-size: 1.1em;
-  line-height: 1.5;
+  line-height: 1.2; /* ajusté pour réduire l'espacement */
 }
 
 code {
@@ -341,7 +341,9 @@ pre code {
   padding: 0;
   border: none;
   color: inherit;
+  line-height: 1.2; /* réduit l'espacement dans le code */
 }
+
 /*------------*/
 /* Formulaire */
 /*------------*/
